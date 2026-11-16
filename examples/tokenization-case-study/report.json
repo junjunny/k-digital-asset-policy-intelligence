@@ -1,0 +1,172 @@
+{
+  "report_id": "RP-EIB-KR-20261116",
+  "title": "EIB 디지털 채권 모델과 한국 토큰증권 제도화의 적용 조건",
+  "analysis_date": "2026-11-16",
+  "jurisdictions": ["대한민국", "European Union", "Luxembourg / United Kingdom"],
+  "research_question": "EIB의 HSBC Orion 기반 디지털 채권 구조를 한국 금융기관이 채택하려면 어떤 제도·인프라 조건이 필요한가?",
+  "evidence": [
+    {
+      "evidence_id": "EV-EIB-GBP-2023",
+      "source_title": "EIB issues its first ever digital bond in pound sterling",
+      "publisher": "European Investment Bank",
+      "jurisdiction": "Luxembourg / United Kingdom",
+      "source_type": "PRIMARY_BUSINESS_SOURCE",
+      "legal_status": "NOT_APPLICABLE",
+      "official_url": "https://www.eib.org/en/press/all/2023-030-eib-issues-its-first-ever-digital-bond-in-british-pounds",
+      "publication_date": "2023-01-31",
+      "retrieved_at": "2026-11-16",
+      "effective_date": null,
+      "relevant_excerpt": "The £50 million digital bonds are registered in a private blockchain; a public blockchain mirror record adds transparency.",
+      "page_or_section": "Highlights and paragraphs 1-6",
+      "verification_status": "VERIFIED",
+      "notes": "Issuer source for transaction structure; not treated as proof of every legal conclusion."
+    },
+    {
+      "evidence_id": "EV-EU-DLTR-2022",
+      "source_title": "Regulation (EU) 2022/858 on a pilot regime for market infrastructures based on distributed ledger technology",
+      "publisher": "Official Journal of the European Union",
+      "jurisdiction": "European Union",
+      "source_type": "REGULATION",
+      "legal_status": "IN_FORCE",
+      "official_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R0858",
+      "publication_date": "2022-06-02",
+      "retrieved_at": "2026-11-16",
+      "effective_date": "2023-03-23",
+      "relevant_excerpt": "The Regulation establishes a pilot regime for DLT market infrastructures and temporary exemptions subject to safeguards.",
+      "page_or_section": "Articles 1, 2 and 19; recitals 6-8",
+      "verification_status": "VERIFIED",
+      "notes": "The EIB sterling issuance predates the Regulation's application date and is not represented as a DLT Pilot issuance."
+    },
+    {
+      "evidence_id": "EV-ESMA-DLTR-SCOPE",
+      "source_title": "DLT Pilot Regime",
+      "publisher": "European Securities and Markets Authority",
+      "jurisdiction": "European Union",
+      "source_type": "REGULATORY_GUIDANCE",
+      "legal_status": "GUIDANCE",
+      "official_url": "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/dlt-pilot-regime",
+      "publication_date": null,
+      "retrieved_at": "2026-11-16",
+      "effective_date": "2023-03-23",
+      "relevant_excerpt": "The framework covers DLT MTF, DLT settlement systems, and combined DLT trading and settlement systems.",
+      "page_or_section": "Framework and financial instruments in scope",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "evidence_id": "EV-KR-ESA-21318",
+      "source_title": "주식·사채 등의 전자등록에 관한 법률 일부개정법률",
+      "publisher": "대한민국 국가법령정보센터",
+      "jurisdiction": "대한민국",
+      "source_type": "LAW",
+      "legal_status": "ENACTED_NOT_EFFECTIVE",
+      "official_url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=283195&viewCls=lsRvsDocInfoR",
+      "publication_date": "2026-02-03",
+      "retrieved_at": "2026-11-16",
+      "effective_date": "2027-02-04",
+      "relevant_excerpt": "법률 제21318호는 2026년 2월 3일 공포되었고 2027년 2월 4일 시행 예정이다.",
+      "page_or_section": "법령정보 및 부칙",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "evidence_id": "EV-KR-FSC-POLICY-20260904",
+      "source_title": "토큰증권 정책방향 발표",
+      "publisher": "대한민국 금융위원회",
+      "jurisdiction": "대한민국",
+      "source_type": "OFFICIAL_POLICY",
+      "legal_status": "POLICY_ANNOUNCEMENT",
+      "official_url": "https://www.fsc.go.kr/po010106/87650",
+      "publication_date": "2026-09-04",
+      "retrieved_at": "2026-11-16",
+      "effective_date": null,
+      "relevant_excerpt": "1단계는 기관투자자 전용 사모 MMF·사채 토큰화를 우선 추진하는 정책 로드맵이다.",
+      "page_or_section": "토큰증권 발행 인프라 단계별 구축 계획",
+      "verification_status": "VERIFIED",
+      "notes": "정책 발표이며 현행 법규로 취급하지 않음."
+    },
+    {
+      "evidence_id": "EV-KR-FSC-DRAFT-20261001",
+      "source_title": "토큰증권 관련 전자증권법·자본시장법 하위법규 개정안 입법예고",
+      "publisher": "대한민국 금융위원회",
+      "jurisdiction": "대한민국",
+      "source_type": "REGULATION",
+      "legal_status": "DRAFT_REGULATION",
+      "official_url": "https://www.fsc.go.kr/no010101/87838?curPage=1",
+      "publication_date": "2026-10-01",
+      "retrieved_at": "2026-11-16",
+      "effective_date": "2027-02-04",
+      "relevant_excerpt": "입법예고안은 분산원장 참여자, 발행인계좌관리기관 등록요건과 장외거래소 인가단위를 제시한다.",
+      "page_or_section": "입법예고안 주요 내용 및 향후 계획",
+      "verification_status": "VERIFIED",
+      "notes": "예고기간 종료 후에도 확정·공포 여부를 별도로 확인해야 함."
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "FN-EIB-STRUCTURE",
+      "statement": "EIB 거래는 private blockchain을 법적 소유권 기록에, public blockchain을 익명화된 정보 공개에 사용한 £50m 디지털 채권이었다.",
+      "classification": "VERIFIED_FACT",
+      "evidence_ids": ["EV-EIB-GBP-2023"],
+      "confidence": "HIGH",
+      "rationale": "발행기관의 거래 발표에서 구조와 금액을 직접 확인했다.",
+      "jurisdiction": "Luxembourg / United Kingdom",
+      "as_of_date": "2026-11-16"
+    },
+    {
+      "finding_id": "FN-EIB-NOT-DLTR",
+      "statement": "이 발행은 EU DLT Pilot 적용일보다 앞서므로 DLT Pilot에 따른 발행으로 볼 근거가 없다.",
+      "classification": "SUPPORTED_INFERENCE",
+      "evidence_ids": ["EV-EIB-GBP-2023", "EV-EU-DLTR-2022"],
+      "confidence": "HIGH",
+      "rationale": "발행일과 Regulation 적용일의 시간 순서를 비교했다.",
+      "jurisdiction": "European Union",
+      "as_of_date": "2026-11-16"
+    },
+    {
+      "finding_id": "FN-KR-LAW-STATUS",
+      "statement": "한국 개정 전자증권법은 공포되었으나 분석 기준일에는 아직 시행 전이며 시행일은 2027-02-04이다.",
+      "classification": "VERIFIED_FACT",
+      "evidence_ids": ["EV-KR-ESA-21318"],
+      "confidence": "HIGH",
+      "rationale": "국가법령정보센터의 공포번호·공포일·시행일을 확인했다.",
+      "jurisdiction": "대한민국",
+      "as_of_date": "2026-11-16"
+    },
+    {
+      "finding_id": "FN-KR-FIRST-STAGE",
+      "statement": "금융위원회 정책 로드맵은 법 시행 1단계에서 기관투자자 전용 사모사채 토큰화를 우선 대상으로 제시한다.",
+      "classification": "VERIFIED_FACT",
+      "evidence_ids": ["EV-KR-FSC-POLICY-20260904"],
+      "confidence": "HIGH",
+      "rationale": "정책 발표의 단계별 계획을 확인했으며 현행 법적 허용으로 표현하지 않았다.",
+      "jurisdiction": "대한민국",
+      "as_of_date": "2026-11-16"
+    },
+    {
+      "finding_id": "FN-KR-CONDITIONS",
+      "statement": "한국형 EIB 모델의 초기 실증은 기관 대상 사모사채, 허가된 계좌관리·중개 주체, 예탁원 연계 원장, 기존 수탁 체계를 중심으로 설계하는 것이 정책 방향과 정합적이다.",
+      "classification": "SUPPORTED_INFERENCE",
+      "evidence_ids": ["EV-EIB-GBP-2023", "EV-KR-FSC-POLICY-20260904", "EV-KR-FSC-DRAFT-20261001"],
+      "confidence": "MEDIUM",
+      "rationale": "해외 거래 구조와 한국의 정책·입법예고 조건을 결합한 설계 추론이다.",
+      "jurisdiction": "대한민국",
+      "as_of_date": "2026-11-16"
+    },
+    {
+      "finding_id": "FN-KR-DRAFT-NOT-FINAL",
+      "statement": "분산원장 참여자 수, 자기자본 40억원, 장외거래소 거래한도 등은 입법예고 내용이며 최종 규정 확인이 필요하다.",
+      "classification": "NEEDS_REVIEW",
+      "evidence_ids": ["EV-KR-FSC-DRAFT-20261001"],
+      "confidence": "HIGH",
+      "rationale": "입법예고 종료 후 확정·공포 상태는 분석 기준일 자료에서 확인하지 못했다.",
+      "jurisdiction": "대한민국",
+      "as_of_date": "2026-11-16"
+    }
+  ],
+  "limitations": [
+    "EIB 발표는 거래 구조의 1차 자료이지만 계약서·법률의견서 전체를 공개하지 않는다.",
+    "한국 하위법규는 분석 기준일 현재 입법예고 자료를 사용했으며 최종안과 달라질 수 있다.",
+    "세무·회계·외국환·개인정보·구체적 인가 범위는 실제 상품 구조 확정 후 별도 검토가 필요하다."
+  ],
+  "executive_summary_en": "The EIB's £50 million sterling digital bond used a private blockchain as the legal ownership record and a public mirror for anonymised transparency. Korea's amended Electronic Securities Act has been promulgated but is not effective until 4 February 2027. The FSC's policy roadmap prioritises privately placed bonds for institutional investors in the first implementation stage. A Korean pilot should therefore begin with an institutional, permissioned structure connected to the Korea Securities Depository and licensed intermediaries. Draft subordinate rules remain non-final and must be rechecked before launch."
+}
+

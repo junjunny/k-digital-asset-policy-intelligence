@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "finding.schema.json",
+  "title": "K-DAPI Finding",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["finding_id", "statement", "classification", "evidence_ids", "confidence", "jurisdiction", "as_of_date"],
+  "properties": {
+    "finding_id": {"type": "string", "pattern": "^FN-[A-Z0-9-]+$"},
+    "statement": {"type": "string", "minLength": 1},
+    "classification": {"enum": ["VERIFIED_FACT", "SUPPORTED_INFERENCE", "UNVERIFIED", "NEEDS_REVIEW"]},
+    "evidence_ids": {"type": "array", "items": {"type": "string", "pattern": "^EV-[A-Z0-9-]+$"}, "uniqueItems": true},
+    "confidence": {"enum": ["HIGH", "MEDIUM", "LOW"]},
+    "rationale": {"type": "string"},
+    "jurisdiction": {"type": "string", "minLength": 1},
+    "as_of_date": {"type": "string", "format": "date"}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"classification": {"enum": ["VERIFIED_FACT", "SUPPORTED_INFERENCE"]}}},
+      "then": {"properties": {"evidence_ids": {"minItems": 1}}}
+    }
+  ]
+}
+

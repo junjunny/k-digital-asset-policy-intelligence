@@ -1,0 +1,5 @@
+interface:
+  display_name: "K-Digital Asset Policy Intelligence"
+  short_description: "해외 디지털자산 모델과 한국 규제를 근거 중심으로 비교"
+  default_prompt: "Use $k-digital-asset-policy-intelligence to compare this digital-asset business model with Korea's regulatory framework."
+

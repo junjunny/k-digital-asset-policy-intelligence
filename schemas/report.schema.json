@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "report.schema.json",
+  "title": "K-DAPI Research Report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["report_id", "title", "analysis_date", "jurisdictions", "research_question", "evidence", "findings", "limitations"],
+  "properties": {
+    "report_id": {"type": "string", "pattern": "^RP-[A-Z0-9-]+$"},
+    "title": {"type": "string", "minLength": 1},
+    "analysis_date": {"type": "string", "format": "date"},
+    "jurisdictions": {"type": "array", "items": {"type": "string", "minLength": 1}, "minItems": 1, "uniqueItems": true},
+    "research_question": {"type": "string", "minLength": 1},
+    "evidence": {"type": "array", "items": {"$ref": "evidence.schema.json"}, "minItems": 1},
+    "findings": {"type": "array", "items": {"$ref": "finding.schema.json"}, "minItems": 1},
+    "limitations": {"type": "array", "items": {"type": "string", "minLength": 1}, "minItems": 1},
+    "executive_summary_en": {"type": "string"}
+  }
+}
+
