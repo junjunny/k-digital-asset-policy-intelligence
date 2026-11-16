@@ -1,0 +1,95 @@
+{
+  "schema_version": "2.0",
+  "report_id": "RP-HK-DGB-KR-20261116",
+  "title": "홍콩 다중통화 디지털 녹색채권과 한국 토큰증권 도입 조건",
+  "analysis_date": "2026-11-16",
+  "jurisdictions": ["Hong Kong", "대한민국"],
+  "research_question": "홍콩 정부의 2024년 다중통화 디지털 녹색채권 사업모델을 한국 금융기관이 활용하려면 어떤 제도·인프라·사업 조건이 필요한가?",
+  "evidence_file": "evidence.json",
+  "findings": [
+    {
+      "finding_id": "FN-HK-DGB-STRUCTURE",
+      "statement": "홍콩 정부의 2024년 디지털 녹색채권은 약 HK$6bn 상당의 4개 통화 채권으로, CMU를 청산·결제시스템으로, HSBC Orion을 디지털자산 플랫폼으로 사용했다.",
+      "claim_type": "BUSINESS_MODEL_FACT",
+      "classification": "VERIFIED_FACT",
+      "evidence_ids": ["EV-HKMA-DGB-2024"],
+      "confidence": "HIGH",
+      "rationale": "HKMA 발행 발표의 거래 조건과 인프라 설명을 원문 대조했다.",
+      "jurisdiction": "Hong Kong",
+      "as_of_date": "2026-11-16"
+    },
+    {
+      "finding_id": "FN-HK-SFC-WRAPPER",
+      "statement": "홍콩 SFC 지침은 토큰화 증권을 기존 증권에 토큰화 기술이 결합된 것으로 보고 기존 증권시장 법규가 계속 적용된다고 설명한다.",
+      "claim_type": "REGULATORY_GUIDANCE",
+      "classification": "VERIFIED_FACT",
+      "evidence_ids": ["EV-HK-SFC-TOKEN-2023"],
+      "confidence": "HIGH",
+      "rationale": "SFC circular 제7항의 원문을 PDF에서 확인했다.",
+      "jurisdiction": "Hong Kong",
+      "as_of_date": "2026-11-16"
+    },
+    {
+      "finding_id": "FN-HK-SCALE-POLICY",
+      "statement": "HKMA는 2026년 토큰화 채권의 확장과 법·규제 개선 논의를 위한 Expert Group 구성을 발표했다.",
+      "claim_type": "POLICY_ANNOUNCEMENT",
+      "classification": "VERIFIED_FACT",
+      "evidence_ids": ["EV-HKMA-EXPERT-2026"],
+      "confidence": "HIGH",
+      "rationale": "HKMA 명의의 공식 정부 발표를 확인했으며 법적 의무로 표현하지 않았다.",
+      "jurisdiction": "Hong Kong",
+      "as_of_date": "2026-11-16"
+    },
+    {
+      "finding_id": "FN-KR-LAW-NOT-EFFECTIVE",
+      "statement": "한국 개정 전자증권법은 공포됐지만 분석 기준일에는 시행 전이고 2027-02-04 시행 예정이다.",
+      "claim_type": "LAW_PROMULGATED_NOT_EFFECTIVE",
+      "classification": "VERIFIED_FACT",
+      "evidence_ids": ["EV-KR-ESA-21318"],
+      "confidence": "HIGH",
+      "rationale": "국가법령정보센터의 공포일과 시행일을 원문 대조했다.",
+      "jurisdiction": "대한민국",
+      "as_of_date": "2026-11-16",
+      "provision_refs": ["KR-ESA-21318-GENERAL"]
+    },
+    {
+      "finding_id": "FN-KR-PRIVATE-FIRST",
+      "statement": "금융위원회 정책 로드맵은 1단계에서 기관투자자 전용 사모사채 토큰화를 우선 대상으로 제시한다.",
+      "claim_type": "POLICY_ANNOUNCEMENT",
+      "classification": "VERIFIED_FACT",
+      "evidence_ids": ["EV-KR-FSC-POLICY-20260904"],
+      "confidence": "HIGH",
+      "rationale": "정책 발표의 단계별 계획을 원문 대조했으며 현행 허용으로 표현하지 않았다.",
+      "jurisdiction": "대한민국",
+      "as_of_date": "2026-11-16"
+    },
+    {
+      "finding_id": "FN-KR-HK-ADOPTION",
+      "statement": "한국의 초기 홍콩형 모델은 기관 대상 원화 사모사채, 예탁원과 연결되는 허가형 원장, 기존 증권계좌·현금결제 연계를 우선하고 다중통화·공모·온체인 결제는 후속 단계로 분리하는 것이 타당하다.",
+      "claim_type": "BUSINESS_APPLICABILITY_INFERENCE",
+      "classification": "SUPPORTED_INFERENCE",
+      "evidence_ids": ["EV-HKMA-DGB-2024", "EV-KR-FSC-POLICY-20260904", "EV-KR-FSC-DRAFT-20261001"],
+      "confidence": "MEDIUM",
+      "rationale": "홍콩의 기관·CMU·Orion 구조와 한국의 단계적 정책 범위를 비교한 사업 설계 추론이다.",
+      "jurisdiction": "대한민국",
+      "as_of_date": "2026-11-16"
+    },
+    {
+      "finding_id": "FN-KR-DRAFT-CONDITIONS",
+      "statement": "발행인계좌관리기관 자기자본·인력과 분산원장 참여자 요건은 입법예고 내용이므로 최종 공포본 확인 전 확정 요건으로 사용할 수 없다.",
+      "claim_type": "REGULATION_DRAFT",
+      "classification": "NEEDS_REVIEW",
+      "evidence_ids": ["EV-KR-FSC-DRAFT-20261001"],
+      "confidence": "HIGH",
+      "rationale": "문서 내용은 확인했지만 법적 상태가 DRAFT_REGULATION이다.",
+      "jurisdiction": "대한민국",
+      "as_of_date": "2026-11-16"
+    }
+  ],
+  "limitations": [
+    "발행 발표와 감독 지침의 공개 원문은 검증했지만 거래 계약서와 법률의견서 전체는 확인하지 못했다.",
+    "한국 하위법규는 분석 기준일 현재 입법예고 단계다.",
+    "외국환·세무·회계·녹색채권 인증과 다중통화 결제 구조는 실제 상품 설계 후 별도 검토가 필요하다."
+  ],
+  "executive_summary_en": "Hong Kong's 2024 multi-currency digital green bond combined HSBC Orion with the Central Moneymarkets Unit and existing international market links. Hong Kong's SFC treats tokenised securities as traditional securities subject to existing securities regulation, with additional technology risks. Korea's amended Electronic Securities Act is promulgated but not effective until 4 February 2027, while the FSC roadmap initially prioritises privately placed bonds for institutional investors. A Korean first-stage model should therefore use an institutional KRW private bond, permissioned ledger infrastructure linked to the Korea Securities Depository, and established securities-account and cash-settlement rails. Multi-currency distribution, public offerings and on-chain cash settlement should be treated as later-stage options. Draft Korean subordinate rules remain non-final."
+}

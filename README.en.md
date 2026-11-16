@@ -13,6 +13,8 @@ Its core workflow is:
 - Link major claims to Evidence IDs and confidence classifications
 - Produce a Korean research report and an English executive summary
 - Validate structured evidence and reports without mandatory third-party Python packages
+- Fetch HTML, text and PDF sources, compare excerpts, and record document hashes (`pypdf` is required for PDF extraction)
+- Validate normalised legal claim types against source status, jurisdiction and the report analysis date
 
 This skill does not provide legal or investment advice.
 
@@ -37,12 +39,16 @@ and produce a Korean report plus an English executive summary.
 ## Validate
 
 ```bash
+python3 -m pip install -r requirements.txt
+python3 scripts/verify_evidence.py examples/hong-kong-digital-green-bond/evidence.json --output /tmp/kdapi-verification.json
 python3 scripts/validate_sources.py examples/tokenization-case-study/evidence.json
 python3 scripts/validate_report.py examples/tokenization-case-study/report.json
 python3 -m unittest discover -s tests -v
 ```
 
 The included [case study](examples/tokenization-case-study/report-ko.md) compares the EIB's sterling digital bond with Korea's forthcoming token-securities framework. Its evidence metadata and English summary are reproducible companion files.
+
+The independent [Hong Kong digital green bond case](examples/hong-kong-digital-green-bond/report-ko.md) exercises the full research workflow with newly collected HKMA and SFC sources, including PDF content verification.
 
 ## Licence
 

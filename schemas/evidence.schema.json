@@ -10,24 +10,68 @@
     "effective_date", "relevant_excerpt", "page_or_section", "verification_status"
   ],
   "properties": {
+    "schema_version": {"enum": ["1.0", "2.0"]},
     "evidence_id": {"type": "string", "pattern": "^EV-[A-Z0-9-]+$"},
     "source_title": {"type": "string", "minLength": 1},
     "publisher": {"type": "string", "minLength": 1},
     "jurisdiction": {"type": "string", "minLength": 1},
     "source_type": {
-      "enum": ["LAW", "REGULATION", "OFFICIAL_POLICY", "LEGISLATIVE_MATERIAL", "REGULATORY_GUIDANCE", "OFFICIAL_DISCLOSURE", "PRIMARY_BUSINESS_SOURCE", "SECONDARY_SOURCE"]
+      "enum": ["LAW", "REGULATION", "OFFICIAL_POLICY", "LEGISLATIVE_MATERIAL", "REGULATORY_GUIDANCE", "OFFICIAL_DISCLOSURE", "PRIMARY_BUSINESS_SOURCE", "SECONDARY_SOURCE", "USER_PROVIDED"]
     },
     "legal_status": {
       "enum": ["IN_FORCE", "ENACTED_NOT_EFFECTIVE", "PROPOSED_BILL", "PASSED_NOT_PROMULGATED", "DRAFT_REGULATION", "POLICY_ANNOUNCEMENT", "GUIDANCE", "REPEALED", "NOT_APPLICABLE"]
     },
     "official_url": {"type": "string", "format": "uri"},
+    "manual_source_path": {"type": "string", "minLength": 1},
     "publication_date": {"type": ["string", "null"], "format": "date"},
     "retrieved_at": {"type": "string", "format": "date"},
     "effective_date": {"type": ["string", "null"], "format": "date"},
     "relevant_excerpt": {"type": "string", "minLength": 1},
     "page_or_section": {"type": "string", "minLength": 1},
     "verification_status": {"enum": ["VERIFIED", "PARTIALLY_VERIFIED", "UNVERIFIED", "NEEDS_REVIEW"]},
+    "status_checked_at": {"type": ["string", "null"], "format": "date"},
+    "provisions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["provision_id", "citation", "effective_date"],
+        "properties": {
+          "provision_id": {"type": "string", "minLength": 1},
+          "citation": {"type": "string", "minLength": 1},
+          "effective_date": {"type": ["string", "null"], "format": "date"},
+          "expiry_date": {"type": ["string", "null"], "format": "date"},
+          "transition_notes": {"type": "string"}
+        }
+      }
+    },
+    "verification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "checked_at", "method"],
+      "properties": {
+        "status": {"enum": ["URL_REACHABLE", "CONTENT_VERIFIED", "CONTENT_MISMATCH", "ACCESS_RESTRICTED", "MANUAL_REVIEW_REQUIRED"]},
+        "checked_at": {"type": "string", "format": "date-time"},
+        "method": {"enum": ["HTML_TEXT", "PLAIN_TEXT", "PDF_TEXT", "MANUAL_ATTACHMENT", "URL_ONLY"]},
+        "http_status": {"type": ["integer", "null"]},
+        "content_type": {"type": ["string", "null"]},
+        "final_url": {"type": ["string", "null"], "format": "uri"},
+        "document_sha256": {"type": ["string", "null"], "pattern": "^[a-f0-9]{64}$"},
+        "extracted_text_sha256": {"type": ["string", "null"], "pattern": "^[a-f0-9]{64}$"},
+        "content_length": {"type": ["integer", "null"], "minimum": 0},
+        "excerpt_match": {"type": ["boolean", "null"]},
+        "matched_excerpt": {"type": ["string", "null"]},
+        "warnings": {"type": "array", "items": {"type": "string"}},
+        "error": {"type": ["string", "null"]}
+      }
+    },
     "notes": {"type": "string"}
-  }
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"schema_version": {"const": "2.0"}}, "required": ["schema_version"]},
+      "then": {"required": ["verification", "status_checked_at"]}
+    }
+  ]
 }
 

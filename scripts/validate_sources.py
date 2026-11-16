@@ -18,7 +18,7 @@ REQUIRED = {
 SOURCE_TYPES = {
     "LAW", "REGULATION", "OFFICIAL_POLICY", "LEGISLATIVE_MATERIAL",
     "REGULATORY_GUIDANCE", "OFFICIAL_DISCLOSURE", "PRIMARY_BUSINESS_SOURCE",
-    "SECONDARY_SOURCE",
+    "SECONDARY_SOURCE", "USER_PROVIDED",
 }
 LEGAL_STATUSES = {
     "IN_FORCE", "ENACTED_NOT_EFFECTIVE", "PROPOSED_BILL",
@@ -26,6 +26,7 @@ LEGAL_STATUSES = {
     "GUIDANCE", "REPEALED", "NOT_APPLICABLE",
 }
 VERIFICATION_STATUSES = {"VERIFIED", "PARTIALLY_VERIFIED", "UNVERIFIED", "NEEDS_REVIEW"}
+CONTENT_STATUSES = {"URL_REACHABLE", "CONTENT_VERIFIED", "CONTENT_MISMATCH", "ACCESS_RESTRICTED", "MANUAL_REVIEW_REQUIRED"}
 
 
 def parse_date(value, field, evidence_id, errors, nullable=False):
@@ -97,6 +98,17 @@ def validate_records(records, check_urls=False, timeout=10):
             errors.append(f"{evidence_id}: invalid legal_status")
         if record["verification_status"] not in VERIFICATION_STATUSES:
             errors.append(f"{evidence_id}: invalid verification_status")
+        verification = record.get("verification")
+        if record.get("schema_version") == "2.0":
+            if not isinstance(verification, dict):
+                errors.append(f"{evidence_id}: schema v2 requires verification metadata")
+            elif verification.get("status") not in CONTENT_STATUSES:
+                errors.append(f"{evidence_id}: invalid content verification status")
+            if "status_checked_at" not in record:
+                errors.append(f"{evidence_id}: schema v2 requires status_checked_at")
+        if record["verification_status"] == "VERIFIED":
+            if not isinstance(verification, dict) or verification.get("status") != "CONTENT_VERIFIED":
+                errors.append(f"{evidence_id}: VERIFIED requires CONTENT_VERIFIED, not URL reachability alone")
 
         publication_date = parse_date(record["publication_date"], "publication_date", evidence_id, errors, nullable=True)
         retrieved_at = parse_date(record["retrieved_at"], "retrieved_at", evidence_id, errors)
@@ -107,6 +119,23 @@ def validate_records(records, check_urls=False, timeout=10):
             errors.append(f"{evidence_id}: ENACTED_NOT_EFFECTIVE requires effective_date")
         if record["legal_status"] == "IN_FORCE" and effective_date and retrieved_at and effective_date > retrieved_at:
             errors.append(f"{evidence_id}: IN_FORCE conflicts with future effective_date")
+        if record.get("status_checked_at") is not None:
+            parse_date(record.get("status_checked_at"), "status_checked_at", evidence_id, errors)
+        provisions = record.get("provisions", [])
+        if not isinstance(provisions, list):
+            errors.append(f"{evidence_id}: provisions must be a list")
+        else:
+            provision_ids = set()
+            for provision in provisions:
+                if not isinstance(provision, dict):
+                    errors.append(f"{evidence_id}: every provision must be an object")
+                    continue
+                provision_id = provision.get("provision_id")
+                if not provision_id or provision_id in provision_ids:
+                    errors.append(f"{evidence_id}: provision_id must be non-empty and unique")
+                provision_ids.add(provision_id)
+                parse_date(provision.get("effective_date"), "provision.effective_date", evidence_id, errors, nullable=True)
+                parse_date(provision.get("expiry_date"), "provision.expiry_date", evidence_id, errors, nullable=True)
 
         url = record["official_url"]
         parsed = urlparse(url) if isinstance(url, str) else None

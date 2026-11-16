@@ -16,6 +16,9 @@ class SkillStructureTests(unittest.TestCase):
             "templates/research-report-ko.md",
             "schemas/evidence.schema.json",
             "scripts/validate_sources.py",
+            "scripts/verify_evidence.py",
+            "scripts/migrate_evidence_v1_to_v2.py",
+            ".github/workflows/ci.yml",
         ]
         for relative in required:
             self.assertTrue((ROOT / relative).is_file(), relative)
