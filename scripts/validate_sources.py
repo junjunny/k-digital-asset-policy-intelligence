@@ -10,6 +10,8 @@ from datetime import date
 from pathlib import Path
 from urllib.parse import urlparse
 
+from verify_evidence import build_safe_opener, validate_remote_url
+
 REQUIRED = {
     "evidence_id", "source_title", "publisher", "jurisdiction", "source_type",
     "legal_status", "official_url", "publication_date", "retrieved_at",
@@ -27,6 +29,10 @@ LEGAL_STATUSES = {
 }
 VERIFICATION_STATUSES = {"VERIFIED", "PARTIALLY_VERIFIED", "UNVERIFIED", "NEEDS_REVIEW"}
 CONTENT_STATUSES = {"URL_REACHABLE", "CONTENT_VERIFIED", "CONTENT_MISMATCH", "ACCESS_RESTRICTED", "MANUAL_REVIEW_REQUIRED"}
+AUTHENTICITY_STATUSES = {"OFFICIAL_URL_FETCHED", "NOT_VERIFIED"}
+ACCESS_STATUSES = {"REMOTE_FETCHED", "LOCAL_ATTACHMENT_LOADED", "NOT_ACCESSED"}
+EXCERPT_STATUSES = {"MATCHED", "NOT_MATCHED", "NOT_CHECKED"}
+MEANING_REVIEW_STATUSES = {"MANUAL_REVIEWED", "NOT_REVIEWED"}
 
 
 def parse_date(value, field, evidence_id, errors, nullable=False):
@@ -53,15 +59,18 @@ def extract_records(payload):
 
 
 def check_url(url, timeout):
-    request = urllib.request.Request(url, method="HEAD", headers={"User-Agent": "K-DAPI-source-validator/0.1"})
     try:
-        with urllib.request.urlopen(request, timeout=timeout) as response:
+        validate_remote_url(url)
+        request = urllib.request.Request(url, method="HEAD", headers={"User-Agent": "K-DAPI-source-validator/0.1"})
+        with build_safe_opener().open(request, timeout=timeout) as response:
+            validate_remote_url(response.geturl())
             return 200 <= response.status < 400, str(response.status)
     except urllib.error.HTTPError:
         # Some official sites return an error for HEAD while serving the same URL via GET.
         request = urllib.request.Request(url, method="GET", headers={"User-Agent": "K-DAPI-source-validator/0.1"})
         try:
-            with urllib.request.urlopen(request, timeout=timeout) as response:
+            with build_safe_opener().open(request, timeout=timeout) as response:
+                validate_remote_url(response.geturl())
                 return 200 <= response.status < 400, str(response.status)
         except Exception as retry_exc:  # network result, reported rather than hidden
             return False, str(retry_exc)
@@ -104,6 +113,16 @@ def validate_records(records, check_urls=False, timeout=10):
                 errors.append(f"{evidence_id}: schema v2 requires verification metadata")
             elif verification.get("status") not in CONTENT_STATUSES:
                 errors.append(f"{evidence_id}: invalid content verification status")
+            else:
+                dimensions = {
+                    "source_authenticity": AUTHENTICITY_STATUSES,
+                    "document_access": ACCESS_STATUSES,
+                    "excerpt_verification": EXCERPT_STATUSES,
+                    "legal_meaning_review": MEANING_REVIEW_STATUSES,
+                }
+                for field, allowed in dimensions.items():
+                    if verification.get(field) not in allowed:
+                        errors.append(f"{evidence_id}: invalid or missing verification.{field}")
             if "status_checked_at" not in record:
                 errors.append(f"{evidence_id}: schema v2 requires status_checked_at")
         if record["verification_status"] == "VERIFIED":
@@ -141,12 +160,13 @@ def validate_records(records, check_urls=False, timeout=10):
         parsed = urlparse(url) if isinstance(url, str) else None
         if not parsed or parsed.scheme not in {"http", "https"} or not parsed.netloc:
             errors.append(f"{evidence_id}: official_url must be an absolute HTTP(S) URL")
-        elif record["source_type"] != "SECONDARY_SOURCE" and parsed.scheme != "https":
-            warnings.append(f"{evidence_id}: primary/official source should use HTTPS where available")
-        elif check_urls:
-            ok, detail = check_url(url, timeout)
-            if not ok:
-                errors.append(f"{evidence_id}: URL check failed: {detail}")
+        else:
+            if record["source_type"] != "SECONDARY_SOURCE" and parsed.scheme != "https":
+                warnings.append(f"{evidence_id}: primary/official source should use HTTPS where available")
+            if check_urls:
+                ok, detail = check_url(url, timeout)
+                if not ok:
+                    errors.append(f"{evidence_id}: URL check failed: {detail}")
 
     return errors, warnings
 

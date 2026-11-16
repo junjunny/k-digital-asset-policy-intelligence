@@ -6,7 +6,7 @@
 
 | 검증 | 결과 |
 |---|---|
-| Python unittest | 통과: 27건 |
+| Python unittest | 통과: 37건 |
 | 부정 테스트 | 통과: 인용 불일치, 다른 문서, 404, 접근 제한, 오프라인, 시행 전 오인, 정책·입법예고 오인, 오래된 자료, 관할권 혼동, 근거 불일치, 사용자 오정보, 악의적 지시문 |
 | EIB Evidence live content verification | 통과: 6/6 `CONTENT_VERIFIED` |
 | 홍콩 신규 사례 live content verification | 통과: 6/6 `CONTENT_VERIFIED` |
@@ -20,6 +20,11 @@
 | GitHub Actions CI | 통과: run `43820183166` |
 | Python 문법 컴파일·CI YAML | 통과 |
 | 일반적 API 키·개인키 패턴 검색 | 발견 없음 |
+| 수동 첨부 진위 분리 | 통과: 발췌 일치 시에도 `MANUAL_REVIEW_REQUIRED` |
+| URL·파일 입력 보안 | 통과: localhost, 사설·loopback·link-local, 자격증명, HTTPS downgrade, 리다이렉트 재검증, 디렉터리 탈출 차단 |
+| 의미 검토 경계 | 통과: 구조적 claim/Evidence 호환성이 의미 증명이 아니라는 경고 출력 |
+| Phase 6 격리 validator | 통과: 임시 venv에서 Skill Creator, Evidence 12건·Report 2건 JSON Schema 검증 |
+| Skills CLI 탐지 | 통과: 범용 자연어 설명으로 스킬 1개 탐지 |
 
 ## 실행한 주요 명령
 
@@ -57,11 +62,18 @@ npx skills add . --list
 
 GitHub 원격을 `/tmp/kdapi-fresh.ZWUF4g/repo`에 새로 clone하고 별도 venv에 의존성을 설치했다. 27개 테스트와 홍콩 보고서 검증을 통과한 뒤, Skills CLI가 1개 스킬을 탐지했고 `/tmp` 격리 프로젝트의 `.agents/skills/k-digital-asset-policy-intelligence`에 copy mode로 설치했다. 설치본에 대해 Skill Creator validator와 사례 파일 존재를 확인했다.
 
-## 자연어 리서치 E2E
+## 저장된 연구 산출물 회귀검증
 
-Phase 5의 실제 자연어 요구를 기준으로 기존 EIB 문서를 복제하지 않고 홍콩 다중통화 디지털 녹색채권을 새로 조사했다. 범위 정의, 공식 검색, 해외 모델·규제, 한국 법률·정책, Evidence v2, 국문 보고서, 영문 요약, 자동 검증과 한계 표기를 완료했다. `tests/test_e2e_workflow.py`는 이 산출물과 Evidence 상태를 재검증한다.
+Phase 5의 실제 자연어 요구를 기준으로 홍콩 다중통화 디지털 녹색채권을 조사했고, `tests/test_e2e_workflow.py`는 커밋된 산출물과 Evidence 상태를 재검증한다. 테스트 클래스는 실제 범위를 반영해 `StoredResearchArtifactTests`로 명명했다.
 
-다만 별도의 두 번째 LLM 인스턴스를 실행해 동일 자연어 요청을 blind evaluation한 것은 아니다. fresh installation은 스킬 인식·설치·결정적 검증까지 확인했고, 자연어 분석 품질은 이 Phase의 실제 수행 결과로 확인했다.
+별도 에이전트가 격리 설치본에서 처음 보는 자연어 입력을 받아 출처 탐색부터 보고서 생성까지 실행한 blind E2E는 아니다. 이 독립 평가는 `docs/PHASE_7_TEST_PLAN.md`에만 설계했으며 사용자 승인 전 실행하지 않는다.
+
+## Phase 6 live 확인
+
+- 홍콩 사례: 6/6 `CONTENT_VERIFIED`
+- EIB 사례: 5/6 `CONTENT_VERIFIED`; EUR-Lex가 HTTP 200의 AWS WAF challenge를 반환하여 `ACCESS_RESTRICTED`
+
+EUR-Lex 결과는 발췌 불일치로 잘못 분류하지 않고 접근 제한으로 처리하도록 검증기를 보완했다. 저장된 이전 원문 해시·발췌 기록은 삭제하지 않았지만, 이번 조회에서 원문을 재확인하지 못했으므로 사람이 브라우저에서 직접 확인해야 한다.
 
 ## 자동 검증할 수 없는 부분
 

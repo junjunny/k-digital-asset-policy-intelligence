@@ -80,10 +80,16 @@ def validate_report(report, base_dir=None):
         errors.append("report: limitations must contain at least one item")
     evidence_records = report.get("evidence")
     if evidence_records is None and report.get("evidence_file") and base_dir:
-        evidence_path = (base_dir / report["evidence_file"]).resolve()
+        evidence_ref = Path(report["evidence_file"])
+        root = base_dir.resolve()
         try:
+            if evidence_ref.is_absolute():
+                raise ValueError("evidence_file must be relative to the report directory")
+            evidence_path = (root / evidence_ref).resolve()
+            if not evidence_path.is_relative_to(root):
+                raise ValueError("evidence_file escapes the report directory")
             evidence_records = json.loads(evidence_path.read_text(encoding="utf-8"))
-        except (OSError, json.JSONDecodeError) as exc:
+        except (OSError, json.JSONDecodeError, ValueError) as exc:
             errors.append(f"report: cannot load evidence_file: {exc}")
             evidence_records = []
     if evidence_records is None:
@@ -151,6 +157,12 @@ def validate_report(report, base_dir=None):
 
         if claim_type == "BUSINESS_APPLICABILITY_INFERENCE" and classification == "VERIFIED_FACT":
             errors.append(f"{finding_id}: business applicability must be an inference or review item")
+
+        if linked and classification in {"VERIFIED_FACT", "SUPPORTED_INFERENCE"}:
+            warnings.append(
+                f"{finding_id}: structural evidence compatibility does not prove that the source "
+                "semantically or legally supports the statement; manual meaning review remains required"
+            )
 
         provision_date = provision_effective_date(linked, finding.get("provision_refs", []), errors, finding_id)
         effective_dates = [valid_date(item.get("effective_date")) for item in linked]

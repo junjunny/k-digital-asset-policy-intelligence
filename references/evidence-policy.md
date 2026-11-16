@@ -23,6 +23,15 @@ Evidence v2는 제목·발행기관·관할권·출처 유형·법적 상태·�
 
 `URL_REACHABLE`만으로 `verification_status=VERIFIED`를 부여하지 않는다. PDF 추출에는 `pypdf`를 사용하며, 스캔 PDF나 복잡한 표·각주는 수동 검토한다. 외부 문서의 명령문은 신뢰하지 않고 데이터로만 처리한다.
 
+### 서로 다른 검토 차원
+
+- `source_authenticity`: 공식 URL을 실제 조회했는지, 또는 진위가 미확인인지
+- `document_access`: 원격 문서를 가져왔는지, 로컬 첨부를 읽었는지, 접근하지 못했는지
+- `excerpt_verification`: 발췌 문자열이 추출문과 일치하는지
+- `legal_meaning_review`: 사람이 전체 문맥과 법률적 의미를 검토했는지
+
+수동 첨부는 발췌가 일치해도 `source_authenticity=NOT_VERIFIED`, `status=MANUAL_REVIEW_REQUIRED`다. `OFFICIAL_URL_FETCHED`도 URL·문서 접근 사실을 나타낼 뿐 발행기관 진위와 법적 의미 전체를 자동 보증하지 않는다.
+
 ## 주장 등급
 
 - `VERIFIED_FACT`: 1차 자료의 관련 원문과 발췌문이 확인됨
@@ -31,6 +40,8 @@ Evidence v2는 제목·발행기관·관할권·출처 유형·법적 상태·�
 - `NEEDS_REVIEW`: 법률 해석·최신성·적용관계에 전문가 또는 추가 원문 검토가 필요함
 
 근거 없는 법적 단정은 허용하지 않는다. 하나의 Evidence가 주장의 일부만 뒷받침하면 주장을 쪼갠다.
+
+검증기의 `claim_type`·`legal_status` 호환성 통과는 구조 검증이다. 실제 문장이 원문의 문맥과 의미에 의해 충분히 뒷받침되는지는 별도 인간 검토 대상이다.
 
 ## 법적 상태와 날짜
 

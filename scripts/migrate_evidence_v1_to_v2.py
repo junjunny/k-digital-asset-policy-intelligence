@@ -30,6 +30,10 @@ def migrate_payload(payload, checked_at=None):
             "content_length": None,
             "excerpt_match": None,
             "matched_excerpt": None,
+            "source_authenticity": "NOT_VERIFIED",
+            "document_access": "NOT_ACCESSED",
+            "excerpt_verification": "NOT_CHECKED",
+            "legal_meaning_review": "NOT_REVIEWED",
             "warnings": ["MIGRATED_FROM_V1_WITHOUT_CONTENT_VERIFICATION"],
             "error": None
         }

@@ -1,6 +1,8 @@
 import copy
 import json
+import socket
 import sys
+import tempfile
 import unittest
 import urllib.error
 from pathlib import Path
@@ -11,7 +13,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 
 from validate_report import validate_report  # noqa: E402
 from validate_sources import validate_records  # noqa: E402
-from verify_evidence import verify_record  # noqa: E402
+from verify_evidence import SafeRedirectHandler, UnsafeInputError, validate_remote_url, verify_record  # noqa: E402
 from migrate_evidence_v1_to_v2 import migrate_payload  # noqa: E402
 
 
@@ -32,6 +34,12 @@ class ValidatorTests(unittest.TestCase):
         errors, _ = validate_records([record])
         self.assertTrue(any("official_url" in error for error in errors))
 
+    def test_live_url_check_rejects_localhost_without_request(self):
+        record = copy.deepcopy(self.report["evidence"][0])
+        record["official_url"] = "http://localhost/private"
+        errors, _ = validate_records([record], check_urls=True)
+        self.assertTrue(any("URL check failed" in error and "localhost" in error for error in errors))
+
     def test_duplicate_evidence_id_fails(self):
         record = copy.deepcopy(self.report["evidence"][0])
         errors, _ = validate_records([record, record])
@@ -51,6 +59,12 @@ class ValidatorTests(unittest.TestCase):
         migrated = migrate_payload([legacy], "2026-11-16T00:00:00+00:00")[0]
         self.assertEqual("MANUAL_REVIEW_REQUIRED", migrated["verification"]["status"])
         self.assertEqual("NEEDS_REVIEW", migrated["verification_status"])
+        self.assertEqual("NOT_VERIFIED", migrated["verification"]["source_authenticity"])
+        self.assertEqual("NOT_ACCESSED", migrated["verification"]["document_access"])
+        self.assertEqual("NOT_CHECKED", migrated["verification"]["excerpt_verification"])
+        self.assertEqual("NOT_REVIEWED", migrated["verification"]["legal_meaning_review"])
+        errors, _ = validate_records([migrated])
+        self.assertEqual([], errors)
 
     def test_future_law_cannot_be_in_force(self):
         report = copy.deepcopy(self.report)
@@ -108,6 +122,19 @@ class ValidatorTests(unittest.TestCase):
         errors, _ = validate_report(report)
         self.assertTrue(any("official legal or regulatory source" in error for error in errors))
 
+    def test_structural_compatibility_is_not_semantic_proof(self):
+        errors, warnings = validate_report(self.report)
+        self.assertEqual([], errors)
+        self.assertTrue(any("does not prove" in warning for warning in warnings))
+
+    def test_evidence_file_cannot_escape_report_directory(self):
+        report = copy.deepcopy(self.report)
+        report.pop("evidence", None)
+        report["evidence_file"] = "../outside.json"
+        with tempfile.TemporaryDirectory() as directory:
+            errors, _ = validate_report(report, Path(directory) / "case")
+        self.assertTrue(any("escapes the report directory" in error for error in errors))
+
 
 class EvidenceFetchTests(unittest.TestCase):
     def record(self, excerpt="correct excerpt"):
@@ -144,6 +171,18 @@ class EvidenceFetchTests(unittest.TestCase):
         self.assertEqual("ACCESS_RESTRICTED", result["status"])
 
     @patch("verify_evidence.fetch_url")
+    def test_http_200_access_challenge_is_restricted_not_mismatch(self, fetch):
+        fetch.return_value = {
+            "data": b"<html><script>AwsWafIntegration.getToken()</script><div id='challenge-container'></div></html>",
+            "http_status": 200,
+            "content_type": "text/html",
+            "final_url": "https://official.example/document",
+        }
+        result = verify_record(self.record(), ROOT)
+        self.assertEqual("ACCESS_RESTRICTED", result["status"])
+        self.assertIsNone(result["excerpt_match"])
+
+    @patch("verify_evidence.fetch_url")
     def test_nonexistent_official_source_needs_manual_review(self, fetch):
         fetch.side_effect = urllib.error.HTTPError("https://official.example/missing", 404, "Not Found", {}, None)
         result = verify_record(self.record(), ROOT)
@@ -161,6 +200,53 @@ class EvidenceFetchTests(unittest.TestCase):
         result = verify_record(self.record(), ROOT)
         self.assertEqual("CONTENT_VERIFIED", result["status"])
         self.assertTrue(any("UNTRUSTED_INSTRUCTION_PATTERN" in item for item in result["warnings"]))
+
+    def test_matching_manual_attachment_is_not_officially_verified(self):
+        with tempfile.TemporaryDirectory(dir=ROOT) as directory:
+            base = Path(directory)
+            (base / "source.txt").write_text("correct excerpt", encoding="utf-8")
+            record = self.record()
+            record["manual_source_path"] = "source.txt"
+            result = verify_record(record, base)
+        self.assertEqual("MANUAL_REVIEW_REQUIRED", result["status"])
+        self.assertEqual("NOT_VERIFIED", result["source_authenticity"])
+        self.assertEqual("LOCAL_ATTACHMENT_LOADED", result["document_access"])
+        self.assertEqual("MATCHED", result["excerpt_verification"])
+        self.assertEqual("NOT_REVIEWED", result["legal_meaning_review"])
+        self.assertIsNone(result["final_url"])
+
+    def test_manual_attachment_cannot_escape_evidence_directory(self):
+        record = self.record()
+        record["manual_source_path"] = "../README.md"
+        result = verify_record(record, ROOT / "examples")
+        self.assertEqual("MANUAL_REVIEW_REQUIRED", result["status"])
+        self.assertIn("escapes", result["error"])
+
+    @patch("verify_evidence.socket.getaddrinfo")
+    def test_private_and_loopback_url_targets_are_rejected(self, resolve):
+        for address in ("127.0.0.1", "10.0.0.8", "169.254.169.254", "::1"):
+            resolve.return_value = [(socket.AF_INET6 if ":" in address else socket.AF_INET, socket.SOCK_STREAM, 6, "", (address, 443))]
+            with self.assertRaises(UnsafeInputError):
+                validate_remote_url("https://user.example/document")
+
+    def test_localhost_and_url_credentials_are_rejected(self):
+        for url in ("http://localhost/admin", "https://user:pass@example.com/document", "file:///etc/passwd"):
+            with self.assertRaises(UnsafeInputError):
+                validate_remote_url(url)
+
+    @patch("verify_evidence.validate_remote_url")
+    def test_redirect_target_is_revalidated(self, validate):
+        handler = SafeRedirectHandler()
+        request = urllib.request.Request("https://official.example/document")
+        handler.redirect_request(request, None, 302, "Found", {}, "https://redirect.example/next")
+        validate.assert_called_once_with("https://redirect.example/next")
+
+    @patch("verify_evidence.validate_remote_url")
+    def test_https_downgrade_redirect_is_rejected(self, validate):
+        handler = SafeRedirectHandler()
+        request = urllib.request.Request("https://official.example/document")
+        with self.assertRaises(UnsafeInputError):
+            handler.redirect_request(request, None, 302, "Found", {}, "http://redirect.example/next")
 
 
 if __name__ == "__main__":

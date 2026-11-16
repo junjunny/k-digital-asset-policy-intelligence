@@ -15,7 +15,7 @@
     "page_or_section": "Highlights and paragraphs 1-6",
     "verification_status": "VERIFIED",
     "status_checked_at": "2026-11-16",
-    "verification": {"status": "CONTENT_VERIFIED", "checked_at": "2026-11-16T06:43:11+00:00", "method": "HTML_TEXT", "http_status": 200, "content_type": "text/html; charset=utf-8", "final_url": "https://www.eib.org/en/press/all/2023-030-eib-issues-its-first-ever-digital-bond-in-british-pounds", "document_sha256": "8a6bb4b5727ead28d243acc3d912b232971eb167da7b3c62fe628aa3ccfb3171", "extracted_text_sha256": "c91d818bc32159ddab3b5c944fdb0987b9fe8da22b5366be1be892bdc936ed50", "content_length": 107826, "excerpt_match": true, "matched_excerpt": "The digital bonds will be held in digital securities accounts kept on HSBC Orion.", "warnings": [], "error": null},
+    "verification": {"status": "CONTENT_VERIFIED", "checked_at": "2026-11-16T06:43:11+00:00", "method": "HTML_TEXT", "http_status": 200, "content_type": "text/html; charset=utf-8", "final_url": "https://www.eib.org/en/press/all/2023-030-eib-issues-its-first-ever-digital-bond-in-british-pounds", "document_sha256": "8a6bb4b5727ead28d243acc3d912b232971eb167da7b3c62fe628aa3ccfb3171", "extracted_text_sha256": "c91d818bc32159ddab3b5c944fdb0987b9fe8da22b5366be1be892bdc936ed50", "content_length": 107826, "excerpt_match": true, "matched_excerpt": "The digital bonds will be held in digital securities accounts kept on HSBC Orion.", "source_authenticity": "OFFICIAL_URL_FETCHED", "document_access": "REMOTE_FETCHED", "excerpt_verification": "MATCHED", "legal_meaning_review": "NOT_REVIEWED", "warnings": [], "error": null},
     "notes": "Issuer source for transaction structure; not treated as proof of every legal conclusion."
   },
   {
@@ -34,7 +34,7 @@
     "page_or_section": "Articles 1, 2 and 19; recitals 6-8",
     "verification_status": "VERIFIED",
     "status_checked_at": "2026-11-16",
-    "verification": {"status": "CONTENT_VERIFIED", "checked_at": "2026-11-16T06:43:12+00:00", "method": "HTML_TEXT", "http_status": 200, "content_type": "text/html; charset=UTF-8", "final_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R0858", "document_sha256": "7a86a224134eb5bc72f26093ace791f196f2c556c4cb1fb7a3132a7766505b33", "extracted_text_sha256": "c1257ec18d203e757ad13600db555f885dfaf613d0c836629f50f8c22b83db79", "content_length": 570771, "excerpt_match": true, "matched_excerpt": "‘DLT market infrastructure’ means a DLT multilateral trading facility, a DLT settlement system or a DLT trading and settlement system", "warnings": [], "error": null},
+    "verification": {"status": "CONTENT_VERIFIED", "checked_at": "2026-11-16T06:43:12+00:00", "method": "HTML_TEXT", "http_status": 200, "content_type": "text/html; charset=UTF-8", "final_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R0858", "document_sha256": "7a86a224134eb5bc72f26093ace791f196f2c556c4cb1fb7a3132a7766505b33", "extracted_text_sha256": "c1257ec18d203e757ad13600db555f885dfaf613d0c836629f50f8c22b83db79", "content_length": 570771, "excerpt_match": true, "matched_excerpt": "‘DLT market infrastructure’ means a DLT multilateral trading facility, a DLT settlement system or a DLT trading and settlement system", "source_authenticity": "OFFICIAL_URL_FETCHED", "document_access": "REMOTE_FETCHED", "excerpt_verification": "MATCHED", "legal_meaning_review": "NOT_REVIEWED", "warnings": [], "error": null},
     "notes": "The EIB sterling issuance predates the Regulation's application date and is not represented as a DLT Pilot issuance."
   },
   {
@@ -53,7 +53,7 @@
     "page_or_section": "Framework and financial instruments in scope",
     "verification_status": "VERIFIED",
     "status_checked_at": "2026-11-16",
-    "verification": {"status": "CONTENT_VERIFIED", "checked_at": "2026-11-16T06:43:14+00:00", "method": "HTML_TEXT", "http_status": 200, "content_type": "text/html; charset=utf-8", "final_url": "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/dlt-pilot-regime", "document_sha256": "61285ed01cba04cb007c592f3272c86ed98ab1bcb7d8ff3ae8dabd6c1052ee09", "extracted_text_sha256": "ce193d73967c8719e712df9098afb3e3c10d1969f50d2bda23b9ab5e104dfab5", "content_length": 64076, "excerpt_match": true, "matched_excerpt": "The DLT Pilot Regime has started applying in the EU as of 23 March 2023.", "warnings": [], "error": null}
+    "verification": {"status": "CONTENT_VERIFIED", "checked_at": "2026-11-16T06:43:14+00:00", "method": "HTML_TEXT", "http_status": 200, "content_type": "text/html; charset=utf-8", "final_url": "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/dlt-pilot-regime", "document_sha256": "61285ed01cba04cb007c592f3272c86ed98ab1bcb7d8ff3ae8dabd6c1052ee09", "extracted_text_sha256": "ce193d73967c8719e712df9098afb3e3c10d1969f50d2bda23b9ab5e104dfab5", "content_length": 64076, "excerpt_match": true, "matched_excerpt": "The DLT Pilot Regime has started applying in the EU as of 23 March 2023.", "source_authenticity": "OFFICIAL_URL_FETCHED", "document_access": "REMOTE_FETCHED", "excerpt_verification": "MATCHED", "legal_meaning_review": "NOT_REVIEWED", "warnings": [], "error": null}
   },
   {
     "schema_version": "2.0",
@@ -72,7 +72,7 @@
     "verification_status": "VERIFIED",
     "status_checked_at": "2026-11-16",
     "provisions": [{"provision_id": "KR-ESA-21318-GENERAL", "citation": "부칙 시행일", "effective_date": "2027-02-04", "expiry_date": null, "transition_notes": "조문별 예외가 있는지 최종 시행본에서 재확인 필요"}],
-    "verification": {"status": "CONTENT_VERIFIED", "checked_at": "2026-11-16T06:43:15+00:00", "method": "HTML_TEXT", "http_status": 200, "content_type": "text/html;charset=UTF-8", "final_url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=283195&viewCls=lsRvsDocInfoR", "document_sha256": "cbef3ac164ce8fd1a58821873ec66e9ac5273fa5b18105ebd4191777e41f9675", "extracted_text_sha256": "4801cdbe3d6040faf4edf838060cd71e433c0e56e9629d2a3761e13e4ece3902", "content_length": 146608, "excerpt_match": true, "matched_excerpt": "[시행 2027. 2. 4.] [법률 제21318호, 2026. 2. 3., 일부개정]", "warnings": [], "error": null}
+    "verification": {"status": "CONTENT_VERIFIED", "checked_at": "2026-11-16T06:43:15+00:00", "method": "HTML_TEXT", "http_status": 200, "content_type": "text/html;charset=UTF-8", "final_url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=283195&viewCls=lsRvsDocInfoR", "document_sha256": "cbef3ac164ce8fd1a58821873ec66e9ac5273fa5b18105ebd4191777e41f9675", "extracted_text_sha256": "4801cdbe3d6040faf4edf838060cd71e433c0e56e9629d2a3761e13e4ece3902", "content_length": 146608, "excerpt_match": true, "matched_excerpt": "[시행 2027. 2. 4.] [법률 제21318호, 2026. 2. 3., 일부개정]", "source_authenticity": "OFFICIAL_URL_FETCHED", "document_access": "REMOTE_FETCHED", "excerpt_verification": "MATCHED", "legal_meaning_review": "NOT_REVIEWED", "warnings": [], "error": null}
   },
   {
     "schema_version": "2.0",
@@ -90,7 +90,7 @@
     "page_or_section": "토큰증권 발행 인프라 단계별 구축 계획",
     "verification_status": "VERIFIED",
     "status_checked_at": "2026-11-16",
-    "verification": {"status": "CONTENT_VERIFIED", "checked_at": "2026-11-16T06:43:15+00:00", "method": "HTML_TEXT", "http_status": 200, "content_type": "text/html;charset=UTF-8", "final_url": "https://www.fsc.go.kr/po010106/87650", "document_sha256": "685e45dde1b497c64de23c54bc62ec09e28d84eee3998f66a5d2e51852001226", "extracted_text_sha256": "63f95a38c553072155ba0c8cb248a0976c1ec457ce104c2fc8cd477e647bcfa9", "content_length": 157897, "excerpt_match": true, "matched_excerpt": "(정형증권) 기관투자자 전용 사모MMF·사채 토큰화, 비상장주식 신탁방식 토큰화", "warnings": [], "error": null},
+    "verification": {"status": "CONTENT_VERIFIED", "checked_at": "2026-11-16T06:43:15+00:00", "method": "HTML_TEXT", "http_status": 200, "content_type": "text/html;charset=UTF-8", "final_url": "https://www.fsc.go.kr/po010106/87650", "document_sha256": "685e45dde1b497c64de23c54bc62ec09e28d84eee3998f66a5d2e51852001226", "extracted_text_sha256": "63f95a38c553072155ba0c8cb248a0976c1ec457ce104c2fc8cd477e647bcfa9", "content_length": 157897, "excerpt_match": true, "matched_excerpt": "(정형증권) 기관투자자 전용 사모MMF·사채 토큰화, 비상장주식 신탁방식 토큰화", "source_authenticity": "OFFICIAL_URL_FETCHED", "document_access": "REMOTE_FETCHED", "excerpt_verification": "MATCHED", "legal_meaning_review": "NOT_REVIEWED", "warnings": [], "error": null},
     "notes": "정책 발표이며 현행 법규로 취급하지 않음."
   },
   {
@@ -109,7 +109,7 @@
     "page_or_section": "입법예고안 주요 내용 및 향후 계획",
     "verification_status": "VERIFIED",
     "status_checked_at": "2026-11-16",
-    "verification": {"status": "CONTENT_VERIFIED", "checked_at": "2026-11-16T06:43:16+00:00", "method": "HTML_TEXT", "http_status": 200, "content_type": "text/html;charset=UTF-8", "final_url": "https://www.fsc.go.kr/no010101/87838?curPage=1", "document_sha256": "c4b5c6c09f448c7ddd0c9b670dd72530b608324ddb85ec96017777e521c8e8b6", "extracted_text_sha256": "d76077b1ae9e565111175a20586806b16f632e405e84baa3496d73d2dc1a5f6f", "content_length": 122844, "excerpt_match": true, "matched_excerpt": "발행인 계좌관리기관의 등록요건으로 최저자기자본 40억원, 계좌관리 전문인력 1명, 내부통제 전문인력 1명, 전산 전문인력 2명 등을 갖추도록 하였다.", "warnings": [], "error": null},
+    "verification": {"status": "CONTENT_VERIFIED", "checked_at": "2026-11-16T06:43:16+00:00", "method": "HTML_TEXT", "http_status": 200, "content_type": "text/html;charset=UTF-8", "final_url": "https://www.fsc.go.kr/no010101/87838?curPage=1", "document_sha256": "c4b5c6c09f448c7ddd0c9b670dd72530b608324ddb85ec96017777e521c8e8b6", "extracted_text_sha256": "d76077b1ae9e565111175a20586806b16f632e405e84baa3496d73d2dc1a5f6f", "content_length": 122844, "excerpt_match": true, "matched_excerpt": "발행인 계좌관리기관의 등록요건으로 최저자기자본 40억원, 계좌관리 전문인력 1명, 내부통제 전문인력 1명, 전산 전문인력 2명 등을 갖추도록 하였다.", "source_authenticity": "OFFICIAL_URL_FETCHED", "document_access": "REMOTE_FETCHED", "excerpt_verification": "MATCHED", "legal_meaning_review": "NOT_REVIEWED", "warnings": [], "error": null},
     "notes": "예고기간 종료 후에도 확정·공포 여부를 별도로 확인해야 함."
   }
 ]

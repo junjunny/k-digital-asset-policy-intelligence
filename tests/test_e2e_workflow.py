@@ -9,8 +9,10 @@ sys.path.insert(0, str(ROOT / "scripts"))
 from validate_report import validate_report  # noqa: E402
 
 
-class RealResearchWorkflowTests(unittest.TestCase):
-    def test_new_hong_kong_case_is_independently_validated(self):
+class StoredResearchArtifactTests(unittest.TestCase):
+    """Validate committed artifacts; these tests do not execute a natural-language agent run."""
+
+    def test_hong_kong_case_artifacts_are_structurally_valid(self):
         case_dir = ROOT / "examples/hong-kong-digital-green-bond"
         report = json.loads((case_dir / "report.json").read_text(encoding="utf-8"))
         errors, _ = validate_report(report, case_dir)

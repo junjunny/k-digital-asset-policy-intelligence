@@ -15,7 +15,7 @@
     "page_or_section": "Key features of the Digital Green Bonds",
     "verification_status": "VERIFIED",
     "status_checked_at": "2026-11-16",
-    "verification": {"status": "CONTENT_VERIFIED", "checked_at": "2026-11-16T06:46:30+00:00", "method": "HTML_TEXT", "http_status": 200, "content_type": "text/html; charset=UTF-8", "final_url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2024/02/20240207-6", "document_sha256": "f3cee877da9635037a747c4312d35069d1573426d27725a0f120035ab130c08c", "extracted_text_sha256": "eb2272822aa0c94672980187d5ac9d874100903cae25b0a6b6aec5e79a2e4364", "content_length": 90150, "excerpt_match": true, "matched_excerpt": "The clearing and settlement system of the Digital Green Bonds is the CMU, with HSBC Orion as the digital assets platform.", "warnings": [], "error": null},
+    "verification": {"status": "CONTENT_VERIFIED", "checked_at": "2026-11-16T06:46:30+00:00", "method": "HTML_TEXT", "http_status": 200, "content_type": "text/html; charset=UTF-8", "final_url": "https://www.hkma.gov.hk/eng/news-and-media/press-releases/2024/02/20240207-6", "document_sha256": "f3cee877da9635037a747c4312d35069d1573426d27725a0f120035ab130c08c", "extracted_text_sha256": "eb2272822aa0c94672980187d5ac9d874100903cae25b0a6b6aec5e79a2e4364", "content_length": 90150, "excerpt_match": true, "matched_excerpt": "The clearing and settlement system of the Digital Green Bonds is the CMU, with HSBC Orion as the digital assets platform.", "source_authenticity": "OFFICIAL_URL_FETCHED", "document_access": "REMOTE_FETCHED", "excerpt_verification": "MATCHED", "legal_meaning_review": "NOT_REVIEWED", "warnings": [], "error": null},
     "notes": "거래 구조와 발행 조건의 공식 1차 자료."
   },
   {
@@ -34,7 +34,7 @@
     "page_or_section": "Section B, paragraph 7",
     "verification_status": "VERIFIED",
     "status_checked_at": "2026-11-16",
-    "verification": {"status": "CONTENT_VERIFIED", "checked_at": "2026-11-16T06:46:31+00:00", "method": "PDF_TEXT", "http_status": 200, "content_type": "application/pdf", "final_url": "https://apps.sfc.hk/edistributionWeb/api/circular/openFile?lang=EN&refNo=23EC52", "document_sha256": "68a798708335b9883c9c360164a0e1e34829f3a6f98a030fecd501ef8684aa4d", "extracted_text_sha256": "ba73a5997cbda91ec21d9138769c9979558c85cb92f5d914339bacfbd924b13d", "content_length": 238101, "excerpt_match": true, "matched_excerpt": "the existing legal and regulatory requirements governing the traditional securities markets continue to apply to Tokenised Securities", "warnings": [], "error": null},
+    "verification": {"status": "CONTENT_VERIFIED", "checked_at": "2026-11-16T06:46:31+00:00", "method": "PDF_TEXT", "http_status": 200, "content_type": "application/pdf", "final_url": "https://apps.sfc.hk/edistributionWeb/api/circular/openFile?lang=EN&refNo=23EC52", "document_sha256": "68a798708335b9883c9c360164a0e1e34829f3a6f98a030fecd501ef8684aa4d", "extracted_text_sha256": "ba73a5997cbda91ec21d9138769c9979558c85cb92f5d914339bacfbd924b13d", "content_length": 238101, "excerpt_match": true, "matched_excerpt": "the existing legal and regulatory requirements governing the traditional securities markets continue to apply to Tokenised Securities", "source_authenticity": "OFFICIAL_URL_FETCHED", "document_access": "REMOTE_FETCHED", "excerpt_verification": "MATCHED", "legal_meaning_review": "NOT_REVIEWED", "warnings": [], "error": null},
     "notes": "토큰화가 기존 증권 규제를 대체하지 않는다는 감독 지침."
   },
   {
@@ -53,7 +53,7 @@
     "page_or_section": "Opening paragraph",
     "verification_status": "VERIFIED",
     "status_checked_at": "2026-11-16",
-    "verification": {"status": "CONTENT_VERIFIED", "checked_at": "2026-11-16T06:46:32+00:00", "method": "HTML_TEXT", "http_status": 200, "content_type": "text/html", "final_url": "https://www.info.gov.hk/gia/general/202606/05/P2026060500349.htm", "document_sha256": "105e3e9087ce8fc2c655c4050cc8114329f290156967746e44b47a495cbdc4cc", "extracted_text_sha256": "0bef251dbb5ebea3934bfdf097c01911c95c7e98c1c99c831d81ecb2bba58d5e", "content_length": 15141, "excerpt_match": true, "matched_excerpt": "it has convened a Tokenised Bond Expert Group", "warnings": [], "error": null},
+    "verification": {"status": "CONTENT_VERIFIED", "checked_at": "2026-11-16T06:46:32+00:00", "method": "HTML_TEXT", "http_status": 200, "content_type": "text/html", "final_url": "https://www.info.gov.hk/gia/general/202606/05/P2026060500349.htm", "document_sha256": "105e3e9087ce8fc2c655c4050cc8114329f290156967746e44b47a495cbdc4cc", "extracted_text_sha256": "0bef251dbb5ebea3934bfdf097c01911c95c7e98c1c99c831d81ecb2bba58d5e", "content_length": 15141, "excerpt_match": true, "matched_excerpt": "it has convened a Tokenised Bond Expert Group", "source_authenticity": "OFFICIAL_URL_FETCHED", "document_access": "REMOTE_FETCHED", "excerpt_verification": "MATCHED", "legal_meaning_review": "NOT_REVIEWED", "warnings": [], "error": null},
     "notes": "시장 확장 정책 동향이며 법적 의무가 아님."
   },
   {
@@ -72,7 +72,7 @@
     "page_or_section": "법령정보 및 부칙",
     "verification_status": "VERIFIED",
     "status_checked_at": "2026-11-16",
-    "verification": {"status": "CONTENT_VERIFIED", "checked_at": "2026-11-16T06:46:32+00:00", "method": "HTML_TEXT", "http_status": 200, "content_type": "text/html;charset=UTF-8", "final_url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=283195&viewCls=lsRvsDocInfoR", "document_sha256": "3d13eb08a8fdad9fb27911a201ed269dca908036211a7e3ea75e2fe2a38da30a", "extracted_text_sha256": "4801cdbe3d6040faf4edf838060cd71e433c0e56e9629d2a3761e13e4ece3902", "content_length": 146608, "excerpt_match": true, "matched_excerpt": "[시행 2027. 2. 4.] [법률 제21318호, 2026. 2. 3., 일부개정]", "warnings": [], "error": null},
+    "verification": {"status": "CONTENT_VERIFIED", "checked_at": "2026-11-16T06:46:32+00:00", "method": "HTML_TEXT", "http_status": 200, "content_type": "text/html;charset=UTF-8", "final_url": "https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=283195&viewCls=lsRvsDocInfoR", "document_sha256": "3d13eb08a8fdad9fb27911a201ed269dca908036211a7e3ea75e2fe2a38da30a", "extracted_text_sha256": "4801cdbe3d6040faf4edf838060cd71e433c0e56e9629d2a3761e13e4ece3902", "content_length": 146608, "excerpt_match": true, "matched_excerpt": "[시행 2027. 2. 4.] [법률 제21318호, 2026. 2. 3., 일부개정]", "source_authenticity": "OFFICIAL_URL_FETCHED", "document_access": "REMOTE_FETCHED", "excerpt_verification": "MATCHED", "legal_meaning_review": "NOT_REVIEWED", "warnings": [], "error": null},
     "provisions": [{"provision_id": "KR-ESA-21318-GENERAL", "citation": "부칙 시행일", "effective_date": "2027-02-04", "expiry_date": null, "transition_notes": "조문별 예외가 있는지 최종 시행본에서 재확인 필요"}]
   },
   {
@@ -91,7 +91,7 @@
     "page_or_section": "토큰증권 발행 인프라 단계별 구축 계획",
     "verification_status": "VERIFIED",
     "status_checked_at": "2026-11-16",
-    "verification": {"status": "CONTENT_VERIFIED", "checked_at": "2026-11-16T06:46:32+00:00", "method": "HTML_TEXT", "http_status": 200, "content_type": "text/html;charset=UTF-8", "final_url": "https://www.fsc.go.kr/po010106/87650", "document_sha256": "c76717d014cab78bb11346951d729797b4e0d6bf528077e636aa76cdb910258e", "extracted_text_sha256": "e96f4fcf4f72f7506f0651570c6fcaf3ff8896820117c48ae5bfee1e6b831ebe", "content_length": 157897, "excerpt_match": true, "matched_excerpt": "(정형증권) 기관투자자 전용 사모MMF·사채 토큰화, 비상장주식 신탁방식 토큰화", "warnings": [], "error": null}
+    "verification": {"status": "CONTENT_VERIFIED", "checked_at": "2026-11-16T06:46:32+00:00", "method": "HTML_TEXT", "http_status": 200, "content_type": "text/html;charset=UTF-8", "final_url": "https://www.fsc.go.kr/po010106/87650", "document_sha256": "c76717d014cab78bb11346951d729797b4e0d6bf528077e636aa76cdb910258e", "extracted_text_sha256": "e96f4fcf4f72f7506f0651570c6fcaf3ff8896820117c48ae5bfee1e6b831ebe", "content_length": 157897, "excerpt_match": true, "matched_excerpt": "(정형증권) 기관투자자 전용 사모MMF·사채 토큰화, 비상장주식 신탁방식 토큰화", "source_authenticity": "OFFICIAL_URL_FETCHED", "document_access": "REMOTE_FETCHED", "excerpt_verification": "MATCHED", "legal_meaning_review": "NOT_REVIEWED", "warnings": [], "error": null}
   },
   {
     "schema_version": "2.0",
@@ -109,6 +109,6 @@
     "page_or_section": "입법예고안 주요 내용 및 향후 계획",
     "verification_status": "VERIFIED",
     "status_checked_at": "2026-11-16",
-    "verification": {"status": "CONTENT_VERIFIED", "checked_at": "2026-11-16T06:46:33+00:00", "method": "HTML_TEXT", "http_status": 200, "content_type": "text/html;charset=UTF-8", "final_url": "https://www.fsc.go.kr/no010101/87838?curPage=1", "document_sha256": "78f4bd010e497fdd76a58c36dc993b41b93394eb7615e7e2dd5b4fe15cff987f", "extracted_text_sha256": "9da78e289d1a101cd4df0772a4b8c5fbfeb17ab6aa4fbf229411b9f9e9ff81bf", "content_length": 122844, "excerpt_match": true, "matched_excerpt": "발행인 계좌관리기관의 등록요건으로 최저자기자본 40억원, 계좌관리 전문인력 1명, 내부통제 전문인력 1명, 전산 전문인력 2명 등을 갖추도록 하였다.", "warnings": [], "error": null}
+    "verification": {"status": "CONTENT_VERIFIED", "checked_at": "2026-11-16T06:46:33+00:00", "method": "HTML_TEXT", "http_status": 200, "content_type": "text/html;charset=UTF-8", "final_url": "https://www.fsc.go.kr/no010101/87838?curPage=1", "document_sha256": "78f4bd010e497fdd76a58c36dc993b41b93394eb7615e7e2dd5b4fe15cff987f", "extracted_text_sha256": "9da78e289d1a101cd4df0772a4b8c5fbfeb17ab6aa4fbf229411b9f9e9ff81bf", "content_length": 122844, "excerpt_match": true, "matched_excerpt": "발행인 계좌관리기관의 등록요건으로 최저자기자본 40억원, 계좌관리 전문인력 1명, 내부통제 전문인력 1명, 전산 전문인력 2명 등을 갖추도록 하였다.", "source_authenticity": "OFFICIAL_URL_FETCHED", "document_access": "REMOTE_FETCHED", "excerpt_verification": "MATCHED", "legal_meaning_review": "NOT_REVIEWED", "warnings": [], "error": null}
   }
 ]

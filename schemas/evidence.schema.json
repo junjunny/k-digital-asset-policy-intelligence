@@ -48,7 +48,7 @@
     "verification": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["status", "checked_at", "method"],
+      "required": ["status", "checked_at", "method", "source_authenticity", "document_access", "excerpt_verification", "legal_meaning_review"],
       "properties": {
         "status": {"enum": ["URL_REACHABLE", "CONTENT_VERIFIED", "CONTENT_MISMATCH", "ACCESS_RESTRICTED", "MANUAL_REVIEW_REQUIRED"]},
         "checked_at": {"type": "string", "format": "date-time"},
@@ -61,6 +61,10 @@
         "content_length": {"type": ["integer", "null"], "minimum": 0},
         "excerpt_match": {"type": ["boolean", "null"]},
         "matched_excerpt": {"type": ["string", "null"]},
+        "source_authenticity": {"enum": ["OFFICIAL_URL_FETCHED", "NOT_VERIFIED"]},
+        "document_access": {"enum": ["REMOTE_FETCHED", "LOCAL_ATTACHMENT_LOADED", "NOT_ACCESSED"]},
+        "excerpt_verification": {"enum": ["MATCHED", "NOT_MATCHED", "NOT_CHECKED"]},
+        "legal_meaning_review": {"enum": ["MANUAL_REVIEWED", "NOT_REVIEWED"]},
         "warnings": {"type": "array", "items": {"type": "string"}},
         "error": {"type": ["string", "null"]}
       }

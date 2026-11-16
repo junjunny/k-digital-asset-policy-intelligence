@@ -6,18 +6,31 @@
 - Phase 1: 완료
 - Phase 2: 기본 검증 엔진 완료
 - Phase 3: EIB 사례 1건 완료
-- Phase 4: 로컬 공개 준비 및 격리 로컬 설치 검증 완료, 원격 push·fresh install 검증 대기
+- Phase 4: 로컬 공개 준비, 원격 push, fresh install 검증 완료
 - Phase 5: Evidence v2·정규화 규제검증·홍콩 독립 사례·부정 테스트·원격 fresh install·CI 통과
+- Phase 6: 인간 검토 패키지, 두 사례 품질감사, 입력 보안 보완, 범용 비전 반영, Phase 7 독립 테스트 설계 완료. 사용자 검토 대기
 
 ## 완료 파일군
 
-초기 산출물에 원문 검증기, Evidence 마이그레이션, claim type 검증, GitHub Actions CI, 홍콩 다중통화 디지털 녹색채권 사례와 E2E·부정 테스트를 추가했다.
+초기 산출물에 원문 검증기, Evidence 마이그레이션, claim type 검증, GitHub Actions CI, 홍콩 다중통화 디지털 녹색채권 사례와 부정 테스트를 추가했다. Phase 6에서 K-DAPI를 7개 연구 유형을 지원하는 범용 자연어 스킬로 정의하고, 인간 검토 문서와 Phase 7 독립 자연어 평가 계획을 추가했다.
+
+## Phase 6 완료
+
+- 수동 첨부의 발췌가 일치해도 `CONTENT_VERIFIED`로 올리지 않고 `MANUAL_REVIEW_REQUIRED`로 유지
+- 출처 진위, 문서 접근, 발췌 일치, 법률적 의미 검토 상태를 분리
+- localhost·사설/내부망·link-local·URL 자격증명·위험한 리다이렉트 차단
+- `manual_source_path`와 `evidence_file`의 상위 디렉터리·심볼릭 링크 탈출 차단
+- claim/Evidence 호환성은 의미상 증명이 아니라는 validator 경고 추가
+- 저장된 홍콩 사례 테스트를 독립 자연어 E2E가 아닌 저장 산출물 회귀검증으로 재분류
+- EIB·홍콩 사례를 7개 품질 항목으로 감사하고 사용자 판단 질문을 우선순위화
 
 ## 미해결
 
 - 최종 하위법규 공포 후 사례의 한국 규제 상태 갱신
-- GitHub 원격 fresh clone·Skills CLI 설치와 CI는 통과했으며 상세 결과는 `TEST_REPORT.md`에서 관리
 - 법률·회계·세무 전문가의 사례 최종 검토
 - 스캔 PDF OCR, 표·각주 의미 검증은 미구현
 - 최종 하위법규 공포 전 입법예고 수치는 확정 요건으로 사용할 수 없음
+- EIB의 룩셈부르크 직접 법적 근거, 홍콩 채권의 개별 적용 법령·법률의견 미확인
+- 두 사례의 비용·유동성·수요·수익성 및 국내 사업 기회 미검증
+- Phase 7 독립 자연어 평가는 설계만 완료했으며 사용자 승인 전 시작 금지
 

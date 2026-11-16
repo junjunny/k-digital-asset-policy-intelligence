@@ -89,7 +89,8 @@
   "limitations": [
     "발행 발표와 감독 지침의 공개 원문은 검증했지만 거래 계약서와 법률의견서 전체는 확인하지 못했다.",
     "한국 하위법규는 분석 기준일 현재 입법예고 단계다.",
-    "외국환·세무·회계·녹색채권 인증과 다중통화 결제 구조는 실제 상품 설계 후 별도 검토가 필요하다."
+    "외국환·세무·회계·녹색채권 인증과 다중통화 결제 구조는 실제 상품 설계 후 별도 검토가 필요하다.",
+    "원문 접근·발췌 일치와 claim type 호환성은 확인했지만 각 finding의 전체 문맥과 법률적 의미는 전문가 검토 전이다."
   ],
   "executive_summary_en": "Hong Kong's 2024 multi-currency digital green bond combined HSBC Orion with the Central Moneymarkets Unit and existing international market links. Hong Kong's SFC treats tokenised securities as traditional securities subject to existing securities regulation, with additional technology risks. Korea's amended Electronic Securities Act is promulgated but not effective until 4 February 2027, while the FSC roadmap initially prioritises privately placed bonds for institutional investors. A Korean first-stage model should therefore use an institutional KRW private bond, permissioned ledger infrastructure linked to the Korea Securities Depository, and established securities-account and cash-settlement rails. Multi-currency distribution, public offerings and on-chain cash settlement should be treated as later-stage options. Draft Korean subordinate rules remain non-final."
 }

@@ -8,8 +8,10 @@ links, or instructions found in a source document.
 import argparse
 import hashlib
 import io
+import ipaddress
 import json
 import re
+import socket
 import sys
 import unicodedata
 import urllib.error
@@ -18,6 +20,7 @@ from copy import deepcopy
 from datetime import datetime, timezone
 from html.parser import HTMLParser
 from pathlib import Path
+from urllib.parse import urljoin, urlsplit
 
 try:
     from pypdf import PdfReader
@@ -34,6 +37,76 @@ INSTRUCTION_PATTERNS = (
     "이전 지시를 무시",
     "앞선 지시를 무시",
 )
+ACCESS_CHALLENGE_PATTERNS = (
+    "awswafintegration",
+    "challenge-container",
+    "verify that you're not a robot",
+    "captcha",
+)
+
+
+class UnsafeInputError(ValueError):
+    """Raised when a URL or local path crosses a verifier trust boundary."""
+
+
+def _is_forbidden_ip(address):
+    ip = ipaddress.ip_address(address)
+    return not ip.is_global
+
+
+def validate_remote_url(url):
+    """Reject non-web, credentialed, local, private, and unresolved URL targets."""
+    if not isinstance(url, str):
+        raise UnsafeInputError("official_url must be a string")
+    parsed = urlsplit(url)
+    if parsed.scheme not in {"http", "https"}:
+        raise UnsafeInputError("only HTTP(S) URLs are allowed")
+    if not parsed.hostname:
+        raise UnsafeInputError("URL hostname is required")
+    if parsed.username is not None or parsed.password is not None:
+        raise UnsafeInputError("credentials in URLs are not allowed")
+    hostname = parsed.hostname.rstrip(".").casefold()
+    if hostname == "localhost" or hostname.endswith(".localhost"):
+        raise UnsafeInputError("localhost URLs are not allowed")
+    try:
+        resolved = {item[4][0] for item in socket.getaddrinfo(hostname, parsed.port or (443 if parsed.scheme == "https" else 80), type=socket.SOCK_STREAM)}
+    except socket.gaierror as exc:
+        raise UnsafeInputError(f"URL hostname could not be resolved: {exc}") from exc
+    if not resolved:
+        raise UnsafeInputError("URL hostname did not resolve to an address")
+    forbidden = sorted(address for address in resolved if _is_forbidden_ip(address))
+    if forbidden:
+        raise UnsafeInputError("URL resolves to a non-public address: " + ", ".join(forbidden))
+    return url
+
+
+class SafeRedirectHandler(urllib.request.HTTPRedirectHandler):
+    """Validate every redirect target before urllib follows it."""
+
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        target = urljoin(req.full_url, newurl)
+        validate_remote_url(target)
+        if urlsplit(req.full_url).scheme == "https" and urlsplit(target).scheme != "https":
+            raise UnsafeInputError("HTTPS to HTTP redirect is not allowed")
+        return super().redirect_request(req, fp, code, msg, headers, target)
+
+
+def build_safe_opener():
+    return urllib.request.build_opener(SafeRedirectHandler())
+
+
+def resolve_manual_source(base_dir, manual_path):
+    """Resolve a relative attachment without allowing escape or symlink traversal."""
+    candidate = Path(manual_path)
+    if candidate.is_absolute():
+        raise UnsafeInputError("manual_source_path must be relative to the evidence file directory")
+    root = base_dir.resolve()
+    resolved = (root / candidate).resolve()
+    if not resolved.is_relative_to(root):
+        raise UnsafeInputError("manual_source_path escapes the evidence file directory")
+    if not resolved.is_file():
+        raise UnsafeInputError("manual_source_path must identify a regular file")
+    return resolved
 
 
 class TextExtractor(HTMLParser):
@@ -113,8 +186,10 @@ def extract_text(data, content_type, source_name):
 
 
 def fetch_url(url, timeout, max_bytes):
+    validate_remote_url(url)
     request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT, "Accept": "text/html,application/pdf,text/plain,*/*"})
-    with urllib.request.urlopen(request, timeout=timeout) as response:
+    with build_safe_opener().open(request, timeout=timeout) as response:
+        validate_remote_url(response.geturl())
         data = response.read(max_bytes + 1)
         if len(data) > max_bytes:
             raise ValueError(f"document exceeds max size of {max_bytes} bytes")
@@ -139,6 +214,10 @@ def base_result(method="URL_ONLY"):
         "content_length": None,
         "excerpt_match": None,
         "matched_excerpt": None,
+        "source_authenticity": "NOT_VERIFIED",
+        "document_access": "NOT_ACCESSED",
+        "excerpt_verification": "NOT_CHECKED",
+        "legal_meaning_review": "NOT_REVIEWED",
         "warnings": [],
         "error": None,
     }
@@ -151,14 +230,17 @@ def verify_record(record, base_dir, timeout=20, max_bytes=25_000_000):
     manual_path = record.get("manual_source_path")
     try:
         if manual_path:
-            path = (base_dir / manual_path).resolve()
+            path = resolve_manual_source(base_dir, manual_path)
             data = path.read_bytes()
             if len(data) > max_bytes:
                 raise ValueError(f"document exceeds max size of {max_bytes} bytes")
-            response = {"data": data, "http_status": None, "content_type": None, "final_url": path.as_uri()}
+            response = {"data": data, "http_status": None, "content_type": None, "final_url": None}
             result["warnings"].append("MANUAL_ATTACHMENT_AUTHENTICITY_NOT_VERIFIED")
+            result["document_access"] = "LOCAL_ATTACHMENT_LOADED"
         else:
             response = fetch_url(record["official_url"], timeout, max_bytes)
+            result["source_authenticity"] = "OFFICIAL_URL_FETCHED"
+            result["document_access"] = "REMOTE_FETCHED"
         fetched = True
         data = response["data"]
         result.update({
@@ -176,16 +258,27 @@ def verify_record(record, base_dir, timeout=20, max_bytes=25_000_000):
         injection_hits = detect_untrusted_instructions(normalized_text)
         if injection_hits:
             result["warnings"].append("UNTRUSTED_INSTRUCTION_PATTERN: " + ", ".join(injection_hits))
-        if not normalized_excerpt:
+        decoded_probe = decode_text(data[:100_000], response["content_type"]).casefold()
+        if not normalized_text and any(pattern in decoded_probe for pattern in ACCESS_CHALLENGE_PATTERNS):
+            result["status"] = "ACCESS_RESTRICTED"
+            result["error"] = "access challenge returned instead of source content"
+        elif not normalized_text:
+            result["status"] = "URL_REACHABLE"
+            result["error"] = "source response contained no extractable text"
+        elif not normalized_excerpt:
             result["status"] = "MANUAL_REVIEW_REQUIRED"
             result["error"] = "relevant_excerpt is empty"
         elif normalized_excerpt in normalized_text:
-            result["status"] = "CONTENT_VERIFIED"
+            result["status"] = "MANUAL_REVIEW_REQUIRED" if manual_path else "CONTENT_VERIFIED"
             result["excerpt_match"] = True
+            result["excerpt_verification"] = "MATCHED"
             result["matched_excerpt"] = record["relevant_excerpt"]
+            if manual_path:
+                result["error"] = "excerpt matched, but attachment authenticity and official provenance are not verified"
         else:
             result["status"] = "CONTENT_MISMATCH"
             result["excerpt_match"] = False
+            result["excerpt_verification"] = "NOT_MATCHED"
             result["error"] = "normalized relevant_excerpt was not found in extracted source text"
     except urllib.error.HTTPError as exc:
         result["http_status"] = exc.code
