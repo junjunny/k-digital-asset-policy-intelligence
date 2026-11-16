@@ -17,7 +17,7 @@
 | Skill Creator `quick_validate.py` | 통과 |
 | 원격 fresh clone | 통과: commit `9b29d56` |
 | Skills CLI 탐지·격리 설치 | 통과: Codex project scope, copy mode |
-| GitHub Actions CI | 통과: run `43820183166` |
+| GitHub Actions CI | 통과: Phase 6 run `43823538012` (`2305f3d`) |
 | Python 문법 컴파일·CI YAML | 통과 |
 | 일반적 API 키·개인키 패턴 검색 | 발견 없음 |
 | 수동 첨부 진위 분리 | 통과: 발췌 일치 시에도 `MANUAL_REVIEW_REQUIRED` |
