@@ -1,14 +1,15 @@
 # Test Report
 
-실행일: 2026-11-16 (Asia/Seoul)
+실행일: 2026-11-17 (Asia/Seoul)
 
 ## 결과 요약
 
 | 검증 | 결과 |
 |---|---|
-| Python unittest | 통과: 37건 |
+| Python unittest | 통과: 54건 |
+| Phase 7 질문 라우터 | 통과: 17건 — 12개 유형, 응답 깊이, 모호성, 한국 맥락, 투자안전 |
 | 부정 테스트 | 통과: 인용 불일치, 다른 문서, 404, 접근 제한, 오프라인, 시행 전 오인, 정책·입법예고 오인, 오래된 자료, 관할권 혼동, 근거 불일치, 사용자 오정보, 악의적 지시문 |
-| EIB Evidence live content verification | 통과: 6/6 `CONTENT_VERIFIED` |
+| EIB 저장 Evidence | 통과: 6/6 `CONTENT_VERIFIED`; 최신 live 재조회는 아래 제한 참조 |
 | 홍콩 신규 사례 live content verification | 통과: 6/6 `CONTENT_VERIFIED` |
 | HTML 추출 | 통과 |
 | PDF 추출 | 통과: 홍콩 SFC circular (`pypdf`) |
@@ -25,12 +26,17 @@
 | 의미 검토 경계 | 통과: 구조적 claim/Evidence 호환성이 의미 증명이 아니라는 경고 출력 |
 | Phase 6 격리 validator | 통과: 임시 venv에서 Skill Creator, Evidence 12건·Report 2건 JSON Schema 검증 |
 | Skills CLI 탐지 | 통과: 범용 자연어 설명으로 스킬 1개 탐지 |
+| Phase 7 로컬 Skill Creator·Skills CLI | 통과: 새 라우터·네트워크 설명 포함 스킬 1개 탐지 |
+| Phase 7 원격 fresh clone·격리 설치 | 대기: 첫 Phase 7 push 후 실행 |
+| Phase 7 GitHub Actions CI | 대기: 첫 Phase 7 push 후 실행 |
 
 ## 실행한 주요 명령
 
 ```bash
 python3 -m py_compile scripts/*.py
 python3 -m unittest discover -s tests -v
+python3 scripts/route_question.py "CLARITY Act가 뭐야?"
+python3 scripts/route_question.py "이 코인 어떤 거야?"
 python3 scripts/validate_sources.py examples/tokenization-case-study/evidence.json
 python3 scripts/validate_report.py examples/tokenization-case-study/report.json
 python3 scripts/validate_sources.py examples/hong-kong-digital-green-bond/evidence.json
@@ -39,6 +45,19 @@ python3 scripts/verify_evidence.py examples/hong-kong-digital-green-bond/evidenc
 python3 scripts/verify_evidence.py examples/tokenization-case-study/evidence.json --output /tmp/kdapi-eib-live-verification.json --timeout 25
 npx skills add . --list
 ```
+
+## Phase 7 라우터 검증
+
+- CLARITY Act 질문은 `LAW_AND_REGULATION`, 한국 규제 비교는 `REGULATORY_COMPARISON`
+- 토큰증권의 간단한 정의는 `CONCEPT_EXPLANATION` + `TOKENIZED_ASSET_OR_RWA`
+- 이더리움은 네트워크 평가, USDC는 스테이블코인 평가로 분리
+- 대상 없는 코인·네트워크는 `AMBIGUOUS_REQUEST`와 확인 질문
+- 백서는 공식 URL·파일·프로젝트명을 요청하되 백서 프레임워크 유지
+- 투자 요청은 `INVESTMENT_OR_PRICE_REQUEST`로 분류하고 추천 대신 위험 검토로 전환
+- 해외 네트워크 질문에는 한국 맥락을 자동 추가하지 않음
+- 단순 질문에는 `DEEP_RESEARCH`를 강제하지 않음
+
+라우터는 질문의 방법론을 선택할 뿐 실제 법안 상태, 프로젝트 안전성, 네트워크 품질을 증명하지 않는다. 이 부분은 Phase 8의 독립 리서치 대상이다.
 
 ## Evidence 원문 검증
 

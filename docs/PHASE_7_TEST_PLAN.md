@@ -1,6 +1,6 @@
-# Phase 7 — Independent Natural-language Evaluation Plan
+# Superseded Plan — Independent Natural-language Evaluation
 
-상태: 설계만 완료. 사용자 승인 전 실행·구현 금지.
+상태: 2026-11-17 새 Phase 7 일반 사용자 라우터 계획으로 대체됨. 삭제하지 않고 이력을 보존한다. 아래 독립 평가 범위는 Phase 8 후보이며 사용자 승인 전 실행·구현하지 않는다.
 
 ## 목적
 

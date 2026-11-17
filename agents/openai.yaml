@@ -1,5 +1,5 @@
 interface:
   display_name: "K-Digital Asset Policy Intelligence"
-  short_description: "디지털자산 질문을 공식 근거와 한국 맥락으로 분석"
-  default_prompt: "Use $k-digital-asset-policy-intelligence to research this digital-asset question from official sources and explain the relevant Korean regulatory, policy, and market implications."
+  short_description: "공식 근거로 디지털자산 질문을 유형별 분석하는 리서치 스킬"
+  default_prompt: "Use $k-digital-asset-policy-intelligence to classify this digital-asset question, choose the matching research framework and response depth, verify current official sources when available, and add Korean context only when it is materially relevant."
 

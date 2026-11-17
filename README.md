@@ -1,17 +1,20 @@
 # K-Digital Asset Policy Intelligence (K-DAPI)
 
-해외 디지털자산·토큰화 사업모델을 공식 근거로 조사하고, 한국 법률·정책과 비교해 국내 도입 조건과 금융기관·핀테크의 사업적 시사점을 도출하는 Agent Skill입니다.
+일반 사용자의 디지털자산 질문을 분류하고, 주제에 맞는 공식 근거와 연구 방법론으로 답하는 Agent Skill입니다. 법률·정책, 코인·프로젝트, 네트워크, 백서, 스테이블코인, 토큰증권·RWA, 거래소 정책과 사업모델을 지원하며 한국 맥락은 실질적으로 관련될 때만 연결합니다.
 
-단순 요약이 아니라 다음 흐름을 재사용 가능한 방법론으로 제공합니다.
+기본 흐름은 다음과 같습니다.
 
-> 해외 사업모델 → 해외 규제 → 한국 규제 → 제도 격차 → 국내 적용 조건 → 사업 시사점
+> 자연어 질문 → 질문 유형·깊이 선택 → 공식 자료 확인 → 사실·주장·추론 구분 → 관련 시 한국 맥락
 
 ## 주요 기능
 
-- 영문 PDF·공식 URL·연구질문 기반 분석
+- PDF나 API 키 없이 자연어 질문으로 시작
+- 12개 질문 유형의 결정적 라우팅과 모호한 대상 확인
+- `QUICK`·`STANDARD`·`DEEP_RESEARCH` 답변 깊이 선택
+- 법률·코인·네트워크·백서·스테이블코인·RWA·거래소·사업모델별 방법론
 - 법률, 정책 발표, 입법예고, 시행 상태 분리
 - 주장별 Evidence ID와 사실·추론·미검증·검토필요 등급
-- 국문 심층 보고서와 영문 Executive Summary
+- 간단 설명, 일반 분석, 국문 심층 보고서와 영문 Executive Summary
 - JSON Schema와 표준 라이브러리 기반 검증 도구
 - HTML·텍스트·PDF 원문 추출, 발췌문 대조, 문서 해시 기록
 - 정규화된 법적 주장 유형과 Evidence 법적 상태의 호환성 검사
@@ -30,6 +33,26 @@ npx skills add junjunny/k-digital-asset-policy-intelligence@k-digital-asset-poli
 또는 이 저장소를 내려받아 `SKILL.md`가 포함된 폴더를 지원되는 에이전트의 skills 디렉터리에 복사합니다.
 
 ## 사용 예시
+
+### 일반 사용자
+
+```text
+CLARITY Act가 무엇인지 현재 법안 상태와 함께 간단히 알려줘.
+```
+
+```text
+이더리움 네트워크를 합의 방식, 탈중앙화, 실제 사용과 주요 위험 관점에서 평가해 줘.
+```
+
+```text
+USDC가 가격을 유지하는 방식과 준비자산·상환·디페깅 위험을 알려줘.
+```
+
+```text
+이 코인 어떤 거야?
+```
+
+마지막 질문처럼 대상이 불명확하면 코인 이름·티커·네트워크를 먼저 확인합니다. 임의로 프로젝트를 선택하지 않습니다. 자세한 예시는 [일반 사용자 안내](docs/GENERAL_USER_GUIDE.md)를 참고하세요.
 
 ### 리서처
 
@@ -53,6 +76,8 @@ EU DLT Pilot과 한국 토큰증권 제도를 비교하고,
 
 스킬은 확인된 사실, 사업적 추론, 입법예고, 미검증 항목을 분리합니다. 사용자가 제공한 법률 정보도 공식 원문 없이는 확정 사실로 승격하지 않습니다.
 
+매수·매도·가격 예측은 제공하지 않습니다. 대신 프로젝트 구조, 공급·유통, 기술·운영·규제 위험과 확인 체크리스트를 제공합니다.
+
 ## 결과 검증
 
 Python 3.9 이상이 필요합니다. PDF 원문 추출 기능을 사용하려면 다음 의존성을 설치합니다.
@@ -62,6 +87,7 @@ python3 -m pip install -r requirements.txt
 ```
 
 ```bash
+python3 scripts/route_question.py "토큰증권이 뭐야?"
 python3 scripts/validate_sources.py examples/tokenization-case-study/evidence.json
 python3 scripts/validate_report.py examples/tokenization-case-study/report.json
 python3 scripts/verify_evidence.py examples/hong-kong-digital-green-bond/evidence.json --output /tmp/kdapi-verification.json
@@ -86,13 +112,13 @@ python3 scripts/validate_sources.py examples/tokenization-case-study/evidence.js
 - `references/`: 방법론, 근거 정책, 규제 프레임워크, 용어집
 - `templates/`: 리서치 브리프와 보고서 템플릿
 - `schemas/`: evidence·finding·report JSON Schema
-- `scripts/`: 출처·보고서 검증기
+- `scripts/`: 질문 라우터와 출처·보고서 검증기
 - `examples/`: 재현 가능한 사례 분석
 - `docs/`: 로드맵, 단계별 기록, 테스트, 인계
 
 ## 외부 스킬과의 관계
 
-skills.sh의 일반 research, deep-research, financial research, legal memo 계열을 조사했으나 이 저장소에는 복제하거나 필수 의존성으로 포함하지 않았습니다. K-DAPI는 한국 토큰증권의 시행 상태 구분과 해외 사업모델의 국내 적용 조건에 특화합니다.
+skills.sh의 일반 research, deep-research, financial research, legal memo 계열을 복제하거나 필수 의존성으로 포함하지 않았습니다. K-DAPI는 디지털자산 질문별 방법론, 공식 근거 추적, 법적 상태 구분과 한국 금융·핀테크 맥락에 특화합니다.
 
 ## 라이선스와 기여
 

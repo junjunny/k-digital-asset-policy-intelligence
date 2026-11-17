@@ -18,11 +18,17 @@ class SkillStructureTests(unittest.TestCase):
             "scripts/validate_sources.py",
             "scripts/verify_evidence.py",
             "scripts/migrate_evidence_v1_to_v2.py",
+            "scripts/route_question.py",
             "docs/HUMAN_REVIEW_GUIDE.md",
             "docs/RESEARCH_QUALITY_AUDIT.md",
             "docs/OPEN_QUESTIONS.md",
             "docs/ANALYST_REVIEW.md",
             "docs/PHASE_7_TEST_PLAN.md",
+            "docs/QUESTION_ROUTING.md",
+            "docs/RESEARCH_FRAMEWORKS.md",
+            "docs/RESPONSE_MODES.md",
+            "docs/GENERAL_USER_GUIDE.md",
+            "docs/PHASE_7.md",
             ".github/workflows/ci.yml",
         ]
         for relative in required:
