@@ -9,7 +9,7 @@
 - Phase 4: 로컬 공개 준비, 원격 push, fresh install 검증 완료
 - Phase 5: Evidence v2·정규화 규제검증·홍콩 독립 사례·부정 테스트·원격 fresh install·CI 통과
 - Phase 6: 인간 검토 패키지, 두 사례 품질감사, 입력 보안 보완, 범용 비전 반영, Phase 7 독립 테스트 설계 완료. 사용자 검토 대기
-- Phase 7: 12개 질문 유형 라우터, 3개 응답 모드, 유형별 연구 프레임워크, 모호성·투자안전·한국 맥락 처리 구현 완료. 원격 fresh install·CI 확인 대기
+- Phase 7: 12개 질문 유형 라우터, 3개 응답 모드, 유형별 연구 프레임워크, 모호성·투자안전·한국 맥락 처리, 원격 fresh install·CI 완료
 
 ## 완료 파일군
 
@@ -35,6 +35,7 @@
 - 명시적 관련성이 없을 때 한국 규제 연결 방지
 - 일반 사용자 안내, 라우팅 결정표, 유형별 연구 프레임워크 작성
 - 기존 Phase 7 독립 평가 계획을 superseded로 표시하고 Phase 8 후보로 이관
+- 원격 fresh clone에서 54개 테스트, Skill Creator, Skills CLI 탐지와 격리 프로젝트 copy 설치 통과
 
 ## 미해결
 

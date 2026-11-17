@@ -30,7 +30,7 @@ K-DAPI는 일반 사용자가 자연어로 질문하는 다양한 디지털자�
 | 4. Open Source | 국·영문 README, 라이선스, 설치 안내, 공개 점검 | 제3자 설치·재현 가능 | 로컬 준비 완료, 공개 확인 대기 |
 | 5. Quality Hardening | Evidence v2, 규제 claim 검증, 부정 테스트, 독립 사례, CI | 원문·인용 검증과 fresh install, 새 질문 재현 | 구현 완료, 최종 검증 기록 참조 |
 | 6. Human Review Gate | 검증 격차 보완, 사례 품질감사, 인간 검토 패키지, Phase 7 설계 | 자동 검증과 인간 판단의 경계 및 사용자 결정사항 명시 | 구현 완료, 사용자 검토 대기 |
-| 7. General-user Router | 12개 질문 유형, 연구 프레임워크, 응답 깊이, 모호성·투자안전 처리 | 자연어 질문을 결정적으로 분류하고 적절한 방법론·깊이를 선택 | 구현 완료, 원격 검증 대기 |
+| 7. General-user Router | 12개 질문 유형, 연구 프레임워크, 응답 깊이, 모호성·투자안전 처리 | 자연어 질문을 결정적으로 분류하고 적절한 방법론·깊이를 선택 | 완료 |
 | 8. Independent Breadth Validation | CLARITY Act, 코인, 네트워크, 스테이블코인 신규 질문 | 격리 설치본에서 입력부터 공식자료 기반 답변까지 독립 검증 | 사용자 승인 전 시작 금지 |
 | 9. Corporate Insight Portfolio | 금융기관 전략 비교, 내부 브리프, 분석자 기여 | 산업·정책 변화의 금융·핀테크 영향과 의사결정 시사점 제시 | 미착수 |
 | 10. Release Candidate | fresh install, blind evaluation, 문서·패키지 최종 점검 | 일반 사용자 설치·사용성과 포트폴리오 품질 승인 | 미착수 |

@@ -27,8 +27,8 @@
 | Phase 6 격리 validator | 통과: 임시 venv에서 Skill Creator, Evidence 12건·Report 2건 JSON Schema 검증 |
 | Skills CLI 탐지 | 통과: 범용 자연어 설명으로 스킬 1개 탐지 |
 | Phase 7 로컬 Skill Creator·Skills CLI | 통과: 새 라우터·네트워크 설명 포함 스킬 1개 탐지 |
-| Phase 7 원격 fresh clone·격리 설치 | 대기: 첫 Phase 7 push 후 실행 |
-| Phase 7 GitHub Actions CI | 대기: 첫 Phase 7 push 후 실행 |
+| Phase 7 원격 fresh clone·격리 설치 | 통과: commit `9e8f1ab`, copy mode, 설치본 라우터·Skill Creator 검증 |
+| Phase 7 GitHub Actions CI | 통과: run `44027593383` (`9e8f1ab`) |
 
 ## 실행한 주요 명령
 
@@ -58,6 +58,12 @@ npx skills add . --list
 - 단순 질문에는 `DEEP_RESEARCH`를 강제하지 않음
 
 라우터는 질문의 방법론을 선택할 뿐 실제 법안 상태, 프로젝트 안전성, 네트워크 품질을 증명하지 않는다. 이 부분은 Phase 8의 독립 리서치 대상이다.
+
+## Phase 7 fresh installation
+
+GitHub 원격을 `/tmp/kdapi-phase7-fresh-20261117/repo`에 새로 clone하고 별도 venv에 의존성을 설치했다. 54개 테스트, CLARITY Act 라우팅, Skill Creator 검증과 Skills CLI 탐지를 통과했다. 별도 git 프로젝트인 `/tmp/kdapi-phase7-fresh-20261117/consumer`에 copy mode로 설치하고, 설치본의 실행 권한·`SKILL.md`·모호한 코인 확인 질문·Skill Creator 검증을 확인했다.
+
+PDF나 외부 API 키 없이 질문 라우팅은 시작할 수 있다. 다만 실제 최신 법률·프로젝트·네트워크 분석에는 웹 검색 또는 사용자가 제공한 공식 원문이 필요하며, 이것은 이번 Phase에서 독립 수행하지 않았다.
 
 ## Evidence 원문 검증
 
