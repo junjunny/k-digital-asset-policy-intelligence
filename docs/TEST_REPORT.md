@@ -34,7 +34,7 @@
 | Phase 8 모델 보조평가 | 94/98, 97/98, 95/98, 96/98; 치명적 오류 0 판단, 인간 평가 아님 |
 | Phase 8 신규 Evidence v2 | 11건 schema 통과; 10 `CONTENT_VERIFIED`, 1 `ACCESS_RESTRICTED` |
 | Phase 8 사용성·다중턴·오프라인 | 10개 수정 전/후, holdout 3개, 다중턴 3개, 웹 미사용 1개 기록 |
-| Phase 8 GitHub Actions CI | push 후 실제 원격 run 확인 예정 |
+| Phase 8 GitHub Actions CI | 통과: run `44071185525` (`fec3258`) |
 
 ## 실행한 주요 명령
 
