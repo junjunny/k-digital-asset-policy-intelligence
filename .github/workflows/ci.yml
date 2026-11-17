@@ -29,4 +29,8 @@ jobs:
       - run: python scripts/validate_report.py examples/tokenization-case-study/report.json
       - run: python scripts/validate_sources.py examples/hong-kong-digital-green-bond/evidence.json
       - run: python scripts/validate_report.py examples/hong-kong-digital-green-bond/report.json
+      - run: python scripts/validate_sources.py evaluations/phase-8/cases/clarity-act/evidence.json
+      - run: python scripts/validate_sources.py evaluations/phase-8/cases/chainlink/evidence.json
+      - run: python scripts/validate_sources.py evaluations/phase-8/cases/ethereum/evidence.json
+      - run: python scripts/validate_sources.py evaluations/phase-8/cases/usdc/evidence.json
       - run: npx --yes skills add . --list

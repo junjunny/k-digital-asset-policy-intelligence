@@ -24,7 +24,7 @@
 
 ## 설치
 
-저장소 공개 후 Skills CLI로 설치합니다.
+Skills CLI로 설치합니다.
 
 ```bash
 npx skills add junjunny/k-digital-asset-policy-intelligence@k-digital-asset-policy-intelligence
@@ -77,6 +77,10 @@ EU DLT Pilot과 한국 토큰증권 제도를 비교하고,
 스킬은 확인된 사실, 사업적 추론, 입법예고, 미검증 항목을 분리합니다. 사용자가 제공한 법률 정보도 공식 원문 없이는 확정 사실로 승격하지 않습니다.
 
 매수·매도·가격 예측은 제공하지 않습니다. 대신 프로젝트 구조, 공급·유통, 기술·운영·규제 위험과 확인 체크리스트를 제공합니다.
+
+## 독립 평가
+
+Phase 8에서 fresh clone의 격리 소비자 프로젝트에 실제 설치한 뒤 CLARITY Act, Chainlink, Ethereum, USDC 질문을 K-DAPI 미사용 대조군과 비교했습니다. 답변 원문·핵심 Evidence·사용성 실패와 수정 기록은 [Phase 8 평가 자료](evaluations/phase-8/README.md), 인간 검토 양식은 [Phase 8 Human Review](docs/PHASE_8_HUMAN_REVIEW.md)에 있습니다. 모델 보조점수와 인간 평가는 구분하며, 자동·암묵 활성화는 관측하지 못했습니다.
 
 ## 결과 검증
 

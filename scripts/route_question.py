@@ -38,6 +38,7 @@ LAW_TERMS = (
     "법안", "법률", "규제", "정책", "시행령", "감독규정", "입법예고", "의회",
     "법적", "regulation", "regulatory", "legislation", "congress", " act", "act ",
 )
+LAW_NAME_TERMS = ("clarity", "클래리티", "클래러티")
 WHITEPAPER_TERMS = ("백서", "whitepaper", "white paper")
 STABLECOIN_TERMS = (
     "스테이블코인", "stablecoin", "usdc", "usdt", "테더", "dai", "pyusd", "usde",
@@ -72,6 +73,10 @@ KOREAN_CONTEXT_TERMS = (
     "한국", "국내", "원화", "대한민국", "금융위원회", "금감원", "국회", "한국은행",
     "업비트", "빗썸", "코인원", "코빗", "korea", "korean",
 )
+LEGAL_FEASIBILITY_TERMS = (
+    "지금 발행", "발행할 수", "가능해", "가능한가", "허용", "적법", "불법",
+    "can issue", "legally", "permitted",
+)
 DEEP_TERMS = (
     "심층", "심도 있게", "상세 보고서", "종합 보고서", "리서치 보고서", "보고서로",
     "deep research", "in-depth report", "comprehensive report",
@@ -88,6 +93,12 @@ def normalize_question(question):
 
 def contains_any(text, terms):
     return any(term in text for term in terms)
+
+
+def has_law_intent(text):
+    return contains_any(text, LAW_TERMS) or (
+        contains_any(text, LAW_NAME_TERMS) and any(term in text for term in ("법", "act"))
+    )
 
 
 def has_explicit_identifier(original, normalized=None):
@@ -114,7 +125,9 @@ def ambiguous_subject(text, original=None):
 
 
 def clarification_for(text, original, primary_type):
-    if primary_type == "WHITEPAPER_REVIEW" and not re.search(r"https?://|첨부|파일", text):
+    if primary_type == "WHITEPAPER_REVIEW" and not (
+        re.search(r"https?://|첨부|파일", text) or has_explicit_identifier(original, text)
+    ):
         return "검토할 백서 파일이나 공식 URL, 프로젝트명을 알려주세요."
     if primary_type == "REGULATORY_COMPARISON" and not any(
         term in text for term in ("미국", "유럽", "eu", "영국", "일본", "싱가포르", "홍콩", "clarity", "mica")
@@ -152,28 +165,37 @@ def classify_question(question):
     if contains_any(text, INVESTMENT_TERMS):
         primary = "INVESTMENT_OR_PRICE_REQUEST"
         reasons.append("매수·매도·가격·수익 요청을 감지함")
-    elif contains_any(text, COMPARISON_TERMS) and (
-        contains_any(text, LAW_TERMS) or contains_any(text, KOREAN_CONTEXT_TERMS)
-    ):
+    elif contains_any(text, COMPARISON_TERMS) and has_law_intent(text):
         primary = "REGULATORY_COMPARISON"
         reasons.append("법률·규제·정책의 관할권 비교 요청을 감지함")
     elif contains_any(text, WHITEPAPER_TERMS):
         primary = "WHITEPAPER_REVIEW"
         reasons.append("백서 검토 요청을 감지함")
+    elif has_law_intent(text):
+        primary = "LAW_AND_REGULATION"
+        if contains_any(text, STABLECOIN_TERMS):
+            secondary.append("STABLECOIN_REVIEW")
+        if contains_any(text, TOKENIZED_ASSET_TERMS):
+            secondary.append("TOKENIZED_ASSET_OR_RWA")
+        reasons.append("법률·법안·규제·정책 질문을 감지함")
     elif contains_any(text, STABLECOIN_TERMS):
         primary = "STABLECOIN_REVIEW"
         reasons.append("스테이블코인 또는 가격 안정 메커니즘 대상을 식별함")
+    elif (
+        contains_any(text, NETWORK_TERMS) or (
+            contains_any(text, KNOWN_NETWORKS) and any(
+                term in text for term in ("평가", "장단점", "합의", "노드", "네트워크", "차이", "비교")
+            )
+        )
+    ) and not ambiguous_subject(text, original):
+        primary = "NETWORK_OR_PROTOCOL_REVIEW"
+        reasons.append("블록체인 네트워크 또는 프로토콜 평가 요청을 감지함")
     elif contains_any(text, EXCHANGE_TERMS):
         primary = "EXCHANGE_SUPPORT_POLICY"
         reasons.append("거래소 거래지원·유의·종료 정책 질문을 감지함")
     elif ambiguous_subject(text, original):
         primary = "AMBIGUOUS_REQUEST"
         reasons.append("분석 대상의 고유 이름·티커·관할권이 없음")
-    elif contains_any(text, NETWORK_TERMS) or (
-        contains_any(text, KNOWN_NETWORKS) and any(term in text for term in ("평가", "장단점", "합의", "노드", "네트워크"))
-    ):
-        primary = "NETWORK_OR_PROTOCOL_REVIEW"
-        reasons.append("블록체인 네트워크 또는 프로토콜 평가 요청을 감지함")
     elif contains_any(text, TOKENIZED_ASSET_TERMS):
         if contains_any(text, QUICK_TERMS):
             primary = "CONCEPT_EXPLANATION"
@@ -181,10 +203,9 @@ def classify_question(question):
             reasons.append("토큰증권·RWA에 대한 간단한 개념 설명 요청을 감지함")
         else:
             primary = "TOKENIZED_ASSET_OR_RWA"
+            if contains_any(text, KOREAN_CONTEXT_TERMS) and contains_any(text, LEGAL_FEASIBILITY_TERMS):
+                secondary.append("LAW_AND_REGULATION")
             reasons.append("토큰증권·RWA 구조 분석 요청을 감지함")
-    elif contains_any(text, LAW_TERMS):
-        primary = "LAW_AND_REGULATION"
-        reasons.append("법률·법안·규제·정책 질문을 감지함")
     elif contains_any(text, BUSINESS_TERMS):
         primary = "BUSINESS_MODEL_REVIEW"
         reasons.append("사업모델·수익구조·시장진입 질문을 감지함")

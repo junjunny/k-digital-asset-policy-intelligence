@@ -23,7 +23,7 @@ This skill does not provide legal or investment advice.
 
 ## Install
 
-After the repository is public:
+Install with the Skills CLI:
 
 ```bash
 npx skills add junjunny/k-digital-asset-policy-intelligence@k-digital-asset-policy-intelligence
@@ -67,6 +67,10 @@ The included [case study](examples/tokenization-case-study/report-ko.md) compare
 The independent [Hong Kong digital green bond case](examples/hong-kong-digital-green-bond/report-ko.md) exercises the full research workflow with newly collected HKMA and SFC sources, including PDF content verification.
 
 K-DAPI does not select an unspecified coin or network, force every question into a Korean token-securities analysis, or provide buy/sell and price predictions. See the [general user guide](docs/GENERAL_USER_GUIDE.md) for examples.
+
+## Independent evaluation
+
+Phase 8 installed the baseline from a fresh clone into an isolated consumer project and ran CLARITY Act, Chainlink, Ethereum and USDC questions in fresh control and K-DAPI sessions. Raw answers, core Evidence v2 records, usability failures and post-fix results are preserved in [the Phase 8 evaluation package](evaluations/phase-8/README.md). Model-assisted scores are not human approval, and implicit/automatic skill activation could not be observed separately from explicit use of the installed skill.
 
 ## Licence
 

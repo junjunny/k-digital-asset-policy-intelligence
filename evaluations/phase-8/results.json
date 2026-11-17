@@ -1,0 +1,122 @@
+[
+  {
+    "case": "clarity-act",
+    "baseline_scores": {
+      "facts_currentness": 23,
+      "source_claim_fit": 18,
+      "depth": 15,
+      "korean_relevance": 15,
+      "risks_uncertainty": 9,
+      "intent": 10,
+      "readability": 4
+    },
+    "skill_scores": {
+      "facts_currentness": 24,
+      "source_claim_fit": 20,
+      "depth": 15,
+      "korean_relevance": 15,
+      "risks_uncertainty": 10,
+      "intent": 10,
+      "readability": 4
+    },
+    "baseline_total": 94,
+    "skill_total": 98,
+    "critical_failures": [],
+    "preferred": "skill",
+    "human_checks": [
+      "Confirm the procedural status and authority of the September 2026 EHF26724 draft versus the June GovInfo Senate reported text.",
+      "Recheck Senate roll-call 49-50, motion to reconsider, and any subsequent action in the official Senate record because the provided verification logged a 403 for the vote URL.",
+      "Confirm how H.R. 3633 and separate S. 3755 were intended to combine for the CFTC spot-market registration regime."
+    ]
+  },
+  {
+    "case": "chainlink",
+    "baseline_scores": {
+      "facts_currentness": 24,
+      "source_claim_fit": 19,
+      "depth": 15,
+      "korean_relevance": 15,
+      "risks_uncertainty": 10,
+      "intent": 10,
+      "readability": 4
+    },
+    "skill_scores": {
+      "facts_currentness": 25,
+      "source_claim_fit": 20,
+      "depth": 15,
+      "korean_relevance": 15,
+      "risks_uncertainty": 10,
+      "intent": 10,
+      "readability": 3
+    },
+    "baseline_total": 97,
+    "skill_total": 98,
+    "critical_failures": [],
+    "preferred": "skill",
+    "human_checks": [
+      "Reconcile the baseline's 5M+ Reserve statement with the skill answer's approximately 6.57M LINK snapshot using the dashboard timestamp and units.",
+      "Review the official supply API methodology and non-circulating address list before treating its circulating supply as market circulation.",
+      "Confirm the current Aave GHO CCIP deployment list and distinguish live integration from independently verified transaction volume."
+    ]
+  },
+  {
+    "case": "ethereum",
+    "baseline_scores": {
+      "facts_currentness": 23,
+      "source_claim_fit": 19,
+      "depth": 15,
+      "korean_relevance": 15,
+      "risks_uncertainty": 10,
+      "intent": 10,
+      "readability": 3
+    },
+    "skill_scores": {
+      "facts_currentness": 25,
+      "source_claim_fit": 20,
+      "depth": 15,
+      "korean_relevance": 15,
+      "risks_uncertainty": 10,
+      "intent": 10,
+      "readability": 3
+    },
+    "baseline_total": 95,
+    "skill_total": 98,
+    "critical_failures": [],
+    "preferred": "skill",
+    "human_checks": [
+      "Verify Solana Alpenglow/Votor mainnet status, 150/200 ms claims, and Rotor status as of the evaluation date.",
+      "Do not compare Rated, Beaconcha.in, or address-clustering staking shares without reviewing their entity-attribution methodologies.",
+      "Recheck Ethereum gas limit, Fusaka/PeerDAS implementation status, and Glamsterdam test and delay chronology in official releases."
+    ]
+  },
+  {
+    "case": "usdc",
+    "baseline_scores": {
+      "facts_currentness": 24,
+      "source_claim_fit": 19,
+      "depth": 15,
+      "korean_relevance": 15,
+      "risks_uncertainty": 10,
+      "intent": 10,
+      "readability": 3
+    },
+    "skill_scores": {
+      "facts_currentness": 25,
+      "source_claim_fit": 20,
+      "depth": 15,
+      "korean_relevance": 15,
+      "risks_uncertainty": 10,
+      "intent": 10,
+      "readability": 3
+    },
+    "baseline_total": 96,
+    "skill_total": 98,
+    "critical_failures": [],
+    "preferred": "skill",
+    "human_checks": [
+      "Reproduce the November 12, 2026 weekly circulation and reserve-component figures from Circle's HTML data attributes; the provided verification did not excerpt the individual amounts.",
+      "Confirm the January 18, 2027 effective-date relationship between the GENIUS Act and OCC final rule from the statute and Federal Register.",
+      "Check current Circle Mint eligibility for Korean users and obtain transaction-specific advice for Korean foreign-exchange and tax treatment."
+    ]
+  }
+]

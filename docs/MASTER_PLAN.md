@@ -31,7 +31,7 @@ K-DAPI는 일반 사용자가 자연어로 질문하는 다양한 디지털자�
 | 5. Quality Hardening | Evidence v2, 규제 claim 검증, 부정 테스트, 독립 사례, CI | 원문·인용 검증과 fresh install, 새 질문 재현 | 구현 완료, 최종 검증 기록 참조 |
 | 6. Human Review Gate | 검증 격차 보완, 사례 품질감사, 인간 검토 패키지, Phase 7 설계 | 자동 검증과 인간 판단의 경계 및 사용자 결정사항 명시 | 구현 완료, 사용자 검토 대기 |
 | 7. General-user Router | 12개 질문 유형, 연구 프레임워크, 응답 깊이, 모호성·투자안전 처리 | 자연어 질문을 결정적으로 분류하고 적절한 방법론·깊이를 선택 | 완료 |
-| 8. Independent Breadth Validation | CLARITY Act, 코인, 네트워크, 스테이블코인 신규 질문 | 격리 설치본에서 입력부터 공식자료 기반 답변까지 독립 검증 | 사용자 승인 전 시작 금지 |
+| 8. Independent Breadth Validation | CLARITY Act, 코인, 네트워크, 스테이블코인 신규 질문 | 격리 설치본에서 입력부터 공식자료 기반 답변까지 독립 검증 | 구현·실험 완료, 인간 평가 대기 |
 | 9. Corporate Insight Portfolio | 금융기관 전략 비교, 내부 브리프, 분석자 기여 | 산업·정책 변화의 금융·핀테크 영향과 의사결정 시사점 제시 | 미착수 |
 | 10. Release Candidate | fresh install, blind evaluation, 문서·패키지 최종 점검 | 일반 사용자 설치·사용성과 포트폴리오 품질 승인 | 미착수 |
 
@@ -46,9 +46,11 @@ K-DAPI는 일반 사용자가 자연어로 질문하는 다양한 디지털자�
 - 질문 유형별 방법론을 적용하고 무관한 한국 규제 연결을 만들지 않음
 - 저장된 사례 검증과 실제 자연어 E2E를 구분
 
-## Phase 8 독립 테스트 원칙
+## Phase 8 독립 테스트 결과
 
-이전 `docs/PHASE_7_TEST_PLAN.md`의 독립 평가 계획은 Phase 8 후보로 이관한다. CLARITY Act를 실제 분석할 때는 실행 시점의 미국 의회 공식 원문과 진행상태, 한국 공식 법령·정책의 최신 상태를 새로 조회해야 한다. Phase 7의 라우터 테스트는 실제 리서치 품질 검증을 대신하지 않는다.
+이전 `docs/PHASE_7_TEST_PLAN.md`는 이력으로 유지한다. Phase 8은 기준선 `ba7734e` fresh clone 설치 후 CLARITY Act, Chainlink, Ethereum, USDC를 대조군과 K-DAPI 사용군의 독립 세션에서 실제 조사했다. 라우터 테스트, 설치 성공, Evidence 원문 대조, 모델 보조점수, 인간 평가는 서로 다른 결과로 기록한다. 최종 승인은 `docs/PHASE_8_HUMAN_REVIEW.md`에서 사용자가 결정한다.
+
+프로젝트 신규 기능 개발은 Phase 10에서 종료한다. Phase 11 이후의 개발 단계를 만들지 않는다.
 
 ## 후속 확장
 

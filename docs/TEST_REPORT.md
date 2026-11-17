@@ -6,8 +6,8 @@
 
 | 검증 | 결과 |
 |---|---|
-| Python unittest | 통과: 54건 |
-| Phase 7 질문 라우터 | 통과: 17건 — 12개 유형, 응답 깊이, 모호성, 한국 맥락, 투자안전 |
+| Python unittest | 통과: 63건 |
+| 질문 라우터 | 통과: 26건 — 기존 17건 + 실제 실패 5건 + holdout·복합 유형 4건 |
 | 부정 테스트 | 통과: 인용 불일치, 다른 문서, 404, 접근 제한, 오프라인, 시행 전 오인, 정책·입법예고 오인, 오래된 자료, 관할권 혼동, 근거 불일치, 사용자 오정보, 악의적 지시문 |
 | EIB 저장 Evidence | 통과: 6/6 `CONTENT_VERIFIED`; 최신 live 재조회는 아래 제한 참조 |
 | 홍콩 신규 사례 live content verification | 통과: 6/6 `CONTENT_VERIFIED` |
@@ -29,6 +29,12 @@
 | Phase 7 로컬 Skill Creator·Skills CLI | 통과: 새 라우터·네트워크 설명 포함 스킬 1개 탐지 |
 | Phase 7 원격 fresh clone·격리 설치 | 통과: commit `9e8f1ab`, copy mode, 설치본 라우터·Skill Creator 검증 |
 | Phase 7 GitHub Actions CI | 통과: run `44027593383` (`9e8f1ab`) |
+| Phase 8 fresh clone·Skills CLI 설치 | 통과: 기준선 `ba7734e`, GitHub source, Codex copy mode |
+| Phase 8 독립 A/B 리서치 | 수행: CLARITY, Chainlink, Ethereum, USDC 각 대조군·설치본 사용군 1회 |
+| Phase 8 모델 보조평가 | 94/98, 97/98, 95/98, 96/98; 치명적 오류 0 판단, 인간 평가 아님 |
+| Phase 8 신규 Evidence v2 | 11건 schema 통과; 10 `CONTENT_VERIFIED`, 1 `ACCESS_RESTRICTED` |
+| Phase 8 사용성·다중턴·오프라인 | 10개 수정 전/후, holdout 3개, 다중턴 3개, 웹 미사용 1개 기록 |
+| Phase 8 GitHub Actions CI | push 후 실제 원격 run 확인 예정 |
 
 ## 실행한 주요 명령
 
@@ -45,6 +51,26 @@ python3 scripts/verify_evidence.py examples/hong-kong-digital-green-bond/evidenc
 python3 scripts/verify_evidence.py examples/tokenization-case-study/evidence.json --output /tmp/kdapi-eib-live-verification.json --timeout 25
 npx skills add . --list
 ```
+
+## Phase 8 독립 평가
+
+기준선 `ba7734ed6e6b3b0483313d0564b12374b1d273f4`을 GitHub에서 fresh clone하고 다음 명령으로 설치했다.
+
+```bash
+npx --yes skills add junjunny/k-digital-asset-policy-intelligence@k-digital-asset-policy-intelligence --agent codex --copy -y
+```
+
+설치본은 격리 소비자 프로젝트의 `.agents/skills/k-digital-asset-policy-intelligence`에 생성됐다. 탐지·설치와 명시적 설치본 사용은 성공했다. 자동·암묵 활성화는 관측 가능한 이벤트가 없어 검증 완료로 표시하지 않았다.
+
+네 질문의 A/B 원문은 `evaluations/phase-8/cases/`에 보존했다. 별도 모델 보조평가의 대조군/사용군 점수는 CLARITY 94/98, Chainlink 97/98, Ethereum 95/98, USDC 96/98이었다. 네 사례 모두 치명적 오류 0으로 보았으나, 각 1회 표본이고 최종 인간 평가는 미완료다.
+
+핵심 출처 표본 11건을 Evidence v2로 검증했다. Chainlink 3건, Ethereum 2건, USDC 4건, CLARITY 상원 보고본 1건은 원격 원문과 발췌가 일치했다. 미국 상원 표결 페이지 1건은 HTTP 403으로 `ACCESS_RESTRICTED`이며 사람이 직접 확인해야 한다. 이 표본은 장문 답변의 모든 주장을 완전 매핑한 것은 아니다.
+
+## Phase 8 라우터 회귀
+
+수정 전 열 문항에서 실제로 관찰된 다섯 실패를 보존했다. 법률 의도와 스테이블코인, 거래소명과 네트워크, 국가명과 기술 비교, 한글 CLARITY 음역, 명시된 백서 대상의 충돌만 최소 수정했다. 수정 후 원 문항 10개와 별도 holdout 3개가 통과했다. 국내 토큰증권 현재 발행 가능성 질문은 `TOKENIZED_ASSET_OR_RWA`와 보조 `LAW_AND_REGULATION`을 함께 유지한다.
+
+다중턴 3개는 독립 대화 평가로 통과했으나 자동화된 상태 서버 시험이 아니다. 웹 미사용 평가는 도구를 제공하지 않은 조건에서 최신 입법상태 단정을 거부했지만 OS 네트워크 차단 통합시험은 아니다.
 
 ## Phase 7 라우터 검증
 
@@ -108,6 +134,11 @@ EUR-Lex 결과는 발췌 불일치로 잘못 분류하지 않고 접근 제한�
 - 스캔 PDF OCR, 복잡한 표·각주
 - 기존 방식 대비 실제 비용·시간 절감과 사업 수익성
 - 향후 공포될 한국 하위법규의 최종 내용
+- CLARITY 2026년 9월 협상초안의 절차적 지위와 공식 상원 보고본·S.3755 관계
+- Chainlink 계약매출·LINK 전환액·온체인 CCIP 사용량과 공급 API의 경제적 의미
+- Ethereum 동적 대시보드·entity tagging의 실제 운영자 귀속
+- USDC 동적 주간 수치, 은행별 익스포저와 한국 개별 거래의 외국환·세무 적용
+- 지원 에이전트의 자동·암묵 스킬 활성화 이벤트
 
 이 항목은 검증 완료로 표시하지 않고 보고서 한계 또는 `NEEDS_REVIEW`로 남겼다.
 

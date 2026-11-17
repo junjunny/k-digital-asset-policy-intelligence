@@ -1,0 +1,36 @@
+[
+  {
+    "schema_version": "1.0",
+    "evidence_id": "EV-P8-ETH-POS",
+    "source_title": "Proof-of-stake",
+    "publisher": "Ethereum.org",
+    "jurisdiction": "NOT_APPLICABLE",
+    "source_type": "PRIMARY_BUSINESS_SOURCE",
+    "legal_status": "NOT_APPLICABLE",
+    "official_url": "https://ethereum.org/developers/docs/consensus-mechanisms/pos/",
+    "publication_date": null,
+    "retrieved_at": "2026-11-17",
+    "effective_date": null,
+    "relevant_excerpt": "Time in proof-of-stake Ethereum is divided into slots (12 seconds) and epochs (32 slots).",
+    "page_or_section": "Proof-of-stake, slots and epochs",
+    "verification_status": "UNVERIFIED",
+    "notes": "프로토콜 구조 설명. 실제 최종성 시간과 블록 포함 시간을 동일시하지 않는다."
+  },
+  {
+    "schema_version": "1.0",
+    "evidence_id": "EV-P8-ETH-NODE",
+    "source_title": "Node architecture",
+    "publisher": "Ethereum.org",
+    "jurisdiction": "NOT_APPLICABLE",
+    "source_type": "PRIMARY_BUSINESS_SOURCE",
+    "legal_status": "NOT_APPLICABLE",
+    "official_url": "https://ethereum.org/developers/docs/nodes-and-clients/node-architecture/",
+    "publication_date": null,
+    "retrieved_at": "2026-11-17",
+    "effective_date": null,
+    "relevant_excerpt": "An Ethereum node is composed of two clients: an execution client and a consensus client.",
+    "page_or_section": "Node architecture overview",
+    "verification_status": "UNVERIFIED",
+    "notes": "실행 계층과 합의 계층 구분의 공식 기술 설명."
+  }
+]

@@ -50,6 +50,11 @@ class QuestionRouterTests(unittest.TestCase):
         self.assertTrue(result["needs_clarification"])
         self.assertIn("공식 URL", result["clarification_question"])
 
+    def test_named_project_whitepaper_does_not_reask_identity(self):
+        result = self.route("솔라나 백서 검토해 줘.")
+        self.assertEqual("WHITEPAPER_REVIEW", result["primary_type"])
+        self.assertFalse(result["needs_clarification"])
+
     def test_unspecified_coin_is_ambiguous(self):
         result = self.route("이 코인 어떤 거야?")
         self.assertEqual("AMBIGUOUS_REQUEST", result["primary_type"])
@@ -81,6 +86,41 @@ class QuestionRouterTests(unittest.TestCase):
         result = self.route("업비트가 이 코인의 거래지원을 종료한 이유가 뭐야?")
         self.assertEqual("EXCHANGE_SUPPORT_POLICY", result["primary_type"])
         self.assertTrue(result["include_korean_context"])
+
+    def test_exchange_name_does_not_override_network_intent(self):
+        result = self.route("업비트에서 거래되는 솔라나의 네트워크를 평가해 줘.")
+        self.assertEqual("NETWORK_OR_PROTOCOL_REVIEW", result["primary_type"])
+
+    def test_stablecoin_law_question_routes_to_law_with_secondary(self):
+        result = self.route("USDC 관련 미국 법률을 설명해 줘.")
+        self.assertEqual("LAW_AND_REGULATION", result["primary_type"])
+        self.assertIn("STABLECOIN_REVIEW", result["secondary_types"])
+
+    def test_korean_transliteration_of_clarity_routes_to_law(self):
+        result = self.route("클래리티법 알려줘.")
+        self.assertEqual("LAW_AND_REGULATION", result["primary_type"])
+
+    def test_country_context_does_not_turn_network_comparison_into_regulation(self):
+        result = self.route("한국에서 이더리움과 솔라나의 차이는 뭐야?")
+        self.assertEqual("NETWORK_OR_PROTOCOL_REVIEW", result["primary_type"])
+        self.assertTrue(result["include_korean_context"])
+
+    def test_holdout_stablecoin_legislation_variant(self):
+        result = self.route("미국 스테이블 코인 규제법을 핵심만 설명해줘")
+        self.assertEqual("LAW_AND_REGULATION", result["primary_type"])
+
+    def test_holdout_clarity_transliteration_variant(self):
+        result = self.route("미국 클래러티 법안 핵심 알려줘")
+        self.assertEqual("LAW_AND_REGULATION", result["primary_type"])
+
+    def test_holdout_exchange_and_network_shorthand(self):
+        result = self.route("업비트 솔라나 네트워크 장단점")
+        self.assertEqual("NETWORK_OR_PROTOCOL_REVIEW", result["primary_type"])
+
+    def test_korean_token_security_feasibility_keeps_law_secondary(self):
+        result = self.route("한국에서 토큰증권 지금 발행할 수 있어?")
+        self.assertEqual("TOKENIZED_ASSET_OR_RWA", result["primary_type"])
+        self.assertIn("LAW_AND_REGULATION", result["secondary_types"])
 
     def test_simple_question_does_not_force_deep_report(self):
         result = self.route("토큰증권이 뭐야?")
