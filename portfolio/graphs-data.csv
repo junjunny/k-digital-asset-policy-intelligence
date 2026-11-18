@@ -1,0 +1,13 @@
+metric,condition,value,status
+planned_slots,A,30,VERIFIED_DESIGN
+planned_slots,B,30,VERIFIED_DESIGN
+planned_slots,C,30,VERIFIED_DESIGN
+planned_slots,D,30,VERIFIED_DESIGN
+automatic_mean_score,A,,PENDING
+automatic_mean_score,B,,PENDING
+automatic_mean_score,C,,PENDING
+automatic_mean_score,D,,PENDING
+human_mean_score,A,,HUMAN_REVIEW_PENDING
+human_mean_score,B,,HUMAN_REVIEW_PENDING
+human_mean_score,C,,HUMAN_REVIEW_PENDING
+human_mean_score,D,,HUMAN_REVIEW_PENDING

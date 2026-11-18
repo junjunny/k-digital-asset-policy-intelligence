@@ -319,9 +319,32 @@ def aggregate() -> None:
     scores = read_json(score_path).get("scores", []) if score_path.exists() else []
     by_run = {item["run_id"]: item for item in scores if isinstance(item.get("total_score"), (int, float))}
     groups = {}
+    topic_groups = {}
+    slot_by_run = {slot["run_id"]: slot for slot in manifest["slots"]}
+    for topic in TOPICS:
+        topic_groups[topic] = {}
+        for condition in CONDITIONS:
+            subset = [slot for slot in manifest["slots"] if slot["topic"] == topic and slot["condition"] == condition]
+            topic_values = [float(by_run[slot["run_id"]]["total_score"]) for slot in subset if slot["run_id"] in by_run]
+            topic_groups[topic][condition] = {
+                "planned": len(subset),
+                "attempted": sum(bool(slot["attempts"]) for slot in subset),
+                "succeeded": sum(slot["status"] == "COMPLETED" for slot in subset),
+                "scored": len(topic_values),
+                "activation_confirmed": sum(slot["activation"] == "CONFIRMED" for slot in subset),
+                "score_summary": summarize(topic_values),
+            }
     for condition in CONDITIONS:
         slots = [slot for slot in manifest["slots"] if slot["condition"] == condition]
         values = [float(by_run[slot["run_id"]]["total_score"]) for slot in slots if slot["run_id"] in by_run]
+        selected_attempts = []
+        for slot in slots:
+            if not slot["selected_attempt"]:
+                continue
+            selected_attempts.extend(attempt for attempt in slot["attempts"] if attempt["attempt_id"] == slot["selected_attempt"])
+        usage_exposed = [attempt["usage"] for attempt in selected_attempts if isinstance(attempt.get("usage"), dict)]
+        total_tokens = sum(usage.get("input_tokens", 0) + usage.get("output_tokens", 0) for usage in usage_exposed)
+        verified_claims = sum(by_run[slot["run_id"]].get("verified_core_claims", 0) for slot in slots if slot["run_id"] in by_run)
         groups[condition] = {
             "planned": len(slots),
             "attempted": sum(bool(slot["attempts"]) for slot in slots),
@@ -330,6 +353,10 @@ def aggregate() -> None:
             "activation_confirmed": sum(slot["activation"] == "CONFIRMED" for slot in slots),
             "failure_rate_of_attempted": round(sum(slot["status"] == "FAILED" for slot in slots) / max(1, sum(bool(slot["attempts"]) for slot in slots)), 4),
             "score_summary": summarize(values),
+            "usage_exposed_runs": len(usage_exposed),
+            "total_input_plus_output_tokens": total_tokens if usage_exposed else "N/A",
+            "verified_core_claims": verified_claims if values else "N/A",
+            "tokens_per_verified_core_claim": round(total_tokens / verified_claims, 3) if usage_exposed and verified_claims else "N/A",
         }
     means = {key: value["score_summary"]["mean"] for key, value in groups.items()}
     def contrast(left: str, right: str) -> float | str:
@@ -338,7 +365,14 @@ def aggregate() -> None:
         return round(means[left] - means[right], 3)
     contrasts = {"C-B": contrast("C", "B"), "C-A": contrast("C", "A"), "D-B": contrast("D", "B"), "D-C": contrast("D", "C"), "B-A": contrast("B", "A")}
     contrasts["interaction_(D-C)-(B-A)"] = "N/A" if not all(isinstance(contrasts[key], (int, float)) for key in ("D-C", "B-A")) else round(contrasts["D-C"] - contrasts["B-A"], 3)
-    output = {"generated_at": utc_now(), "human_review_status": "HUMAN_REVIEW_PENDING", "groups": groups, "contrasts": contrasts}
+    relative = {}
+    for label, difference in contrasts.items():
+        if label.startswith("interaction") or not isinstance(difference, (int, float)):
+            relative[label] = "N/A"
+            continue
+        right = label.split("-")[1]
+        relative[label] = round(difference / means[right], 4) if isinstance(means[right], (int, float)) and means[right] != 0 else "N/A"
+    output = {"generated_at": utc_now(), "human_review_status": "HUMAN_REVIEW_PENDING", "groups": groups, "topic_groups": topic_groups, "absolute_contrasts": contrasts, "relative_contrasts": relative}
     write_json_atomic(EXP / "results" / "aggregate.json", output)
     print(json.dumps(output, ensure_ascii=False, indent=2))
 

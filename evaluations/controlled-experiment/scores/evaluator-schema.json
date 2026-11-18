@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["topic", "evaluated_at", "scores"],
+  "properties": {
+    "topic": {"type": "string"},
+    "evaluated_at": {"type": "string"},
+    "scores": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["blind_id", "factual_currentness", "source_claim_fit", "depth_completeness", "korean_relevance", "risk_uncertainty", "intent", "usability", "total_score", "core_claims_total", "verified_core_claims", "contradicted_core_claims", "insufficient_core_claims", "required_items_total", "required_items_completed", "citation_claim_fit", "first_party_url_ratio", "status_classification", "evidence_urls", "notes"],
+        "properties": {
+          "blind_id": {"type": "string"},
+          "factual_currentness": {"type": "integer", "minimum": 0, "maximum": 25},
+          "source_claim_fit": {"type": "integer", "minimum": 0, "maximum": 20},
+          "depth_completeness": {"type": "integer", "minimum": 0, "maximum": 15},
+          "korean_relevance": {"type": "integer", "minimum": 0, "maximum": 15},
+          "risk_uncertainty": {"type": "integer", "minimum": 0, "maximum": 10},
+          "intent": {"type": "integer", "minimum": 0, "maximum": 10},
+          "usability": {"type": "integer", "minimum": 0, "maximum": 5},
+          "total_score": {"type": "integer", "minimum": 0, "maximum": 100},
+          "core_claims_total": {"type": "integer", "minimum": 0},
+          "verified_core_claims": {"type": "integer", "minimum": 0},
+          "contradicted_core_claims": {"type": "integer", "minimum": 0},
+          "insufficient_core_claims": {"type": "integer", "minimum": 0},
+          "required_items_total": {"type": "integer", "minimum": 0},
+          "required_items_completed": {"type": "integer", "minimum": 0},
+          "citation_claim_fit": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+          "first_party_url_ratio": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+          "status_classification": {"type": "string", "enum": ["SUPPORTED", "MIXED", "CONTRADICTED", "INSUFFICIENT_EVIDENCE"]},
+          "evidence_urls": {"type": "array", "items": {"type": "string"}},
+          "notes": {"type": "string"}
+        }
+      }
+    }
+  }
+}
