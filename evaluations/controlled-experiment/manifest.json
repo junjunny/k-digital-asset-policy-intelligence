@@ -14,7 +14,7 @@
       "skill_installed": true,
       "prompt_kind": "general",
       "prompt_sha256": "ba28543b336906914cd93f75b6bd7dcd5abdf515699334b235c06e098c624439",
-      "status": "PLANNED",
+      "status": "COMPLETED",
       "attempts": [
         {
           "attempt_id": "attempt-01",
@@ -47,10 +47,29 @@
           "activation_observed": true,
           "analysis_valid": false,
           "invalid_reason": "GLOBAL_SKILL_CONTAMINATION_OR_PRE_ISOLATION_PILOT"
+        },
+        {
+          "attempt_id": "attempt-03",
+          "started_at": "2026-11-18T06:51:58+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T06:52:56+00:00",
+          "duration_seconds": 57.977,
+          "exit_code": 0,
+          "usage": {
+            "input_tokens": 168972,
+            "cached_input_tokens": 133376,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 2132,
+            "reasoning_output_tokens": 442
+          },
+          "answer_present": true,
+          "activation_observed": true,
+          "control_contaminated": false,
+          "analysis_valid": true
         }
       ],
-      "selected_attempt": null,
-      "activation": "UNKNOWN"
+      "selected_attempt": "attempt-03",
+      "activation": "CONFIRMED"
     },
     {
       "run_id": "clarity_act-D-02",
@@ -60,7 +79,7 @@
       "skill_installed": true,
       "prompt_kind": "detailed",
       "prompt_sha256": "f23001efca4f428a9a51a44c4835ded59dbc8228715f12d948aa682d0091c248",
-      "status": "PLANNED",
+      "status": "COMPLETED",
       "attempts": [
         {
           "attempt_id": "attempt-01",
@@ -80,10 +99,29 @@
           "activation_observed": true,
           "analysis_valid": false,
           "invalid_reason": "GLOBAL_SKILL_CONTAMINATION_OR_PRE_ISOLATION_PILOT"
+        },
+        {
+          "attempt_id": "attempt-02",
+          "started_at": "2026-11-18T06:53:02+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T06:58:14+00:00",
+          "duration_seconds": 311.438,
+          "exit_code": 0,
+          "usage": {
+            "input_tokens": 2842415,
+            "cached_input_tokens": 2650880,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 11675,
+            "reasoning_output_tokens": 3278
+          },
+          "answer_present": true,
+          "activation_observed": true,
+          "control_contaminated": false,
+          "analysis_valid": true
         }
       ],
-      "selected_attempt": null,
-      "activation": "UNKNOWN"
+      "selected_attempt": "attempt-02",
+      "activation": "CONFIRMED"
     },
     {
       "run_id": "chainlink-A-05",
@@ -93,7 +131,7 @@
       "skill_installed": false,
       "prompt_kind": "general",
       "prompt_sha256": "f132c1dcfca53bbe9637c4952136123242db96f2e68cfea209ada64f33423d92",
-      "status": "PLANNED",
+      "status": "COMPLETED",
       "attempts": [
         {
           "attempt_id": "attempt-01",
@@ -113,9 +151,28 @@
           "activation_observed": true,
           "analysis_valid": false,
           "invalid_reason": "GLOBAL_SKILL_CONTAMINATION_OR_PRE_ISOLATION_PILOT"
+        },
+        {
+          "attempt_id": "attempt-02",
+          "started_at": "2026-11-18T06:58:14+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T06:58:24+00:00",
+          "duration_seconds": 10.001,
+          "exit_code": 0,
+          "usage": {
+            "input_tokens": 17766,
+            "cached_input_tokens": 11264,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 324,
+            "reasoning_output_tokens": 52
+          },
+          "answer_present": true,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": true
         }
       ],
-      "selected_attempt": null,
+      "selected_attempt": "attempt-02",
       "activation": "NOT_APPLICABLE"
     },
     {
@@ -126,7 +183,7 @@
       "skill_installed": true,
       "prompt_kind": "general",
       "prompt_sha256": "4c8b7473aa2126e7cde7e944c47f1e453287fae0ebefd4b909ac62e735623b1b",
-      "status": "PLANNED",
+      "status": "COMPLETED",
       "attempts": [
         {
           "attempt_id": "attempt-01",
@@ -134,10 +191,29 @@
           "workdir_kind": "skill",
           "analysis_valid": false,
           "invalid_reason": "GLOBAL_SKILL_CONTAMINATION_OR_PRE_ISOLATION_PILOT"
+        },
+        {
+          "attempt_id": "attempt-02",
+          "started_at": "2026-11-18T06:58:24+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T06:59:39+00:00",
+          "duration_seconds": 74.645,
+          "exit_code": 0,
+          "usage": {
+            "input_tokens": 215634,
+            "cached_input_tokens": 162816,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 2750,
+            "reasoning_output_tokens": 862
+          },
+          "answer_present": true,
+          "activation_observed": true,
+          "control_contaminated": false,
+          "analysis_valid": true
         }
       ],
-      "selected_attempt": null,
-      "activation": "UNKNOWN"
+      "selected_attempt": "attempt-02",
+      "activation": "CONFIRMED"
     },
     {
       "run_id": "usdc-C-04",
@@ -147,10 +223,30 @@
       "skill_installed": true,
       "prompt_kind": "general",
       "prompt_sha256": "c4606760176aeafc6f0595db729be4bf91b6fdbeb906d13dc38ac08f2667ec41",
-      "status": "PLANNED",
-      "attempts": [],
-      "selected_attempt": null,
-      "activation": "UNKNOWN"
+      "status": "COMPLETED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T06:59:39+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:00:25+00:00",
+          "duration_seconds": 46.793,
+          "exit_code": 0,
+          "usage": {
+            "input_tokens": 140227,
+            "cached_input_tokens": 94848,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 1588,
+            "reasoning_output_tokens": 361
+          },
+          "answer_present": true,
+          "activation_observed": true,
+          "control_contaminated": false,
+          "analysis_valid": true
+        }
+      ],
+      "selected_attempt": "attempt-01",
+      "activation": "CONFIRMED"
     },
     {
       "run_id": "usdc-A-03",
@@ -160,9 +256,29 @@
       "skill_installed": false,
       "prompt_kind": "general",
       "prompt_sha256": "c4606760176aeafc6f0595db729be4bf91b6fdbeb906d13dc38ac08f2667ec41",
-      "status": "PLANNED",
-      "attempts": [],
-      "selected_attempt": null,
+      "status": "COMPLETED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:00:25+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:01:05+00:00",
+          "duration_seconds": 39.297,
+          "exit_code": 0,
+          "usage": {
+            "input_tokens": 125417,
+            "cached_input_tokens": 86016,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 1139,
+            "reasoning_output_tokens": 246
+          },
+          "answer_present": true,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": true
+        }
+      ],
+      "selected_attempt": "attempt-01",
       "activation": "NOT_APPLICABLE"
     },
     {
@@ -173,9 +289,29 @@
       "skill_installed": false,
       "prompt_kind": "general",
       "prompt_sha256": "4c8b7473aa2126e7cde7e944c47f1e453287fae0ebefd4b909ac62e735623b1b",
-      "status": "PLANNED",
-      "attempts": [],
-      "selected_attempt": null,
+      "status": "COMPLETED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:01:05+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:01:57+00:00",
+          "duration_seconds": 51.892,
+          "exit_code": 0,
+          "usage": {
+            "input_tokens": 125024,
+            "cached_input_tokens": 92416,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 1933,
+            "reasoning_output_tokens": 566
+          },
+          "answer_present": true,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": true
+        }
+      ],
+      "selected_attempt": "attempt-01",
       "activation": "NOT_APPLICABLE"
     },
     {
@@ -186,9 +322,29 @@
       "skill_installed": false,
       "prompt_kind": "general",
       "prompt_sha256": "4347181857d2971d5d4b289b868db4bbcc4cfb595f42d1294de03bdfb1835927",
-      "status": "PLANNED",
-      "attempts": [],
-      "selected_attempt": null,
+      "status": "COMPLETED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:01:57+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:02:29+00:00",
+          "duration_seconds": 32.828,
+          "exit_code": 0,
+          "usage": {
+            "input_tokens": 43832,
+            "cached_input_tokens": 35328,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 1049,
+            "reasoning_output_tokens": 118
+          },
+          "answer_present": true,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": true
+        }
+      ],
+      "selected_attempt": "attempt-01",
       "activation": "NOT_APPLICABLE"
     },
     {
@@ -199,9 +355,29 @@
       "skill_installed": false,
       "prompt_kind": "general",
       "prompt_sha256": "f132c1dcfca53bbe9637c4952136123242db96f2e68cfea209ada64f33423d92",
-      "status": "PLANNED",
-      "attempts": [],
-      "selected_attempt": null,
+      "status": "COMPLETED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:02:29+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:02:58+00:00",
+          "duration_seconds": 28.38,
+          "exit_code": 0,
+          "usage": {
+            "input_tokens": 39582,
+            "cached_input_tokens": 35328,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 606,
+            "reasoning_output_tokens": 101
+          },
+          "answer_present": true,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": true
+        }
+      ],
+      "selected_attempt": "attempt-01",
       "activation": "NOT_APPLICABLE"
     },
     {
@@ -212,10 +388,30 @@
       "skill_installed": true,
       "prompt_kind": "general",
       "prompt_sha256": "4c8b7473aa2126e7cde7e944c47f1e453287fae0ebefd4b909ac62e735623b1b",
-      "status": "PLANNED",
-      "attempts": [],
-      "selected_attempt": null,
-      "activation": "UNKNOWN"
+      "status": "COMPLETED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:02:58+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:04:06+00:00",
+          "duration_seconds": 68.28,
+          "exit_code": 0,
+          "usage": {
+            "input_tokens": 221628,
+            "cached_input_tokens": 179968,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 2433,
+            "reasoning_output_tokens": 649
+          },
+          "answer_present": true,
+          "activation_observed": true,
+          "control_contaminated": false,
+          "analysis_valid": true
+        }
+      ],
+      "selected_attempt": "attempt-01",
+      "activation": "CONFIRMED"
     },
     {
       "run_id": "ethereum-A-03",
@@ -225,9 +421,29 @@
       "skill_installed": false,
       "prompt_kind": "general",
       "prompt_sha256": "bc551598c17aeac3a4dbbd2df387355f9b7c03d5aa24131fb6983a1936026d82",
-      "status": "PLANNED",
-      "attempts": [],
-      "selected_attempt": null,
+      "status": "COMPLETED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:04:06+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:04:19+00:00",
+          "duration_seconds": 13.149,
+          "exit_code": 0,
+          "usage": {
+            "input_tokens": 17769,
+            "cached_input_tokens": 11264,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 513,
+            "reasoning_output_tokens": 0
+          },
+          "answer_present": true,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": true
+        }
+      ],
+      "selected_attempt": "attempt-01",
       "activation": "NOT_APPLICABLE"
     },
     {
@@ -238,9 +454,29 @@
       "skill_installed": false,
       "prompt_kind": "general",
       "prompt_sha256": "4347181857d2971d5d4b289b868db4bbcc4cfb595f42d1294de03bdfb1835927",
-      "status": "PLANNED",
-      "attempts": [],
-      "selected_attempt": null,
+      "status": "COMPLETED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:04:19+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:04:56+00:00",
+          "duration_seconds": 36.508,
+          "exit_code": 0,
+          "usage": {
+            "input_tokens": 125161,
+            "cached_input_tokens": 92288,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 1069,
+            "reasoning_output_tokens": 89
+          },
+          "answer_present": true,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": true
+        }
+      ],
+      "selected_attempt": "attempt-01",
       "activation": "NOT_APPLICABLE"
     },
     {
@@ -251,10 +487,30 @@
       "skill_installed": true,
       "prompt_kind": "general",
       "prompt_sha256": "bc551598c17aeac3a4dbbd2df387355f9b7c03d5aa24131fb6983a1936026d82",
-      "status": "PLANNED",
-      "attempts": [],
-      "selected_attempt": null,
-      "activation": "UNKNOWN"
+      "status": "COMPLETED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:04:56+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:05:55+00:00",
+          "duration_seconds": 58.879,
+          "exit_code": 0,
+          "usage": {
+            "input_tokens": 138801,
+            "cached_input_tokens": 109952,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 1963,
+            "reasoning_output_tokens": 304
+          },
+          "answer_present": true,
+          "activation_observed": true,
+          "control_contaminated": false,
+          "analysis_valid": true
+        }
+      ],
+      "selected_attempt": "attempt-01",
+      "activation": "CONFIRMED"
     },
     {
       "run_id": "ethereum-D-05",
@@ -264,10 +520,30 @@
       "skill_installed": true,
       "prompt_kind": "detailed",
       "prompt_sha256": "01ee1ea96b7d9ab90e6661bb6cf362208d5a314d1491397f35f3b792db70fc28",
-      "status": "PLANNED",
-      "attempts": [],
-      "selected_attempt": null,
-      "activation": "UNKNOWN"
+      "status": "COMPLETED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:05:55+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:09:41+00:00",
+          "duration_seconds": 226.72,
+          "exit_code": 0,
+          "usage": {
+            "input_tokens": 956813,
+            "cached_input_tokens": 869760,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 9225,
+            "reasoning_output_tokens": 2312
+          },
+          "answer_present": true,
+          "activation_observed": true,
+          "control_contaminated": false,
+          "analysis_valid": true
+        }
+      ],
+      "selected_attempt": "attempt-01",
+      "activation": "CONFIRMED"
     },
     {
       "run_id": "chainlink-D-02",
@@ -277,10 +553,30 @@
       "skill_installed": true,
       "prompt_kind": "detailed",
       "prompt_sha256": "9dabfb5f1d7a28ea76f0023851a83812831c82c918e7acb6861315db0d8efb58",
-      "status": "PLANNED",
-      "attempts": [],
-      "selected_attempt": null,
-      "activation": "UNKNOWN"
+      "status": "COMPLETED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:09:41+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:13:04+00:00",
+          "duration_seconds": 202.523,
+          "exit_code": 0,
+          "usage": {
+            "input_tokens": 721393,
+            "cached_input_tokens": 609536,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 7727,
+            "reasoning_output_tokens": 1890
+          },
+          "answer_present": true,
+          "activation_observed": true,
+          "control_contaminated": false,
+          "analysis_valid": true
+        }
+      ],
+      "selected_attempt": "attempt-01",
+      "activation": "CONFIRMED"
     },
     {
       "run_id": "upbit-D-01",
@@ -290,10 +586,30 @@
       "skill_installed": true,
       "prompt_kind": "detailed",
       "prompt_sha256": "8bb9fd65a11054b83ad96847860547bea6aa72fb18c20e5bdb1709a1d48f17a9",
-      "status": "PLANNED",
-      "attempts": [],
-      "selected_attempt": null,
-      "activation": "UNKNOWN"
+      "status": "COMPLETED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:13:04+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:16:36+00:00",
+          "duration_seconds": 211.698,
+          "exit_code": 0,
+          "usage": {
+            "input_tokens": 1126842,
+            "cached_input_tokens": 1024640,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 7652,
+            "reasoning_output_tokens": 1554
+          },
+          "answer_present": true,
+          "activation_observed": true,
+          "control_contaminated": false,
+          "analysis_valid": true
+        }
+      ],
+      "selected_attempt": "attempt-01",
+      "activation": "CONFIRMED"
     },
     {
       "run_id": "upbit-A-05",
@@ -303,9 +619,29 @@
       "skill_installed": false,
       "prompt_kind": "general",
       "prompt_sha256": "4347181857d2971d5d4b289b868db4bbcc4cfb595f42d1294de03bdfb1835927",
-      "status": "PLANNED",
-      "attempts": [],
-      "selected_attempt": null,
+      "status": "COMPLETED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:16:36+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:17:09+00:00",
+          "duration_seconds": 33.726,
+          "exit_code": 0,
+          "usage": {
+            "input_tokens": 77880,
+            "cached_input_tokens": 61184,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 1070,
+            "reasoning_output_tokens": 136
+          },
+          "answer_present": true,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": true
+        }
+      ],
+      "selected_attempt": "attempt-01",
       "activation": "NOT_APPLICABLE"
     },
     {
@@ -316,10 +652,30 @@
       "skill_installed": true,
       "prompt_kind": "general",
       "prompt_sha256": "ba28543b336906914cd93f75b6bd7dcd5abdf515699334b235c06e098c624439",
-      "status": "PLANNED",
-      "attempts": [],
-      "selected_attempt": null,
-      "activation": "UNKNOWN"
+      "status": "COMPLETED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:17:09+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:18:20+00:00",
+          "duration_seconds": 71.028,
+          "exit_code": 0,
+          "usage": {
+            "input_tokens": 264051,
+            "cached_input_tokens": 218368,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 2508,
+            "reasoning_output_tokens": 917
+          },
+          "answer_present": true,
+          "activation_observed": true,
+          "control_contaminated": false,
+          "analysis_valid": true
+        }
+      ],
+      "selected_attempt": "attempt-01",
+      "activation": "CONFIRMED"
     },
     {
       "run_id": "chainlink-B-03",
@@ -329,9 +685,29 @@
       "skill_installed": false,
       "prompt_kind": "detailed",
       "prompt_sha256": "9dabfb5f1d7a28ea76f0023851a83812831c82c918e7acb6861315db0d8efb58",
-      "status": "PLANNED",
-      "attempts": [],
-      "selected_attempt": null,
+      "status": "COMPLETED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:18:20+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:21:37+00:00",
+          "duration_seconds": 196.975,
+          "exit_code": 0,
+          "usage": {
+            "input_tokens": 454985,
+            "cached_input_tokens": 386304,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 8026,
+            "reasoning_output_tokens": 2146
+          },
+          "answer_present": true,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": true
+        }
+      ],
+      "selected_attempt": "attempt-01",
       "activation": "NOT_APPLICABLE"
     },
     {
@@ -342,10 +718,30 @@
       "skill_installed": true,
       "prompt_kind": "detailed",
       "prompt_sha256": "9dabfb5f1d7a28ea76f0023851a83812831c82c918e7acb6861315db0d8efb58",
-      "status": "PLANNED",
-      "attempts": [],
-      "selected_attempt": null,
-      "activation": "UNKNOWN"
+      "status": "COMPLETED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:21:37+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:25:12+00:00",
+          "duration_seconds": 214.398,
+          "exit_code": 0,
+          "usage": {
+            "input_tokens": 1009863,
+            "cached_input_tokens": 898048,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 8711,
+            "reasoning_output_tokens": 2212
+          },
+          "answer_present": true,
+          "activation_observed": true,
+          "control_contaminated": false,
+          "analysis_valid": true
+        }
+      ],
+      "selected_attempt": "attempt-01",
+      "activation": "CONFIRMED"
     },
     {
       "run_id": "usdc-D-04",
@@ -355,8 +751,22 @@
       "skill_installed": true,
       "prompt_kind": "detailed",
       "prompt_sha256": "012c39f892c5912f3f5a2a2f68fc9d7b2870f30303bc36b673e2b9e7d17b99ff",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:25:12+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:26:03+00:00",
+          "duration_seconds": 51.019,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": true,
+          "activation_observed": true,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "UNKNOWN"
     },
@@ -368,8 +778,22 @@
       "skill_installed": true,
       "prompt_kind": "general",
       "prompt_sha256": "bc551598c17aeac3a4dbbd2df387355f9b7c03d5aa24131fb6983a1936026d82",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:26:03+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:26:05+00:00",
+          "duration_seconds": 2.425,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "UNKNOWN"
     },
@@ -381,8 +805,22 @@
       "skill_installed": false,
       "prompt_kind": "general",
       "prompt_sha256": "4347181857d2971d5d4b289b868db4bbcc4cfb595f42d1294de03bdfb1835927",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:26:05+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:26:08+00:00",
+          "duration_seconds": 2.826,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "NOT_APPLICABLE"
     },
@@ -394,8 +832,22 @@
       "skill_installed": false,
       "prompt_kind": "general",
       "prompt_sha256": "bc551598c17aeac3a4dbbd2df387355f9b7c03d5aa24131fb6983a1936026d82",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:26:08+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:26:11+00:00",
+          "duration_seconds": 2.524,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "NOT_APPLICABLE"
     },
@@ -407,8 +859,22 @@
       "skill_installed": false,
       "prompt_kind": "detailed",
       "prompt_sha256": "9dabfb5f1d7a28ea76f0023851a83812831c82c918e7acb6861315db0d8efb58",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:26:11+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:26:14+00:00",
+          "duration_seconds": 2.883,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "NOT_APPLICABLE"
     },
@@ -420,8 +886,22 @@
       "skill_installed": false,
       "prompt_kind": "detailed",
       "prompt_sha256": "012c39f892c5912f3f5a2a2f68fc9d7b2870f30303bc36b673e2b9e7d17b99ff",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:26:14+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:26:16+00:00",
+          "duration_seconds": 2.361,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "NOT_APPLICABLE"
     },
@@ -433,8 +913,22 @@
       "skill_installed": false,
       "prompt_kind": "general",
       "prompt_sha256": "ba28543b336906914cd93f75b6bd7dcd5abdf515699334b235c06e098c624439",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:26:16+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:26:18+00:00",
+          "duration_seconds": 2.432,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "NOT_APPLICABLE"
     },
@@ -446,8 +940,22 @@
       "skill_installed": false,
       "prompt_kind": "general",
       "prompt_sha256": "c4606760176aeafc6f0595db729be4bf91b6fdbeb906d13dc38ac08f2667ec41",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:26:18+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:26:21+00:00",
+          "duration_seconds": 2.308,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "NOT_APPLICABLE"
     },
@@ -459,8 +967,22 @@
       "skill_installed": true,
       "prompt_kind": "general",
       "prompt_sha256": "ba28543b336906914cd93f75b6bd7dcd5abdf515699334b235c06e098c624439",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:26:21+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:26:23+00:00",
+          "duration_seconds": 2.172,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "UNKNOWN"
     },
@@ -472,8 +994,22 @@
       "skill_installed": true,
       "prompt_kind": "detailed",
       "prompt_sha256": "9dabfb5f1d7a28ea76f0023851a83812831c82c918e7acb6861315db0d8efb58",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:26:23+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:26:25+00:00",
+          "duration_seconds": 2.192,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "UNKNOWN"
     },
@@ -485,8 +1021,22 @@
       "skill_installed": false,
       "prompt_kind": "detailed",
       "prompt_sha256": "9dabfb5f1d7a28ea76f0023851a83812831c82c918e7acb6861315db0d8efb58",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:26:25+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:26:28+00:00",
+          "duration_seconds": 2.921,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "NOT_APPLICABLE"
     },
@@ -498,8 +1048,22 @@
       "skill_installed": true,
       "prompt_kind": "general",
       "prompt_sha256": "c4606760176aeafc6f0595db729be4bf91b6fdbeb906d13dc38ac08f2667ec41",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:26:28+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:26:30+00:00",
+          "duration_seconds": 2.417,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "UNKNOWN"
     },
@@ -511,8 +1075,22 @@
       "skill_installed": true,
       "prompt_kind": "general",
       "prompt_sha256": "4c8b7473aa2126e7cde7e944c47f1e453287fae0ebefd4b909ac62e735623b1b",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:26:30+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:26:33+00:00",
+          "duration_seconds": 2.516,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "UNKNOWN"
     },
@@ -524,8 +1102,22 @@
       "skill_installed": false,
       "prompt_kind": "detailed",
       "prompt_sha256": "01ee1ea96b7d9ab90e6661bb6cf362208d5a314d1491397f35f3b792db70fc28",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:26:33+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:26:35+00:00",
+          "duration_seconds": 2.376,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "NOT_APPLICABLE"
     },
@@ -537,8 +1129,22 @@
       "skill_installed": true,
       "prompt_kind": "detailed",
       "prompt_sha256": "012c39f892c5912f3f5a2a2f68fc9d7b2870f30303bc36b673e2b9e7d17b99ff",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:26:35+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:26:38+00:00",
+          "duration_seconds": 2.492,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "UNKNOWN"
     },
@@ -550,8 +1156,22 @@
       "skill_installed": false,
       "prompt_kind": "general",
       "prompt_sha256": "ba28543b336906914cd93f75b6bd7dcd5abdf515699334b235c06e098c624439",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:26:38+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:26:40+00:00",
+          "duration_seconds": 2.624,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "NOT_APPLICABLE"
     },
@@ -563,8 +1183,22 @@
       "skill_installed": true,
       "prompt_kind": "general",
       "prompt_sha256": "bc551598c17aeac3a4dbbd2df387355f9b7c03d5aa24131fb6983a1936026d82",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:26:40+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:26:44+00:00",
+          "duration_seconds": 3.286,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "UNKNOWN"
     },
@@ -576,8 +1210,22 @@
       "skill_installed": false,
       "prompt_kind": "detailed",
       "prompt_sha256": "8bb9fd65a11054b83ad96847860547bea6aa72fb18c20e5bdb1709a1d48f17a9",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:26:44+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:26:47+00:00",
+          "duration_seconds": 2.965,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "NOT_APPLICABLE"
     },
@@ -589,8 +1237,22 @@
       "skill_installed": true,
       "prompt_kind": "detailed",
       "prompt_sha256": "9b00537d9ede93ff810835b2f95942f6e08aa2be168fe2143b60a5d73b91ff88",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:26:47+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:26:50+00:00",
+          "duration_seconds": 2.83,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "UNKNOWN"
     },
@@ -602,8 +1264,22 @@
       "skill_installed": false,
       "prompt_kind": "general",
       "prompt_sha256": "bc551598c17aeac3a4dbbd2df387355f9b7c03d5aa24131fb6983a1936026d82",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:26:50+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:26:52+00:00",
+          "duration_seconds": 2.553,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "NOT_APPLICABLE"
     },
@@ -615,8 +1291,22 @@
       "skill_installed": true,
       "prompt_kind": "detailed",
       "prompt_sha256": "f23001efca4f428a9a51a44c4835ded59dbc8228715f12d948aa682d0091c248",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:26:52+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:26:55+00:00",
+          "duration_seconds": 2.436,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "UNKNOWN"
     },
@@ -628,8 +1318,22 @@
       "skill_installed": true,
       "prompt_kind": "detailed",
       "prompt_sha256": "01ee1ea96b7d9ab90e6661bb6cf362208d5a314d1491397f35f3b792db70fc28",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:26:55+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:26:57+00:00",
+          "duration_seconds": 2.171,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "UNKNOWN"
     },
@@ -641,8 +1345,22 @@
       "skill_installed": false,
       "prompt_kind": "general",
       "prompt_sha256": "ba28543b336906914cd93f75b6bd7dcd5abdf515699334b235c06e098c624439",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:26:57+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:26:59+00:00",
+          "duration_seconds": 2.74,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "NOT_APPLICABLE"
     },
@@ -654,8 +1372,22 @@
       "skill_installed": true,
       "prompt_kind": "general",
       "prompt_sha256": "f132c1dcfca53bbe9637c4952136123242db96f2e68cfea209ada64f33423d92",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:26:59+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:27:02+00:00",
+          "duration_seconds": 2.498,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "UNKNOWN"
     },
@@ -667,8 +1399,22 @@
       "skill_installed": true,
       "prompt_kind": "general",
       "prompt_sha256": "4347181857d2971d5d4b289b868db4bbcc4cfb595f42d1294de03bdfb1835927",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:27:02+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:27:05+00:00",
+          "duration_seconds": 2.836,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "UNKNOWN"
     },
@@ -680,8 +1426,22 @@
       "skill_installed": true,
       "prompt_kind": "general",
       "prompt_sha256": "4c8b7473aa2126e7cde7e944c47f1e453287fae0ebefd4b909ac62e735623b1b",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:27:05+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:27:07+00:00",
+          "duration_seconds": 2.464,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "UNKNOWN"
     },
@@ -693,8 +1453,22 @@
       "skill_installed": true,
       "prompt_kind": "detailed",
       "prompt_sha256": "012c39f892c5912f3f5a2a2f68fc9d7b2870f30303bc36b673e2b9e7d17b99ff",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:27:07+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:27:10+00:00",
+          "duration_seconds": 2.516,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "UNKNOWN"
     },
@@ -706,8 +1480,22 @@
       "skill_installed": true,
       "prompt_kind": "general",
       "prompt_sha256": "bc551598c17aeac3a4dbbd2df387355f9b7c03d5aa24131fb6983a1936026d82",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:27:10+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:27:12+00:00",
+          "duration_seconds": 2.62,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "UNKNOWN"
     },
@@ -719,8 +1507,22 @@
       "skill_installed": true,
       "prompt_kind": "detailed",
       "prompt_sha256": "9dabfb5f1d7a28ea76f0023851a83812831c82c918e7acb6861315db0d8efb58",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:27:12+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:27:15+00:00",
+          "duration_seconds": 2.787,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "UNKNOWN"
     },
@@ -732,8 +1534,22 @@
       "skill_installed": false,
       "prompt_kind": "general",
       "prompt_sha256": "f132c1dcfca53bbe9637c4952136123242db96f2e68cfea209ada64f33423d92",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:27:15+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:27:18+00:00",
+          "duration_seconds": 2.709,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "NOT_APPLICABLE"
     },
@@ -745,8 +1561,22 @@
       "skill_installed": true,
       "prompt_kind": "detailed",
       "prompt_sha256": "01ee1ea96b7d9ab90e6661bb6cf362208d5a314d1491397f35f3b792db70fc28",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:27:18+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:27:21+00:00",
+          "duration_seconds": 2.798,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "UNKNOWN"
     },
@@ -758,8 +1588,22 @@
       "skill_installed": true,
       "prompt_kind": "detailed",
       "prompt_sha256": "012c39f892c5912f3f5a2a2f68fc9d7b2870f30303bc36b673e2b9e7d17b99ff",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:27:21+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:27:24+00:00",
+          "duration_seconds": 3.025,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "UNKNOWN"
     },
@@ -771,8 +1615,22 @@
       "skill_installed": true,
       "prompt_kind": "general",
       "prompt_sha256": "4347181857d2971d5d4b289b868db4bbcc4cfb595f42d1294de03bdfb1835927",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:27:24+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:27:26+00:00",
+          "duration_seconds": 2.344,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "UNKNOWN"
     },
@@ -784,8 +1642,22 @@
       "skill_installed": false,
       "prompt_kind": "general",
       "prompt_sha256": "f132c1dcfca53bbe9637c4952136123242db96f2e68cfea209ada64f33423d92",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:27:26+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:27:30+00:00",
+          "duration_seconds": 3.407,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "NOT_APPLICABLE"
     },
@@ -797,8 +1669,22 @@
       "skill_installed": true,
       "prompt_kind": "detailed",
       "prompt_sha256": "8bb9fd65a11054b83ad96847860547bea6aa72fb18c20e5bdb1709a1d48f17a9",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:27:30+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:27:32+00:00",
+          "duration_seconds": 2.746,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "UNKNOWN"
     },
@@ -810,8 +1696,22 @@
       "skill_installed": false,
       "prompt_kind": "detailed",
       "prompt_sha256": "8bb9fd65a11054b83ad96847860547bea6aa72fb18c20e5bdb1709a1d48f17a9",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:27:32+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:27:35+00:00",
+          "duration_seconds": 2.956,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "NOT_APPLICABLE"
     },
@@ -823,8 +1723,22 @@
       "skill_installed": false,
       "prompt_kind": "detailed",
       "prompt_sha256": "9b00537d9ede93ff810835b2f95942f6e08aa2be168fe2143b60a5d73b91ff88",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:27:35+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:27:38+00:00",
+          "duration_seconds": 2.666,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "NOT_APPLICABLE"
     },
@@ -836,8 +1750,22 @@
       "skill_installed": true,
       "prompt_kind": "detailed",
       "prompt_sha256": "9b00537d9ede93ff810835b2f95942f6e08aa2be168fe2143b60a5d73b91ff88",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:27:38+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:27:40+00:00",
+          "duration_seconds": 2.461,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "UNKNOWN"
     },
@@ -849,8 +1777,22 @@
       "skill_installed": false,
       "prompt_kind": "general",
       "prompt_sha256": "4c8b7473aa2126e7cde7e944c47f1e453287fae0ebefd4b909ac62e735623b1b",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:27:40+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:27:43+00:00",
+          "duration_seconds": 2.722,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "NOT_APPLICABLE"
     },
@@ -862,8 +1804,22 @@
       "skill_installed": false,
       "prompt_kind": "general",
       "prompt_sha256": "c4606760176aeafc6f0595db729be4bf91b6fdbeb906d13dc38ac08f2667ec41",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:27:43+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:27:46+00:00",
+          "duration_seconds": 2.652,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "NOT_APPLICABLE"
     },
@@ -875,8 +1831,22 @@
       "skill_installed": false,
       "prompt_kind": "general",
       "prompt_sha256": "4c8b7473aa2126e7cde7e944c47f1e453287fae0ebefd4b909ac62e735623b1b",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:27:46+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:27:49+00:00",
+          "duration_seconds": 3.214,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "NOT_APPLICABLE"
     },
@@ -888,8 +1858,22 @@
       "skill_installed": true,
       "prompt_kind": "detailed",
       "prompt_sha256": "f23001efca4f428a9a51a44c4835ded59dbc8228715f12d948aa682d0091c248",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:27:49+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:27:52+00:00",
+          "duration_seconds": 2.687,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "UNKNOWN"
     },
@@ -901,8 +1885,22 @@
       "skill_installed": true,
       "prompt_kind": "general",
       "prompt_sha256": "4c8b7473aa2126e7cde7e944c47f1e453287fae0ebefd4b909ac62e735623b1b",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:27:52+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:27:54+00:00",
+          "duration_seconds": 2.514,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "UNKNOWN"
     },
@@ -914,8 +1912,22 @@
       "skill_installed": true,
       "prompt_kind": "general",
       "prompt_sha256": "c4606760176aeafc6f0595db729be4bf91b6fdbeb906d13dc38ac08f2667ec41",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:27:54+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:27:57+00:00",
+          "duration_seconds": 2.775,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "UNKNOWN"
     },
@@ -927,8 +1939,22 @@
       "skill_installed": true,
       "prompt_kind": "general",
       "prompt_sha256": "f132c1dcfca53bbe9637c4952136123242db96f2e68cfea209ada64f33423d92",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:27:57+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:28:00+00:00",
+          "duration_seconds": 2.712,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "UNKNOWN"
     },
@@ -940,8 +1966,22 @@
       "skill_installed": true,
       "prompt_kind": "detailed",
       "prompt_sha256": "9dabfb5f1d7a28ea76f0023851a83812831c82c918e7acb6861315db0d8efb58",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:28:00+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:28:02+00:00",
+          "duration_seconds": 2.456,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "UNKNOWN"
     },
@@ -953,8 +1993,22 @@
       "skill_installed": true,
       "prompt_kind": "detailed",
       "prompt_sha256": "9b00537d9ede93ff810835b2f95942f6e08aa2be168fe2143b60a5d73b91ff88",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:28:02+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:28:05+00:00",
+          "duration_seconds": 2.479,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "UNKNOWN"
     },
@@ -966,8 +2020,22 @@
       "skill_installed": true,
       "prompt_kind": "detailed",
       "prompt_sha256": "01ee1ea96b7d9ab90e6661bb6cf362208d5a314d1491397f35f3b792db70fc28",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:28:05+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:28:07+00:00",
+          "duration_seconds": 2.376,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "UNKNOWN"
     },
@@ -979,8 +2047,22 @@
       "skill_installed": false,
       "prompt_kind": "detailed",
       "prompt_sha256": "f23001efca4f428a9a51a44c4835ded59dbc8228715f12d948aa682d0091c248",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:28:07+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:28:11+00:00",
+          "duration_seconds": 3.593,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "NOT_APPLICABLE"
     },
@@ -992,8 +2074,22 @@
       "skill_installed": false,
       "prompt_kind": "detailed",
       "prompt_sha256": "f23001efca4f428a9a51a44c4835ded59dbc8228715f12d948aa682d0091c248",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:28:11+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:28:14+00:00",
+          "duration_seconds": 2.947,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "NOT_APPLICABLE"
     },
@@ -1005,8 +2101,22 @@
       "skill_installed": true,
       "prompt_kind": "general",
       "prompt_sha256": "4347181857d2971d5d4b289b868db4bbcc4cfb595f42d1294de03bdfb1835927",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:28:14+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:28:16+00:00",
+          "duration_seconds": 2.839,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "UNKNOWN"
     },
@@ -1018,8 +2128,22 @@
       "skill_installed": false,
       "prompt_kind": "detailed",
       "prompt_sha256": "9b00537d9ede93ff810835b2f95942f6e08aa2be168fe2143b60a5d73b91ff88",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:28:16+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:28:19+00:00",
+          "duration_seconds": 2.716,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "NOT_APPLICABLE"
     },
@@ -1031,8 +2155,22 @@
       "skill_installed": true,
       "prompt_kind": "general",
       "prompt_sha256": "c4606760176aeafc6f0595db729be4bf91b6fdbeb906d13dc38ac08f2667ec41",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:28:19+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:28:22+00:00",
+          "duration_seconds": 2.446,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "UNKNOWN"
     },
@@ -1044,8 +2182,22 @@
       "skill_installed": true,
       "prompt_kind": "detailed",
       "prompt_sha256": "f23001efca4f428a9a51a44c4835ded59dbc8228715f12d948aa682d0091c248",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:28:22+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:28:24+00:00",
+          "duration_seconds": 2.615,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "UNKNOWN"
     },
@@ -1057,8 +2209,22 @@
       "skill_installed": true,
       "prompt_kind": "general",
       "prompt_sha256": "bc551598c17aeac3a4dbbd2df387355f9b7c03d5aa24131fb6983a1936026d82",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:28:24+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:28:27+00:00",
+          "duration_seconds": 2.647,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "UNKNOWN"
     },
@@ -1070,8 +2236,22 @@
       "skill_installed": true,
       "prompt_kind": "general",
       "prompt_sha256": "f132c1dcfca53bbe9637c4952136123242db96f2e68cfea209ada64f33423d92",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:28:27+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:28:31+00:00",
+          "duration_seconds": 4.067,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "UNKNOWN"
     },
@@ -1083,8 +2263,22 @@
       "skill_installed": false,
       "prompt_kind": "general",
       "prompt_sha256": "bc551598c17aeac3a4dbbd2df387355f9b7c03d5aa24131fb6983a1936026d82",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:28:31+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:28:34+00:00",
+          "duration_seconds": 2.487,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "NOT_APPLICABLE"
     },
@@ -1096,8 +2290,22 @@
       "skill_installed": true,
       "prompt_kind": "detailed",
       "prompt_sha256": "012c39f892c5912f3f5a2a2f68fc9d7b2870f30303bc36b673e2b9e7d17b99ff",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:28:34+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:28:36+00:00",
+          "duration_seconds": 2.404,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "UNKNOWN"
     },
@@ -1109,8 +2317,22 @@
       "skill_installed": true,
       "prompt_kind": "detailed",
       "prompt_sha256": "8bb9fd65a11054b83ad96847860547bea6aa72fb18c20e5bdb1709a1d48f17a9",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:28:36+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:28:39+00:00",
+          "duration_seconds": 2.599,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "UNKNOWN"
     },
@@ -1122,8 +2344,22 @@
       "skill_installed": false,
       "prompt_kind": "detailed",
       "prompt_sha256": "8bb9fd65a11054b83ad96847860547bea6aa72fb18c20e5bdb1709a1d48f17a9",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:28:39+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:28:41+00:00",
+          "duration_seconds": 2.516,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "NOT_APPLICABLE"
     },
@@ -1135,8 +2371,22 @@
       "skill_installed": false,
       "prompt_kind": "detailed",
       "prompt_sha256": "9b00537d9ede93ff810835b2f95942f6e08aa2be168fe2143b60a5d73b91ff88",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:28:41+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:28:44+00:00",
+          "duration_seconds": 2.55,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "NOT_APPLICABLE"
     },
@@ -1148,8 +2398,22 @@
       "skill_installed": false,
       "prompt_kind": "detailed",
       "prompt_sha256": "9b00537d9ede93ff810835b2f95942f6e08aa2be168fe2143b60a5d73b91ff88",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:28:44+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:28:46+00:00",
+          "duration_seconds": 2.494,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "NOT_APPLICABLE"
     },
@@ -1161,8 +2425,22 @@
       "skill_installed": true,
       "prompt_kind": "general",
       "prompt_sha256": "ba28543b336906914cd93f75b6bd7dcd5abdf515699334b235c06e098c624439",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:28:46+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:28:48+00:00",
+          "duration_seconds": 2.327,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "UNKNOWN"
     },
@@ -1174,8 +2452,22 @@
       "skill_installed": true,
       "prompt_kind": "detailed",
       "prompt_sha256": "8bb9fd65a11054b83ad96847860547bea6aa72fb18c20e5bdb1709a1d48f17a9",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:28:48+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:28:51+00:00",
+          "duration_seconds": 2.613,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "UNKNOWN"
     },
@@ -1187,8 +2479,22 @@
       "skill_installed": true,
       "prompt_kind": "general",
       "prompt_sha256": "f132c1dcfca53bbe9637c4952136123242db96f2e68cfea209ada64f33423d92",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:28:51+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:28:55+00:00",
+          "duration_seconds": 3.71,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "UNKNOWN"
     },
@@ -1200,8 +2506,22 @@
       "skill_installed": false,
       "prompt_kind": "general",
       "prompt_sha256": "4c8b7473aa2126e7cde7e944c47f1e453287fae0ebefd4b909ac62e735623b1b",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:28:55+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:28:58+00:00",
+          "duration_seconds": 2.692,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "NOT_APPLICABLE"
     },
@@ -1213,8 +2533,22 @@
       "skill_installed": true,
       "prompt_kind": "detailed",
       "prompt_sha256": "f23001efca4f428a9a51a44c4835ded59dbc8228715f12d948aa682d0091c248",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:28:58+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:29:00+00:00",
+          "duration_seconds": 2.275,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "UNKNOWN"
     },
@@ -1226,8 +2560,22 @@
       "skill_installed": false,
       "prompt_kind": "detailed",
       "prompt_sha256": "012c39f892c5912f3f5a2a2f68fc9d7b2870f30303bc36b673e2b9e7d17b99ff",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:29:00+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:29:02+00:00",
+          "duration_seconds": 2.494,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "NOT_APPLICABLE"
     },
@@ -1239,8 +2587,22 @@
       "skill_installed": true,
       "prompt_kind": "general",
       "prompt_sha256": "4347181857d2971d5d4b289b868db4bbcc4cfb595f42d1294de03bdfb1835927",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:29:02+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:29:05+00:00",
+          "duration_seconds": 2.627,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "UNKNOWN"
     },
@@ -1252,8 +2614,22 @@
       "skill_installed": false,
       "prompt_kind": "detailed",
       "prompt_sha256": "9dabfb5f1d7a28ea76f0023851a83812831c82c918e7acb6861315db0d8efb58",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:29:05+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:29:08+00:00",
+          "duration_seconds": 2.618,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "NOT_APPLICABLE"
     },
@@ -1265,8 +2641,22 @@
       "skill_installed": true,
       "prompt_kind": "general",
       "prompt_sha256": "f132c1dcfca53bbe9637c4952136123242db96f2e68cfea209ada64f33423d92",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:29:08+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:29:10+00:00",
+          "duration_seconds": 2.441,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "UNKNOWN"
     },
@@ -1278,8 +2668,22 @@
       "skill_installed": true,
       "prompt_kind": "general",
       "prompt_sha256": "ba28543b336906914cd93f75b6bd7dcd5abdf515699334b235c06e098c624439",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:29:10+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:29:13+00:00",
+          "duration_seconds": 2.503,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "UNKNOWN"
     },
@@ -1291,8 +2695,22 @@
       "skill_installed": false,
       "prompt_kind": "detailed",
       "prompt_sha256": "012c39f892c5912f3f5a2a2f68fc9d7b2870f30303bc36b673e2b9e7d17b99ff",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:29:13+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:29:15+00:00",
+          "duration_seconds": 2.713,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "NOT_APPLICABLE"
     },
@@ -1304,8 +2722,22 @@
       "skill_installed": true,
       "prompt_kind": "detailed",
       "prompt_sha256": "01ee1ea96b7d9ab90e6661bb6cf362208d5a314d1491397f35f3b792db70fc28",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:29:15+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:29:17+00:00",
+          "duration_seconds": 2.196,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "UNKNOWN"
     },
@@ -1317,8 +2749,22 @@
       "skill_installed": true,
       "prompt_kind": "detailed",
       "prompt_sha256": "9b00537d9ede93ff810835b2f95942f6e08aa2be168fe2143b60a5d73b91ff88",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:29:17+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:29:20+00:00",
+          "duration_seconds": 2.706,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "UNKNOWN"
     },
@@ -1330,8 +2776,22 @@
       "skill_installed": false,
       "prompt_kind": "general",
       "prompt_sha256": "4c8b7473aa2126e7cde7e944c47f1e453287fae0ebefd4b909ac62e735623b1b",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:29:20+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:29:23+00:00",
+          "duration_seconds": 2.474,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "NOT_APPLICABLE"
     },
@@ -1343,8 +2803,22 @@
       "skill_installed": false,
       "prompt_kind": "detailed",
       "prompt_sha256": "012c39f892c5912f3f5a2a2f68fc9d7b2870f30303bc36b673e2b9e7d17b99ff",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:29:23+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:29:25+00:00",
+          "duration_seconds": 2.43,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "NOT_APPLICABLE"
     },
@@ -1356,8 +2830,22 @@
       "skill_installed": false,
       "prompt_kind": "detailed",
       "prompt_sha256": "f23001efca4f428a9a51a44c4835ded59dbc8228715f12d948aa682d0091c248",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:29:25+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:29:27+00:00",
+          "duration_seconds": 2.3,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "NOT_APPLICABLE"
     },
@@ -1369,8 +2857,22 @@
       "skill_installed": false,
       "prompt_kind": "detailed",
       "prompt_sha256": "9dabfb5f1d7a28ea76f0023851a83812831c82c918e7acb6861315db0d8efb58",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:29:27+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:29:30+00:00",
+          "duration_seconds": 2.189,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "NOT_APPLICABLE"
     },
@@ -1382,8 +2884,22 @@
       "skill_installed": false,
       "prompt_kind": "detailed",
       "prompt_sha256": "01ee1ea96b7d9ab90e6661bb6cf362208d5a314d1491397f35f3b792db70fc28",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:29:30+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:29:32+00:00",
+          "duration_seconds": 2.502,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "NOT_APPLICABLE"
     },
@@ -1395,7 +2911,7 @@
       "skill_installed": false,
       "prompt_kind": "general",
       "prompt_sha256": "ba28543b336906914cd93f75b6bd7dcd5abdf515699334b235c06e098c624439",
-      "status": "PLANNED",
+      "status": "COMPLETED",
       "attempts": [
         {
           "attempt_id": "attempt-01",
@@ -1428,9 +2944,28 @@
           "activation_observed": false,
           "analysis_valid": false,
           "invalid_reason": "GLOBAL_SKILL_CONTAMINATION_OR_PRE_ISOLATION_PILOT"
+        },
+        {
+          "attempt_id": "attempt-03",
+          "started_at": "2026-11-18T06:51:22+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T06:51:58+00:00",
+          "duration_seconds": 36.121,
+          "exit_code": 0,
+          "usage": {
+            "input_tokens": 84129,
+            "cached_input_tokens": 60544,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 1250,
+            "reasoning_output_tokens": 195
+          },
+          "answer_present": true,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": true
         }
       ],
-      "selected_attempt": null,
+      "selected_attempt": "attempt-03",
       "activation": "NOT_APPLICABLE"
     },
     {
@@ -1441,8 +2976,22 @@
       "skill_installed": false,
       "prompt_kind": "detailed",
       "prompt_sha256": "8bb9fd65a11054b83ad96847860547bea6aa72fb18c20e5bdb1709a1d48f17a9",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:29:32+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:29:35+00:00",
+          "duration_seconds": 2.683,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "NOT_APPLICABLE"
     },
@@ -1454,8 +3003,22 @@
       "skill_installed": false,
       "prompt_kind": "detailed",
       "prompt_sha256": "01ee1ea96b7d9ab90e6661bb6cf362208d5a314d1491397f35f3b792db70fc28",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:29:35+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:29:37+00:00",
+          "duration_seconds": 2.388,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "NOT_APPLICABLE"
     },
@@ -1467,8 +3030,22 @@
       "skill_installed": false,
       "prompt_kind": "general",
       "prompt_sha256": "bc551598c17aeac3a4dbbd2df387355f9b7c03d5aa24131fb6983a1936026d82",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:29:37+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:29:40+00:00",
+          "duration_seconds": 2.97,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "NOT_APPLICABLE"
     },
@@ -1480,8 +3057,22 @@
       "skill_installed": false,
       "prompt_kind": "detailed",
       "prompt_sha256": "8bb9fd65a11054b83ad96847860547bea6aa72fb18c20e5bdb1709a1d48f17a9",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:29:40+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:29:43+00:00",
+          "duration_seconds": 2.872,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "NOT_APPLICABLE"
     },
@@ -1493,8 +3084,22 @@
       "skill_installed": true,
       "prompt_kind": "general",
       "prompt_sha256": "c4606760176aeafc6f0595db729be4bf91b6fdbeb906d13dc38ac08f2667ec41",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:29:43+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:29:46+00:00",
+          "duration_seconds": 2.44,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "UNKNOWN"
     },
@@ -1506,8 +3111,22 @@
       "skill_installed": true,
       "prompt_kind": "general",
       "prompt_sha256": "4347181857d2971d5d4b289b868db4bbcc4cfb595f42d1294de03bdfb1835927",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:29:46+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:29:48+00:00",
+          "duration_seconds": 2.304,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "UNKNOWN"
     },
@@ -1519,8 +3138,22 @@
       "skill_installed": false,
       "prompt_kind": "general",
       "prompt_sha256": "f132c1dcfca53bbe9637c4952136123242db96f2e68cfea209ada64f33423d92",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:29:48+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:29:50+00:00",
+          "duration_seconds": 2.515,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "NOT_APPLICABLE"
     },
@@ -1532,8 +3165,22 @@
       "skill_installed": false,
       "prompt_kind": "general",
       "prompt_sha256": "c4606760176aeafc6f0595db729be4bf91b6fdbeb906d13dc38ac08f2667ec41",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:29:50+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:29:53+00:00",
+          "duration_seconds": 2.237,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "NOT_APPLICABLE"
     },
@@ -1545,8 +3192,22 @@
       "skill_installed": false,
       "prompt_kind": "detailed",
       "prompt_sha256": "012c39f892c5912f3f5a2a2f68fc9d7b2870f30303bc36b673e2b9e7d17b99ff",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:29:53+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:29:55+00:00",
+          "duration_seconds": 2.809,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "NOT_APPLICABLE"
     },
@@ -1558,8 +3219,22 @@
       "skill_installed": false,
       "prompt_kind": "detailed",
       "prompt_sha256": "01ee1ea96b7d9ab90e6661bb6cf362208d5a314d1491397f35f3b792db70fc28",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:29:55+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:29:58+00:00",
+          "duration_seconds": 3.039,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "NOT_APPLICABLE"
     },
@@ -1571,8 +3246,22 @@
       "skill_installed": false,
       "prompt_kind": "general",
       "prompt_sha256": "ba28543b336906914cd93f75b6bd7dcd5abdf515699334b235c06e098c624439",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:29:58+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:30:01+00:00",
+          "duration_seconds": 2.78,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "NOT_APPLICABLE"
     },
@@ -1584,8 +3273,22 @@
       "skill_installed": true,
       "prompt_kind": "detailed",
       "prompt_sha256": "8bb9fd65a11054b83ad96847860547bea6aa72fb18c20e5bdb1709a1d48f17a9",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:30:01+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:30:04+00:00",
+          "duration_seconds": 2.512,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "UNKNOWN"
     },
@@ -1597,8 +3300,22 @@
       "skill_installed": false,
       "prompt_kind": "detailed",
       "prompt_sha256": "f23001efca4f428a9a51a44c4835ded59dbc8228715f12d948aa682d0091c248",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:30:04+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:30:06+00:00",
+          "duration_seconds": 2.607,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "NOT_APPLICABLE"
     },
@@ -1610,8 +3327,22 @@
       "skill_installed": false,
       "prompt_kind": "detailed",
       "prompt_sha256": "f23001efca4f428a9a51a44c4835ded59dbc8228715f12d948aa682d0091c248",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:30:06+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:30:09+00:00",
+          "duration_seconds": 2.54,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "NOT_APPLICABLE"
     },
@@ -1623,8 +3354,22 @@
       "skill_installed": false,
       "prompt_kind": "general",
       "prompt_sha256": "c4606760176aeafc6f0595db729be4bf91b6fdbeb906d13dc38ac08f2667ec41",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:30:09+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:30:11+00:00",
+          "duration_seconds": 2.311,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "NOT_APPLICABLE"
     },
@@ -1636,8 +3381,22 @@
       "skill_installed": false,
       "prompt_kind": "detailed",
       "prompt_sha256": "01ee1ea96b7d9ab90e6661bb6cf362208d5a314d1491397f35f3b792db70fc28",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:30:11+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:30:14+00:00",
+          "duration_seconds": 2.973,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "NOT_APPLICABLE"
     },
@@ -1649,8 +3408,22 @@
       "skill_installed": false,
       "prompt_kind": "detailed",
       "prompt_sha256": "9b00537d9ede93ff810835b2f95942f6e08aa2be168fe2143b60a5d73b91ff88",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:30:14+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:30:17+00:00",
+          "duration_seconds": 2.577,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "NOT_APPLICABLE"
     },
@@ -1662,8 +3435,22 @@
       "skill_installed": false,
       "prompt_kind": "general",
       "prompt_sha256": "4347181857d2971d5d4b289b868db4bbcc4cfb595f42d1294de03bdfb1835927",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:30:17+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T07:30:19+00:00",
+          "duration_seconds": 2.573,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "NOT_APPLICABLE"
     },
@@ -1675,8 +3462,22 @@
       "skill_installed": true,
       "prompt_kind": "detailed",
       "prompt_sha256": "9b00537d9ede93ff810835b2f95942f6e08aa2be168fe2143b60a5d73b91ff88",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T07:30:19+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T07:30:23+00:00",
+          "duration_seconds": 3.217,
+          "exit_code": 1,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false,
+          "control_contaminated": false,
+          "analysis_valid": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "UNKNOWN"
     }
