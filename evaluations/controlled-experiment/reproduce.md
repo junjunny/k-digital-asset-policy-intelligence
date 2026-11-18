@@ -3,7 +3,9 @@
 ```bash
 python3 scripts/controlled_experiment.py init
 python3 scripts/controlled_experiment.py environment
-python3 scripts/controlled_experiment.py run --all
+python3 scripts/controlled_experiment.py run --all \
+  --control-workdir "$CONTROL_WORKDIR" --skill-workdir "$SKILL_WORKDIR" \
+  --control-home "$CONTROL_HOME" --skill-home "$SKILL_HOME"
 python3 scripts/controlled_experiment.py blind
 python3 scripts/controlled_experiment.py aggregate
 ```

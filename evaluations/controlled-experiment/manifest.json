@@ -14,7 +14,7 @@
       "skill_installed": true,
       "prompt_kind": "general",
       "prompt_sha256": "ba28543b336906914cd93f75b6bd7dcd5abdf515699334b235c06e098c624439",
-      "status": "FAILED",
+      "status": "PLANNED",
       "attempts": [
         {
           "attempt_id": "attempt-01",
@@ -25,7 +25,28 @@
           "exit_code": 2,
           "usage": "N/A",
           "answer_present": false,
-          "activation_observed": false
+          "activation_observed": false,
+          "analysis_valid": false,
+          "invalid_reason": "GLOBAL_SKILL_CONTAMINATION_OR_PRE_ISOLATION_PILOT"
+        },
+        {
+          "attempt_id": "attempt-02",
+          "started_at": "2026-11-18T06:41:48+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T06:42:59+00:00",
+          "duration_seconds": 71.718,
+          "exit_code": 0,
+          "usage": {
+            "input_tokens": 332874,
+            "cached_input_tokens": 277120,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 2421,
+            "reasoning_output_tokens": 708
+          },
+          "answer_present": true,
+          "activation_observed": true,
+          "analysis_valid": false,
+          "invalid_reason": "GLOBAL_SKILL_CONTAMINATION_OR_PRE_ISOLATION_PILOT"
         }
       ],
       "selected_attempt": null,
@@ -40,7 +61,27 @@
       "prompt_kind": "detailed",
       "prompt_sha256": "f23001efca4f428a9a51a44c4835ded59dbc8228715f12d948aa682d0091c248",
       "status": "PLANNED",
-      "attempts": [],
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T06:43:16+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T06:49:23+00:00",
+          "duration_seconds": 367.455,
+          "exit_code": 0,
+          "usage": {
+            "input_tokens": 3337029,
+            "cached_input_tokens": 3136128,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 12258,
+            "reasoning_output_tokens": 3307
+          },
+          "answer_present": true,
+          "activation_observed": true,
+          "analysis_valid": false,
+          "invalid_reason": "GLOBAL_SKILL_CONTAMINATION_OR_PRE_ISOLATION_PILOT"
+        }
+      ],
       "selected_attempt": null,
       "activation": "UNKNOWN"
     },
@@ -53,7 +94,27 @@
       "prompt_kind": "general",
       "prompt_sha256": "f132c1dcfca53bbe9637c4952136123242db96f2e68cfea209ada64f33423d92",
       "status": "PLANNED",
-      "attempts": [],
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T06:49:23+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T06:49:53+00:00",
+          "duration_seconds": 30.093,
+          "exit_code": 0,
+          "usage": {
+            "input_tokens": 103033,
+            "cached_input_tokens": 80768,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 1099,
+            "reasoning_output_tokens": 292
+          },
+          "answer_present": true,
+          "activation_observed": true,
+          "analysis_valid": false,
+          "invalid_reason": "GLOBAL_SKILL_CONTAMINATION_OR_PRE_ISOLATION_PILOT"
+        }
+      ],
       "selected_attempt": null,
       "activation": "NOT_APPLICABLE"
     },
@@ -66,7 +127,15 @@
       "prompt_kind": "general",
       "prompt_sha256": "4c8b7473aa2126e7cde7e944c47f1e453287fae0ebefd4b909ac62e735623b1b",
       "status": "PLANNED",
-      "attempts": [],
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T06:49:53+00:00",
+          "workdir_kind": "skill",
+          "analysis_valid": false,
+          "invalid_reason": "GLOBAL_SKILL_CONTAMINATION_OR_PRE_ISOLATION_PILOT"
+        }
+      ],
       "selected_attempt": null,
       "activation": "UNKNOWN"
     },
@@ -1326,7 +1395,7 @@
       "skill_installed": false,
       "prompt_kind": "general",
       "prompt_sha256": "ba28543b336906914cd93f75b6bd7dcd5abdf515699334b235c06e098c624439",
-      "status": "FAILED",
+      "status": "PLANNED",
       "attempts": [
         {
           "attempt_id": "attempt-01",
@@ -1337,7 +1406,28 @@
           "exit_code": 2,
           "usage": "N/A",
           "answer_present": false,
-          "activation_observed": false
+          "activation_observed": false,
+          "analysis_valid": false,
+          "invalid_reason": "GLOBAL_SKILL_CONTAMINATION_OR_PRE_ISOLATION_PILOT"
+        },
+        {
+          "attempt_id": "attempt-02",
+          "started_at": "2026-11-18T06:41:07+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T06:41:47+00:00",
+          "duration_seconds": 40.334,
+          "exit_code": 0,
+          "usage": {
+            "input_tokens": 112814,
+            "cached_input_tokens": 84864,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 1366,
+            "reasoning_output_tokens": 247
+          },
+          "answer_present": true,
+          "activation_observed": false,
+          "analysis_valid": false,
+          "invalid_reason": "GLOBAL_SKILL_CONTAMINATION_OR_PRE_ISOLATION_PILOT"
         }
       ],
       "selected_attempt": null,
@@ -1589,6 +1679,13 @@
       "attempts": [],
       "selected_attempt": null,
       "activation": "UNKNOWN"
+    }
+  ],
+  "invalidations": [
+    {
+      "at": "2026-11-18T06:51:08+00:00",
+      "reason": "GLOBAL_SKILL_CONTAMINATION_OR_PRE_ISOLATION_PILOT",
+      "affected_slots": 5
     }
   ]
 }

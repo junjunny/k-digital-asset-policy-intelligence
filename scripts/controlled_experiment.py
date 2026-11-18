@@ -203,6 +203,7 @@ def execute_slot(manifest: dict[str, Any], slot: dict[str, Any], args: argparse.
     run_dir = EXP / "runs" / slot["run_id"] / attempt_id
     run_dir.mkdir(parents=True, exist_ok=True)
     workdir = Path(args.skill_workdir if slot["skill_installed"] else args.control_workdir).resolve()
+    isolated_home = Path(args.skill_home if slot["skill_installed"] else args.control_home).resolve()
     slot["status"] = "RUNNING"
     attempt = {"attempt_id": attempt_id, "started_at": utc_now(), "workdir_kind": "skill" if slot["skill_installed"] else "control"}
     slot["attempts"].append(attempt)
@@ -213,7 +214,10 @@ def execute_slot(manifest: dict[str, Any], slot: dict[str, Any], args: argparse.
         "--sandbox", "read-only", "--skip-git-repo-check", "-C", str(workdir), prompt,
     ]
     started = time.monotonic()
-    result = subprocess.run(command, text=True, capture_output=True, check=False, timeout=args.timeout)
+    environment = os.environ.copy()
+    environment["HOME"] = str(isolated_home)
+    environment["CODEX_HOME"] = str(isolated_home / ".codex")
+    result = subprocess.run(command, text=True, capture_output=True, check=False, timeout=args.timeout, env=environment)
     duration = round(time.monotonic() - started, 3)
     (run_dir / "stdout.jsonl").write_text(result.stdout, encoding="utf-8")
     (run_dir / "stderr.txt").write_text(result.stderr, encoding="utf-8")
@@ -225,13 +229,17 @@ def execute_slot(manifest: dict[str, Any], slot: dict[str, Any], args: argparse.
         "usage": usage if usage is not None else "N/A", "answer_present": bool(final_text),
         "activation_observed": activated,
     })
-    if result.returncode == 0 and final_text:
+    control_contaminated = activated and not slot["skill_installed"]
+    attempt["control_contaminated"] = control_contaminated
+    if result.returncode == 0 and final_text and not control_contaminated:
+        attempt["analysis_valid"] = True
         slot["status"] = "COMPLETED"
         if slot["selected_attempt"] is None:
             slot["selected_attempt"] = attempt_id
         slot["activation"] = "CONFIRMED" if activated else ("UNKNOWN" if slot["skill_installed"] else "NOT_APPLICABLE")
     else:
-        slot["status"] = "FAILED"
+        attempt["analysis_valid"] = False
+        slot["status"] = "BLOCKED" if control_contaminated else "FAILED"
         failure = {"run_id": slot["run_id"], **attempt}
         failure_path = EXP / "results" / "failure-log.jsonl"
         failure_path.parent.mkdir(parents=True, exist_ok=True)
@@ -273,6 +281,24 @@ def make_blind_copies() -> None:
         mapping.append({"blind_id": blind_id, "run_id": run_id})
     write_json_atomic(EXP / "scores" / "blind-mapping.json", {"seed": manifest["seed"] + 1, "mapping": mapping})
     print(f"created {len(mapping)} blind copies")
+
+
+def invalidate_existing(reason: str) -> None:
+    """Preserve attempts but exclude them from analysis and return slots to PLANNED."""
+    manifest = read_json(MANIFEST)
+    affected = 0
+    for slot in manifest["slots"]:
+        if slot["attempts"]:
+            affected += 1
+            for attempt in slot["attempts"]:
+                attempt.setdefault("analysis_valid", False)
+                attempt.setdefault("invalid_reason", reason)
+            slot["status"] = "PLANNED"
+            slot["selected_attempt"] = None
+            slot["activation"] = "UNKNOWN" if slot["skill_installed"] else "NOT_APPLICABLE"
+    manifest.setdefault("invalidations", []).append({"at": utc_now(), "reason": reason, "affected_slots": affected})
+    write_json_atomic(MANIFEST, manifest)
+    print(f"invalidated prior attempts in {affected} slots")
 
 
 def summarize(values: list[float]) -> dict[str, Any]:
@@ -329,17 +355,22 @@ def main() -> None:
     run_cmd.add_argument("--retry", action="store_true")
     run_cmd.add_argument("--control-workdir", required=True)
     run_cmd.add_argument("--skill-workdir", required=True)
+    run_cmd.add_argument("--control-home", required=True)
+    run_cmd.add_argument("--skill-home", required=True)
     run_cmd.add_argument("--model", default="gpt-5.6-sol")
     run_cmd.add_argument("--reasoning-effort", default="medium")
     run_cmd.add_argument("--timeout", type=int, default=900)
     sub.add_parser("blind")
     sub.add_parser("aggregate")
+    invalidate_cmd = sub.add_parser("invalidate-existing")
+    invalidate_cmd.add_argument("--reason", required=True)
     args = parser.parse_args()
     if args.command == "init": init_manifest(args.force)
     elif args.command == "environment": record_environment()
     elif args.command == "run": run_experiment(args)
     elif args.command == "blind": make_blind_copies()
     elif args.command == "aggregate": aggregate()
+    elif args.command == "invalidate-existing": invalidate_existing(args.reason)
 
 
 if __name__ == "__main__":

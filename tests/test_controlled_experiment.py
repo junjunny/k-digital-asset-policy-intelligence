@@ -42,6 +42,11 @@ class ControlledExperimentTests(unittest.TestCase):
         self.assertIsNone(usage)
         self.assertFalse(activated)
 
+    def test_control_activation_is_detectable_as_contamination_signal(self):
+        event = json.dumps({"item": {"type": "command_execution", "command": "cat ~/.agents/skills/k-digital-asset-policy-intelligence/SKILL.md"}})
+        _, _, activated = MODULE.parse_jsonl_events(event)
+        self.assertTrue(activated)
+
     def test_atomic_checkpoint_replaces_complete_json(self):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "state.json"
