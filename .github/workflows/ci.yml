@@ -33,4 +33,6 @@ jobs:
       - run: python scripts/validate_sources.py evaluations/phase-8/cases/chainlink/evidence.json
       - run: python scripts/validate_sources.py evaluations/phase-8/cases/ethereum/evidence.json
       - run: python scripts/validate_sources.py evaluations/phase-8/cases/usdc/evidence.json
+      - run: python scripts/controlled_experiment.py init
+      - run: python scripts/controlled_experiment.py aggregate
       - run: npx --yes skills add . --list

@@ -1,0 +1,28 @@
+{
+  "captured_at": "2026-11-18T06:40:04+00:00",
+  "cwd": "/Users/hanjunhui/Documents/ChatGPT/New project/k-digital-asset-policy-intelligence",
+  "codex": {
+    "exit_code": 0,
+    "output": "codex-cli 0.167.0-alpha.3.2"
+  },
+  "python": {
+    "exit_code": 0,
+    "output": "Python 3.9.6"
+  },
+  "node": {
+    "exit_code": 0,
+    "output": "v26.8.1"
+  },
+  "npm": {
+    "exit_code": 0,
+    "output": "11.19.0"
+  },
+  "skills": {
+    "exit_code": 0,
+    "output": "1.9.0"
+  },
+  "git_head": {
+    "exit_code": 0,
+    "output": "33eea147c907eb7d53e8140b598715e17ec733c9"
+  }
+}
