@@ -33,10 +33,12 @@ Phase 9는 공개 명칭을 K-DARI로 정리하면서 기존 설치 슬러그와
 |---|---|
 | Claude 런타임 harness(`--runtime claude`, stream-json 파서, 사용량 중복 방지, AUTH/한도 BLOCKED·재개) | COMPLETE (단위 테스트) |
 | Claude Code 원격 npx 설치(`--agent claude-code`) | COMPLETE (SHA 일치) |
-| 자동 활성화(implicit) 관측 | PENDING — 인증 필요 |
-| Claude 120회 실행 | BLOCKED — `claude -p` OAuth 만료, 0/120 생성 |
+| 자동 활성화(implicit) 관측 | COMPLETE — C/D 60/60에서 Skill 도구 호출 관측, A/B 오염 0건 |
+| Claude 120회 실행 | COMPLETE — 120/120 슬롯 정상 완료(모델 claude-sonnet-5-5, 재시도 없음 제외 초기 AUTH 차단 2건 보존) |
 | Codex 코호트 | PARTIAL — 21/120 완료(사용량 제한), 별도 보존 |
 | 근거검증·평가·통계·E군·포트폴리오 | PENDING/PARTIAL (기존 상태 유지) |
 | 인간 검토 | HUMAN_REVIEW_PENDING |
 
 재개: `evaluations/controlled-experiment-claude/reproduce.md`. Phase 10은 시작하지 않았다.
+
+원시 사용량 요약(런타임 usage, 평가 전): 평균 output 토큰 A 1148 / B 6941 / C 2159 / D 7687, 평균 소요 A 13s / B 83s / C 25s / D 93s. 품질 점수는 아직 없어 우열 판단 불가. 블라인드 사본 120개 생성, AI 평가·근거검증은 PENDING.

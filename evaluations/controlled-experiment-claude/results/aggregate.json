@@ -1,0 +1,504 @@
+{
+  "generated_at": "2026-11-18T09:29:35+00:00",
+  "human_review_status": "HUMAN_REVIEW_PENDING",
+  "groups": {
+    "A": {
+      "planned": 30,
+      "attempted": 30,
+      "succeeded": 30,
+      "scored": 0,
+      "activation_confirmed": 0,
+      "failure_rate_of_attempted": 0.0,
+      "score_summary": {
+        "n": "N/A",
+        "mean": "N/A",
+        "median": "N/A",
+        "stddev": "N/A",
+        "iqr": "N/A",
+        "min": "N/A",
+        "max": "N/A"
+      },
+      "usage_exposed_runs": 30,
+      "total_input_plus_output_tokens": 34524,
+      "verified_core_claims": "N/A",
+      "tokens_per_verified_core_claim": "N/A"
+    },
+    "B": {
+      "planned": 30,
+      "attempted": 30,
+      "succeeded": 30,
+      "scored": 0,
+      "activation_confirmed": 0,
+      "failure_rate_of_attempted": 0.0,
+      "score_summary": {
+        "n": "N/A",
+        "mean": "N/A",
+        "median": "N/A",
+        "stddev": "N/A",
+        "iqr": "N/A",
+        "min": "N/A",
+        "max": "N/A"
+      },
+      "usage_exposed_runs": 30,
+      "total_input_plus_output_tokens": 208597,
+      "verified_core_claims": "N/A",
+      "tokens_per_verified_core_claim": "N/A"
+    },
+    "C": {
+      "planned": 30,
+      "attempted": 30,
+      "succeeded": 30,
+      "scored": 0,
+      "activation_confirmed": 30,
+      "failure_rate_of_attempted": 0.0,
+      "score_summary": {
+        "n": "N/A",
+        "mean": "N/A",
+        "median": "N/A",
+        "stddev": "N/A",
+        "iqr": "N/A",
+        "min": "N/A",
+        "max": "N/A"
+      },
+      "usage_exposed_runs": 30,
+      "total_input_plus_output_tokens": 65073,
+      "verified_core_claims": "N/A",
+      "tokens_per_verified_core_claim": "N/A"
+    },
+    "D": {
+      "planned": 30,
+      "attempted": 30,
+      "succeeded": 30,
+      "scored": 0,
+      "activation_confirmed": 30,
+      "failure_rate_of_attempted": 0.0,
+      "score_summary": {
+        "n": "N/A",
+        "mean": "N/A",
+        "median": "N/A",
+        "stddev": "N/A",
+        "iqr": "N/A",
+        "min": "N/A",
+        "max": "N/A"
+      },
+      "usage_exposed_runs": 30,
+      "total_input_plus_output_tokens": 231069,
+      "verified_core_claims": "N/A",
+      "tokens_per_verified_core_claim": "N/A"
+    }
+  },
+  "topic_groups": {
+    "clarity_act": {
+      "A": {
+        "planned": 5,
+        "attempted": 5,
+        "succeeded": 5,
+        "scored": 0,
+        "activation_confirmed": 0,
+        "score_summary": {
+          "n": "N/A",
+          "mean": "N/A",
+          "median": "N/A",
+          "stddev": "N/A",
+          "iqr": "N/A",
+          "min": "N/A",
+          "max": "N/A"
+        }
+      },
+      "B": {
+        "planned": 5,
+        "attempted": 5,
+        "succeeded": 5,
+        "scored": 0,
+        "activation_confirmed": 0,
+        "score_summary": {
+          "n": "N/A",
+          "mean": "N/A",
+          "median": "N/A",
+          "stddev": "N/A",
+          "iqr": "N/A",
+          "min": "N/A",
+          "max": "N/A"
+        }
+      },
+      "C": {
+        "planned": 5,
+        "attempted": 5,
+        "succeeded": 5,
+        "scored": 0,
+        "activation_confirmed": 5,
+        "score_summary": {
+          "n": "N/A",
+          "mean": "N/A",
+          "median": "N/A",
+          "stddev": "N/A",
+          "iqr": "N/A",
+          "min": "N/A",
+          "max": "N/A"
+        }
+      },
+      "D": {
+        "planned": 5,
+        "attempted": 5,
+        "succeeded": 5,
+        "scored": 0,
+        "activation_confirmed": 5,
+        "score_summary": {
+          "n": "N/A",
+          "mean": "N/A",
+          "median": "N/A",
+          "stddev": "N/A",
+          "iqr": "N/A",
+          "min": "N/A",
+          "max": "N/A"
+        }
+      }
+    },
+    "ethereum": {
+      "A": {
+        "planned": 5,
+        "attempted": 5,
+        "succeeded": 5,
+        "scored": 0,
+        "activation_confirmed": 0,
+        "score_summary": {
+          "n": "N/A",
+          "mean": "N/A",
+          "median": "N/A",
+          "stddev": "N/A",
+          "iqr": "N/A",
+          "min": "N/A",
+          "max": "N/A"
+        }
+      },
+      "B": {
+        "planned": 5,
+        "attempted": 5,
+        "succeeded": 5,
+        "scored": 0,
+        "activation_confirmed": 0,
+        "score_summary": {
+          "n": "N/A",
+          "mean": "N/A",
+          "median": "N/A",
+          "stddev": "N/A",
+          "iqr": "N/A",
+          "min": "N/A",
+          "max": "N/A"
+        }
+      },
+      "C": {
+        "planned": 5,
+        "attempted": 5,
+        "succeeded": 5,
+        "scored": 0,
+        "activation_confirmed": 5,
+        "score_summary": {
+          "n": "N/A",
+          "mean": "N/A",
+          "median": "N/A",
+          "stddev": "N/A",
+          "iqr": "N/A",
+          "min": "N/A",
+          "max": "N/A"
+        }
+      },
+      "D": {
+        "planned": 5,
+        "attempted": 5,
+        "succeeded": 5,
+        "scored": 0,
+        "activation_confirmed": 5,
+        "score_summary": {
+          "n": "N/A",
+          "mean": "N/A",
+          "median": "N/A",
+          "stddev": "N/A",
+          "iqr": "N/A",
+          "min": "N/A",
+          "max": "N/A"
+        }
+      }
+    },
+    "usdc": {
+      "A": {
+        "planned": 5,
+        "attempted": 5,
+        "succeeded": 5,
+        "scored": 0,
+        "activation_confirmed": 0,
+        "score_summary": {
+          "n": "N/A",
+          "mean": "N/A",
+          "median": "N/A",
+          "stddev": "N/A",
+          "iqr": "N/A",
+          "min": "N/A",
+          "max": "N/A"
+        }
+      },
+      "B": {
+        "planned": 5,
+        "attempted": 5,
+        "succeeded": 5,
+        "scored": 0,
+        "activation_confirmed": 0,
+        "score_summary": {
+          "n": "N/A",
+          "mean": "N/A",
+          "median": "N/A",
+          "stddev": "N/A",
+          "iqr": "N/A",
+          "min": "N/A",
+          "max": "N/A"
+        }
+      },
+      "C": {
+        "planned": 5,
+        "attempted": 5,
+        "succeeded": 5,
+        "scored": 0,
+        "activation_confirmed": 5,
+        "score_summary": {
+          "n": "N/A",
+          "mean": "N/A",
+          "median": "N/A",
+          "stddev": "N/A",
+          "iqr": "N/A",
+          "min": "N/A",
+          "max": "N/A"
+        }
+      },
+      "D": {
+        "planned": 5,
+        "attempted": 5,
+        "succeeded": 5,
+        "scored": 0,
+        "activation_confirmed": 5,
+        "score_summary": {
+          "n": "N/A",
+          "mean": "N/A",
+          "median": "N/A",
+          "stddev": "N/A",
+          "iqr": "N/A",
+          "min": "N/A",
+          "max": "N/A"
+        }
+      }
+    },
+    "chainlink": {
+      "A": {
+        "planned": 5,
+        "attempted": 5,
+        "succeeded": 5,
+        "scored": 0,
+        "activation_confirmed": 0,
+        "score_summary": {
+          "n": "N/A",
+          "mean": "N/A",
+          "median": "N/A",
+          "stddev": "N/A",
+          "iqr": "N/A",
+          "min": "N/A",
+          "max": "N/A"
+        }
+      },
+      "B": {
+        "planned": 5,
+        "attempted": 5,
+        "succeeded": 5,
+        "scored": 0,
+        "activation_confirmed": 0,
+        "score_summary": {
+          "n": "N/A",
+          "mean": "N/A",
+          "median": "N/A",
+          "stddev": "N/A",
+          "iqr": "N/A",
+          "min": "N/A",
+          "max": "N/A"
+        }
+      },
+      "C": {
+        "planned": 5,
+        "attempted": 5,
+        "succeeded": 5,
+        "scored": 0,
+        "activation_confirmed": 5,
+        "score_summary": {
+          "n": "N/A",
+          "mean": "N/A",
+          "median": "N/A",
+          "stddev": "N/A",
+          "iqr": "N/A",
+          "min": "N/A",
+          "max": "N/A"
+        }
+      },
+      "D": {
+        "planned": 5,
+        "attempted": 5,
+        "succeeded": 5,
+        "scored": 0,
+        "activation_confirmed": 5,
+        "score_summary": {
+          "n": "N/A",
+          "mean": "N/A",
+          "median": "N/A",
+          "stddev": "N/A",
+          "iqr": "N/A",
+          "min": "N/A",
+          "max": "N/A"
+        }
+      }
+    },
+    "upbit": {
+      "A": {
+        "planned": 5,
+        "attempted": 5,
+        "succeeded": 5,
+        "scored": 0,
+        "activation_confirmed": 0,
+        "score_summary": {
+          "n": "N/A",
+          "mean": "N/A",
+          "median": "N/A",
+          "stddev": "N/A",
+          "iqr": "N/A",
+          "min": "N/A",
+          "max": "N/A"
+        }
+      },
+      "B": {
+        "planned": 5,
+        "attempted": 5,
+        "succeeded": 5,
+        "scored": 0,
+        "activation_confirmed": 0,
+        "score_summary": {
+          "n": "N/A",
+          "mean": "N/A",
+          "median": "N/A",
+          "stddev": "N/A",
+          "iqr": "N/A",
+          "min": "N/A",
+          "max": "N/A"
+        }
+      },
+      "C": {
+        "planned": 5,
+        "attempted": 5,
+        "succeeded": 5,
+        "scored": 0,
+        "activation_confirmed": 5,
+        "score_summary": {
+          "n": "N/A",
+          "mean": "N/A",
+          "median": "N/A",
+          "stddev": "N/A",
+          "iqr": "N/A",
+          "min": "N/A",
+          "max": "N/A"
+        }
+      },
+      "D": {
+        "planned": 5,
+        "attempted": 5,
+        "succeeded": 5,
+        "scored": 0,
+        "activation_confirmed": 5,
+        "score_summary": {
+          "n": "N/A",
+          "mean": "N/A",
+          "median": "N/A",
+          "stddev": "N/A",
+          "iqr": "N/A",
+          "min": "N/A",
+          "max": "N/A"
+        }
+      }
+    },
+    "token_securities": {
+      "A": {
+        "planned": 5,
+        "attempted": 5,
+        "succeeded": 5,
+        "scored": 0,
+        "activation_confirmed": 0,
+        "score_summary": {
+          "n": "N/A",
+          "mean": "N/A",
+          "median": "N/A",
+          "stddev": "N/A",
+          "iqr": "N/A",
+          "min": "N/A",
+          "max": "N/A"
+        }
+      },
+      "B": {
+        "planned": 5,
+        "attempted": 5,
+        "succeeded": 5,
+        "scored": 0,
+        "activation_confirmed": 0,
+        "score_summary": {
+          "n": "N/A",
+          "mean": "N/A",
+          "median": "N/A",
+          "stddev": "N/A",
+          "iqr": "N/A",
+          "min": "N/A",
+          "max": "N/A"
+        }
+      },
+      "C": {
+        "planned": 5,
+        "attempted": 5,
+        "succeeded": 5,
+        "scored": 0,
+        "activation_confirmed": 5,
+        "score_summary": {
+          "n": "N/A",
+          "mean": "N/A",
+          "median": "N/A",
+          "stddev": "N/A",
+          "iqr": "N/A",
+          "min": "N/A",
+          "max": "N/A"
+        }
+      },
+      "D": {
+        "planned": 5,
+        "attempted": 5,
+        "succeeded": 5,
+        "scored": 0,
+        "activation_confirmed": 5,
+        "score_summary": {
+          "n": "N/A",
+          "mean": "N/A",
+          "median": "N/A",
+          "stddev": "N/A",
+          "iqr": "N/A",
+          "min": "N/A",
+          "max": "N/A"
+        }
+      }
+    }
+  },
+  "absolute_contrasts": {
+    "C-B": "N/A",
+    "C-A": "N/A",
+    "D-B": "N/A",
+    "D-C": "N/A",
+    "B-A": "N/A",
+    "interaction_(D-C)-(B-A)": "N/A"
+  },
+  "relative_contrasts": {
+    "C-B": "N/A",
+    "C-A": "N/A",
+    "D-B": "N/A",
+    "D-C": "N/A",
+    "B-A": "N/A",
+    "interaction_(D-C)-(B-A)": "N/A"
+  }
+}

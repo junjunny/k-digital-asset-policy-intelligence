@@ -283,7 +283,8 @@ def execute_slot(manifest: dict[str, Any], slot: dict[str, Any], args: argparse.
     run_dir = EXP / "runs" / slot["run_id"] / attempt_id
     run_dir.mkdir(parents=True, exist_ok=True)
     workdir = Path(args.skill_workdir if slot["skill_installed"] else args.control_workdir).resolve()
-    isolated_home = Path(args.skill_home if slot["skill_installed"] else args.control_home).resolve()
+    # abspath, not resolve(): login credentials are keyed by the exact CLAUDE_CONFIG_DIR string (/tmp vs /private/tmp differ)
+    isolated_home = Path(os.path.abspath(args.skill_home if slot["skill_installed"] else args.control_home))
     slot["status"] = "RUNNING"
     attempt = {"attempt_id": attempt_id, "started_at": utc_now(), "workdir_kind": "skill" if slot["skill_installed"] else "control"}
     slot["attempts"].append(attempt)

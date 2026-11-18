@@ -1,0 +1,485 @@
+{
+  "seed": 20261119,
+  "mapping": [
+    {
+      "blind_id": "R001",
+      "run_id": "chainlink-A-04"
+    },
+    {
+      "blind_id": "R002",
+      "run_id": "usdc-A-05"
+    },
+    {
+      "blind_id": "R003",
+      "run_id": "usdc-B-04"
+    },
+    {
+      "blind_id": "R004",
+      "run_id": "usdc-D-04"
+    },
+    {
+      "blind_id": "R005",
+      "run_id": "usdc-D-01"
+    },
+    {
+      "blind_id": "R006",
+      "run_id": "ethereum-C-01"
+    },
+    {
+      "blind_id": "R007",
+      "run_id": "upbit-C-02"
+    },
+    {
+      "blind_id": "R008",
+      "run_id": "chainlink-A-01"
+    },
+    {
+      "blind_id": "R009",
+      "run_id": "token_securities-A-05"
+    },
+    {
+      "blind_id": "R010",
+      "run_id": "chainlink-B-04"
+    },
+    {
+      "blind_id": "R011",
+      "run_id": "ethereum-C-04"
+    },
+    {
+      "blind_id": "R012",
+      "run_id": "ethereum-D-04"
+    },
+    {
+      "blind_id": "R013",
+      "run_id": "chainlink-A-03"
+    },
+    {
+      "blind_id": "R014",
+      "run_id": "ethereum-A-04"
+    },
+    {
+      "blind_id": "R015",
+      "run_id": "ethereum-A-05"
+    },
+    {
+      "blind_id": "R016",
+      "run_id": "chainlink-B-03"
+    },
+    {
+      "blind_id": "R017",
+      "run_id": "usdc-C-01"
+    },
+    {
+      "blind_id": "R018",
+      "run_id": "ethereum-A-02"
+    },
+    {
+      "blind_id": "R019",
+      "run_id": "ethereum-D-05"
+    },
+    {
+      "blind_id": "R020",
+      "run_id": "upbit-A-05"
+    },
+    {
+      "blind_id": "R021",
+      "run_id": "clarity_act-C-04"
+    },
+    {
+      "blind_id": "R022",
+      "run_id": "chainlink-D-04"
+    },
+    {
+      "blind_id": "R023",
+      "run_id": "token_securities-C-02"
+    },
+    {
+      "blind_id": "R024",
+      "run_id": "clarity_act-B-01"
+    },
+    {
+      "blind_id": "R025",
+      "run_id": "upbit-C-04"
+    },
+    {
+      "blind_id": "R026",
+      "run_id": "chainlink-D-05"
+    },
+    {
+      "blind_id": "R027",
+      "run_id": "ethereum-D-01"
+    },
+    {
+      "blind_id": "R028",
+      "run_id": "token_securities-C-05"
+    },
+    {
+      "blind_id": "R029",
+      "run_id": "chainlink-C-01"
+    },
+    {
+      "blind_id": "R030",
+      "run_id": "clarity_act-B-05"
+    },
+    {
+      "blind_id": "R031",
+      "run_id": "ethereum-B-04"
+    },
+    {
+      "blind_id": "R032",
+      "run_id": "token_securities-B-01"
+    },
+    {
+      "blind_id": "R033",
+      "run_id": "token_securities-D-02"
+    },
+    {
+      "blind_id": "R034",
+      "run_id": "ethereum-C-03"
+    },
+    {
+      "blind_id": "R035",
+      "run_id": "ethereum-A-03"
+    },
+    {
+      "blind_id": "R036",
+      "run_id": "usdc-D-03"
+    },
+    {
+      "blind_id": "R037",
+      "run_id": "clarity_act-A-03"
+    },
+    {
+      "blind_id": "R038",
+      "run_id": "chainlink-D-02"
+    },
+    {
+      "blind_id": "R039",
+      "run_id": "upbit-B-03"
+    },
+    {
+      "blind_id": "R040",
+      "run_id": "token_securities-D-03"
+    },
+    {
+      "blind_id": "R041",
+      "run_id": "chainlink-B-01"
+    },
+    {
+      "blind_id": "R042",
+      "run_id": "ethereum-D-03"
+    },
+    {
+      "blind_id": "R043",
+      "run_id": "chainlink-D-01"
+    },
+    {
+      "blind_id": "R044",
+      "run_id": "upbit-D-01"
+    },
+    {
+      "blind_id": "R045",
+      "run_id": "upbit-B-04"
+    },
+    {
+      "blind_id": "R046",
+      "run_id": "usdc-C-04"
+    },
+    {
+      "blind_id": "R047",
+      "run_id": "chainlink-C-02"
+    },
+    {
+      "blind_id": "R048",
+      "run_id": "usdc-A-04"
+    },
+    {
+      "blind_id": "R049",
+      "run_id": "usdc-C-05"
+    },
+    {
+      "blind_id": "R050",
+      "run_id": "usdc-B-03"
+    },
+    {
+      "blind_id": "R051",
+      "run_id": "ethereum-D-02"
+    },
+    {
+      "blind_id": "R052",
+      "run_id": "usdc-C-03"
+    },
+    {
+      "blind_id": "R053",
+      "run_id": "token_securities-A-01"
+    },
+    {
+      "blind_id": "R054",
+      "run_id": "usdc-B-02"
+    },
+    {
+      "blind_id": "R055",
+      "run_id": "clarity_act-D-05"
+    },
+    {
+      "blind_id": "R056",
+      "run_id": "chainlink-B-02"
+    },
+    {
+      "blind_id": "R057",
+      "run_id": "clarity_act-B-03"
+    },
+    {
+      "blind_id": "R058",
+      "run_id": "chainlink-C-05"
+    },
+    {
+      "blind_id": "R059",
+      "run_id": "token_securities-D-01"
+    },
+    {
+      "blind_id": "R060",
+      "run_id": "token_securities-A-04"
+    },
+    {
+      "blind_id": "R061",
+      "run_id": "clarity_act-B-02"
+    },
+    {
+      "blind_id": "R062",
+      "run_id": "clarity_act-D-02"
+    },
+    {
+      "blind_id": "R063",
+      "run_id": "upbit-A-02"
+    },
+    {
+      "blind_id": "R064",
+      "run_id": "ethereum-B-02"
+    },
+    {
+      "blind_id": "R065",
+      "run_id": "usdc-A-03"
+    },
+    {
+      "blind_id": "R066",
+      "run_id": "token_securities-B-02"
+    },
+    {
+      "blind_id": "R067",
+      "run_id": "upbit-D-05"
+    },
+    {
+      "blind_id": "R068",
+      "run_id": "upbit-C-01"
+    },
+    {
+      "blind_id": "R069",
+      "run_id": "upbit-D-04"
+    },
+    {
+      "blind_id": "R070",
+      "run_id": "upbit-A-01"
+    },
+    {
+      "blind_id": "R071",
+      "run_id": "ethereum-B-01"
+    },
+    {
+      "blind_id": "R072",
+      "run_id": "clarity_act-A-04"
+    },
+    {
+      "blind_id": "R073",
+      "run_id": "usdc-B-05"
+    },
+    {
+      "blind_id": "R074",
+      "run_id": "upbit-B-01"
+    },
+    {
+      "blind_id": "R075",
+      "run_id": "clarity_act-B-04"
+    },
+    {
+      "blind_id": "R076",
+      "run_id": "clarity_act-C-05"
+    },
+    {
+      "blind_id": "R077",
+      "run_id": "token_securities-B-03"
+    },
+    {
+      "blind_id": "R078",
+      "run_id": "ethereum-B-05"
+    },
+    {
+      "blind_id": "R079",
+      "run_id": "chainlink-A-02"
+    },
+    {
+      "blind_id": "R080",
+      "run_id": "clarity_act-D-01"
+    },
+    {
+      "blind_id": "R081",
+      "run_id": "ethereum-C-02"
+    },
+    {
+      "blind_id": "R082",
+      "run_id": "clarity_act-A-01"
+    },
+    {
+      "blind_id": "R083",
+      "run_id": "upbit-A-04"
+    },
+    {
+      "blind_id": "R084",
+      "run_id": "clarity_act-C-02"
+    },
+    {
+      "blind_id": "R085",
+      "run_id": "chainlink-D-03"
+    },
+    {
+      "blind_id": "R086",
+      "run_id": "clarity_act-C-01"
+    },
+    {
+      "blind_id": "R087",
+      "run_id": "upbit-B-05"
+    },
+    {
+      "blind_id": "R088",
+      "run_id": "upbit-D-02"
+    },
+    {
+      "blind_id": "R089",
+      "run_id": "upbit-C-03"
+    },
+    {
+      "blind_id": "R090",
+      "run_id": "token_securities-B-05"
+    },
+    {
+      "blind_id": "R091",
+      "run_id": "token_securities-D-04"
+    },
+    {
+      "blind_id": "R092",
+      "run_id": "clarity_act-A-05"
+    },
+    {
+      "blind_id": "R093",
+      "run_id": "chainlink-C-04"
+    },
+    {
+      "blind_id": "R094",
+      "run_id": "token_securities-C-03"
+    },
+    {
+      "blind_id": "R095",
+      "run_id": "ethereum-B-03"
+    },
+    {
+      "blind_id": "R096",
+      "run_id": "token_securities-C-01"
+    },
+    {
+      "blind_id": "R097",
+      "run_id": "ethereum-C-05"
+    },
+    {
+      "blind_id": "R098",
+      "run_id": "usdc-B-01"
+    },
+    {
+      "blind_id": "R099",
+      "run_id": "ethereum-A-01"
+    },
+    {
+      "blind_id": "R100",
+      "run_id": "token_securities-A-03"
+    },
+    {
+      "blind_id": "R101",
+      "run_id": "clarity_act-D-04"
+    },
+    {
+      "blind_id": "R102",
+      "run_id": "token_securities-A-02"
+    },
+    {
+      "blind_id": "R103",
+      "run_id": "usdc-D-05"
+    },
+    {
+      "blind_id": "R104",
+      "run_id": "clarity_act-A-02"
+    },
+    {
+      "blind_id": "R105",
+      "run_id": "upbit-A-03"
+    },
+    {
+      "blind_id": "R106",
+      "run_id": "usdc-D-02"
+    },
+    {
+      "blind_id": "R107",
+      "run_id": "token_securities-B-04"
+    },
+    {
+      "blind_id": "R108",
+      "run_id": "upbit-C-05"
+    },
+    {
+      "blind_id": "R109",
+      "run_id": "usdc-C-02"
+    },
+    {
+      "blind_id": "R110",
+      "run_id": "token_securities-C-04"
+    },
+    {
+      "blind_id": "R111",
+      "run_id": "chainlink-A-05"
+    },
+    {
+      "blind_id": "R112",
+      "run_id": "usdc-A-01"
+    },
+    {
+      "blind_id": "R113",
+      "run_id": "usdc-A-02"
+    },
+    {
+      "blind_id": "R114",
+      "run_id": "upbit-D-03"
+    },
+    {
+      "blind_id": "R115",
+      "run_id": "chainlink-B-05"
+    },
+    {
+      "blind_id": "R116",
+      "run_id": "clarity_act-C-03"
+    },
+    {
+      "blind_id": "R117",
+      "run_id": "token_securities-D-05"
+    },
+    {
+      "blind_id": "R118",
+      "run_id": "chainlink-C-03"
+    },
+    {
+      "blind_id": "R119",
+      "run_id": "clarity_act-D-03"
+    },
+    {
+      "blind_id": "R120",
+      "run_id": "upbit-B-02"
+    }
+  ]
+}
