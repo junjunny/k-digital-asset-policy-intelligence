@@ -23,3 +23,20 @@ Phase 9는 공개 명칭을 K-DARI로 정리하면서 기존 설치 슬러그와
 ## 격리 문제와 조치
 
 초기 파일럿에서 사용자 전역에 설치된 스킬이 대조군에 유입될 수 있음을 실제 로그로 발견했다. 해당 시도는 삭제하지 않고 `GLOBAL_SKILL_CONTAMINATION_OR_PRE_ISOLATION_PILOT`로 분석 제외했다. 이후 조건별 임시 `HOME`·`CODEX_HOME`과 작업 디렉터리를 분리하고, 대조군에 스킬 읽기가 관측되면 자동으로 `BLOCKED` 처리하도록 수정했다.
+
+
+## Claude Code 이관 (2026-11-18)
+
+개발 도구가 Codex에서 Claude Code로 바뀌었다(D-012). 저장소 확인 결과 Codex는 이미 manifest·프롬프트·루브릭·harness·Codex 코호트 실행 일부(완료 21 슬롯, 99 실패 시도, 모두 미커밋)를 만들었으므로 재작성하지 않고 보존 커밋한다. 신규 요구에 따라 동일 모델·환경의 **Claude 코호트**를 `evaluations/controlled-experiment-claude/`에 별도 구성했다(합산 금지).
+
+| 구성요소 | 상태 |
+|---|---|
+| Claude 런타임 harness(`--runtime claude`, stream-json 파서, 사용량 중복 방지, AUTH/한도 BLOCKED·재개) | COMPLETE (단위 테스트) |
+| Claude Code 원격 npx 설치(`--agent claude-code`) | COMPLETE (SHA 일치) |
+| 자동 활성화(implicit) 관측 | PENDING — 인증 필요 |
+| Claude 120회 실행 | BLOCKED — `claude -p` OAuth 만료, 0/120 생성 |
+| Codex 코호트 | PARTIAL — 21/120 완료(사용량 제한), 별도 보존 |
+| 근거검증·평가·통계·E군·포트폴리오 | PENDING/PARTIAL (기존 상태 유지) |
+| 인간 검토 | HUMAN_REVIEW_PENDING |
+
+재개: `evaluations/controlled-experiment-claude/reproduce.md`. Phase 10은 시작하지 않았다.

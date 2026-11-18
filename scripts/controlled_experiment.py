@@ -20,8 +20,13 @@ from typing import Any
 
 
 ROOT = Path(__file__).resolve().parents[1]
-EXP = ROOT / "evaluations" / "controlled-experiment"
+# K_DARI_EXP_DIR selects a separate cohort directory (e.g. the Claude Code cohort)
+# without touching the preserved Codex cohort in evaluations/controlled-experiment.
+EXP = Path(os.environ.get("K_DARI_EXP_DIR") or ROOT / "evaluations" / "controlled-experiment").resolve()
+PROMPT_DIR = ROOT / "evaluations" / "controlled-experiment" / "prompts"  # frozen prompts shared by all cohorts
 MANIFEST = EXP / "manifest.json"
+SKILL_NAME = "k-digital-asset-policy-intelligence"
+BLOCKED_RESUMABLE = {"AUTH_REQUIRED", "USAGE_LIMIT"}
 TOPICS = ("clarity_act", "ethereum", "usdc", "chainlink", "upbit", "token_securities")
 CONDITIONS = {
     "A": (False, "general"),
@@ -60,8 +65,8 @@ def sha256_text(text: str) -> str:
 
 def load_prompts() -> dict[str, dict[str, str]]:
     return {
-        "general": read_json(EXP / "prompts" / "general.json"),
-        "detailed": read_json(EXP / "prompts" / "detailed.json"),
+        "general": read_json(PROMPT_DIR / "general.json"),
+        "detailed": read_json(PROMPT_DIR / "detailed.json"),
     }
 
 
@@ -155,6 +160,75 @@ def parse_jsonl_events(text: str) -> tuple[str | None, dict[str, int] | None, bo
     return final_text, totals, activated
 
 
+def classify_claude_failure(result_event: dict[str, Any] | None, stderr: str) -> str | None:
+    """Map Claude Code error output to a resumable block reason; never guess otherwise."""
+    text = " ".join(str((result_event or {}).get(k, "")) for k in ("result", "api_error_status", "terminal_reason")) + " " + stderr
+    low = text.lower()
+    if any(k in low for k in ("not logged in", "/login", "oauth", "failed to authenticate", "invalid api key")):
+        return "AUTH_REQUIRED"
+    if any(k in low for k in ("usage limit", "limit reached", "rate limit", "rate_limit", "429", "overloaded", "quota")):
+        return "USAGE_LIMIT"
+    return None
+
+
+def parse_claude_stream(text: str) -> dict[str, Any]:
+    """Parse `claude -p --output-format stream-json --verbose` output.
+
+    usage: the final `result` event carries the cumulative per-run usage; per-message usage is
+    only a fallback and is de-duplicated by message id (one message is emitted once per content block).
+    Activation is counted only for a Skill tool call or a Read of the installed SKILL.md.
+    """
+    final_text = None
+    result_event = None
+    init_event = None
+    msg_usage: dict[str, dict[str, int]] = {}
+    tool_calls: list[str] = []
+    activated = False
+    for raw in text.splitlines():
+        try:
+            event = json.loads(raw)
+        except json.JSONDecodeError:
+            continue
+        if not isinstance(event, dict):
+            continue
+        kind = event.get("type")
+        if kind == "system" and event.get("subtype") == "init":
+            init_event = event
+        elif kind == "result":
+            result_event = event
+            if isinstance(event.get("result"), str) and not event.get("is_error"):
+                final_text = event["result"]
+        elif kind == "assistant":
+            message = event.get("message") or {}
+            usage = message.get("usage")
+            if isinstance(usage, dict) and message.get("id"):
+                msg_usage[message["id"]] = {k: v for k, v in usage.items() if isinstance(v, int)}
+            for block in message.get("content") or []:
+                if isinstance(block, dict) and block.get("type") == "tool_use":
+                    name = block.get("name", "")
+                    tool_calls.append(name)
+                    arguments = json.dumps(block.get("input", {}), ensure_ascii=False)
+                    if (name == "Skill" and SKILL_NAME in arguments) or (name == "Read" and SKILL_NAME in arguments and "SKILL.md" in arguments):
+                        activated = True
+    usage_raw: Any = "N/A"
+    usage_source = "N/A"
+    if result_event and isinstance(result_event.get("usage"), dict):
+        usage_raw, usage_source = result_event["usage"], "result.usage (cumulative per run)"
+    elif msg_usage:
+        totals: dict[str, int] = {}
+        for item in msg_usage.values():
+            for key, value in item.items():
+                totals[key] = totals.get(key, 0) + value
+        usage_raw, usage_source = totals, "sum of assistant message usage, de-duplicated by message id"
+    return {
+        "final_text": final_text, "usage": usage_raw, "usage_source": usage_source, "activated": activated,
+        "tool_calls": tool_calls, "model": (init_event or {}).get("model", "N/A"),
+        "skills_listed": [x for x in (init_event or {}).get("skills", []) if isinstance(x, str)],
+        "total_cost_usd": (result_event or {}).get("total_cost_usd", "N/A"),  # runtime-reported; may be 0 on subscription auth
+        "modelUsage": (result_event or {}).get("modelUsage", "N/A"), "result_event": result_event,
+    }
+
+
 def init_manifest(force: bool = False) -> None:
     if MANIFEST.exists() and not force:
         errors = validate_manifest(read_json(MANIFEST))
@@ -170,15 +244,20 @@ def init_manifest(force: bool = False) -> None:
 def record_environment() -> None:
     commands = {
         "codex": ["codex", "--version"],
+        "claude": ["claude", "--version"],
         "python": [sys.executable, "--version"],
         "node": ["node", "--version"],
         "npm": ["npm", "--version"],
         "skills": ["npx", "--yes", "skills", "--version"],
         "git_head": ["git", "rev-parse", "HEAD"],
     }
-    values: dict[str, Any] = {"captured_at": utc_now(), "cwd": str(ROOT)}
+    values: dict[str, Any] = {"captured_at": utc_now(), "cwd": "<repo>"}
     for key, command in commands.items():
-        result = subprocess.run(command, cwd=ROOT, text=True, capture_output=True, check=False)
+        try:
+            result = subprocess.run(command, cwd=ROOT, text=True, capture_output=True, check=False)
+        except FileNotFoundError:
+            values[key] = {"exit_code": "N/A", "output": "not installed"}
+            continue
         values[key] = {"exit_code": result.returncode, "output": (result.stdout or result.stderr).strip()}
     write_json_atomic(EXP / "results" / "environment.json", values)
     print(EXP / "results" / "environment.json")
@@ -191,7 +270,8 @@ def selected_slots(manifest: dict[str, Any], args: argparse.Namespace) -> list[d
     elif not args.all:
         raise SystemExit("choose --all or --run-id")
     if not args.retry:
-        slots = [slot for slot in slots if slot["status"] in {"PLANNED", "RUNNING"}]
+        slots = [slot for slot in slots if slot["status"] in {"PLANNED", "RUNNING"}
+                 or (slot["status"] == "BLOCKED" and slot["attempts"] and slot["attempts"][-1].get("blocked_reason") in BLOCKED_RESUMABLE)]
     return slots
 
 
@@ -208,6 +288,8 @@ def execute_slot(manifest: dict[str, Any], slot: dict[str, Any], args: argparse.
     attempt = {"attempt_id": attempt_id, "started_at": utc_now(), "workdir_kind": "skill" if slot["skill_installed"] else "control"}
     slot["attempts"].append(attempt)
     write_json_atomic(MANIFEST, manifest)
+    if args.runtime == "claude":
+        return execute_claude(manifest, slot, args, prompt, attempt, run_dir, workdir, isolated_home)
     command = [
         "codex", "--search", "exec", "--json", "--ephemeral", "--ignore-user-config",
         "--model", args.model, "-c", f'model_reasoning_effort="{args.reasoning_effort}"',
@@ -247,6 +329,79 @@ def execute_slot(manifest: dict[str, Any], slot: dict[str, Any], args: argparse.
             handle.write(json.dumps(failure, ensure_ascii=False) + "\n")
     write_json_atomic(MANIFEST, manifest)
     print(f"{slot['run_id']} {slot['status']} {duration}s activation={slot['activation']}", flush=True)
+
+
+def execute_claude(manifest, slot, args, prompt, attempt, run_dir, workdir, isolated_home) -> None:
+    """One independent `claude -p` session. Same tools/model/effort for A-D; only the Skill install differs."""
+    command = [
+        "claude", "-p", prompt, "--output-format", "stream-json", "--verbose", "--no-session-persistence",
+        "--model", args.model, "--effort", args.effort, "--setting-sources", "project", "--strict-mcp-config",
+        "--permission-mode", "dontAsk", "--allowedTools", *args.allowed_tools.split(),
+    ]
+    environment = os.environ.copy()
+    environment["CLAUDE_CONFIG_DIR"] = str(isolated_home)  # isolates user skills, plugins, hooks, memory
+    started = time.monotonic()
+    result = subprocess.run(command, text=True, capture_output=True, check=False, timeout=args.timeout, env=environment, cwd=workdir)
+    duration = round(time.monotonic() - started, 3)
+    (run_dir / "stdout.jsonl").write_text(result.stdout, encoding="utf-8")
+    (run_dir / "stderr.txt").write_text(result.stderr, encoding="utf-8")
+    parsed = parse_claude_stream(result.stdout)
+    event = parsed.pop("result_event")
+    final_text = parsed["final_text"]
+    if final_text:
+        (run_dir / "answer.md").write_text(final_text.rstrip() + "\n", encoding="utf-8")
+    block = None if (event and not event.get("is_error") and final_text) else classify_claude_failure(event, result.stderr)
+    contaminated = parsed["activated"] and not slot["skill_installed"]
+    attempt.update({
+        "finished_at": utc_now(), "duration_seconds": duration, "exit_code": result.returncode, "runtime": "claude-code",
+        "usage": parsed["usage"], "usage_source": parsed["usage_source"], "answer_present": bool(final_text),
+        "activation_observed": parsed["activated"], "tool_calls": parsed["tool_calls"], "model_reported": parsed["model"],
+        "skills_listed_at_init": parsed["skills_listed"], "runtime_reported_cost_usd": parsed["total_cost_usd"],
+        "control_contaminated": contaminated,
+    })
+    ok = result.returncode == 0 and bool(final_text) and not contaminated and block is None
+    attempt["analysis_valid"] = ok
+    if ok:
+        slot["status"] = "COMPLETED"
+        slot["selected_attempt"] = slot["selected_attempt"] or attempt["attempt_id"]
+        slot["activation"] = "CONFIRMED" if parsed["activated"] else ("UNKNOWN" if slot["skill_installed"] else "NOT_APPLICABLE")
+    else:
+        if block:
+            attempt["blocked_reason"] = block
+        slot["status"] = "BLOCKED" if (block or contaminated) else "FAILED"
+        failure_path = EXP / "results" / "failure-log.jsonl"
+        failure_path.parent.mkdir(parents=True, exist_ok=True)
+        with failure_path.open("a", encoding="utf-8") as handle:
+            handle.write(json.dumps({"run_id": slot["run_id"], **attempt}, ensure_ascii=False) + "\n")
+    write_json_atomic(MANIFEST, manifest)
+    print(f"{slot['run_id']} {slot['status']} {duration}s activation={slot['activation']} block={block}", flush=True)
+    if block in BLOCKED_RESUMABLE:
+        raise SystemExit(f"stopped: {block}. Fix the cause (login / wait for limit reset) and rerun the same command to resume; completed slots are skipped.")
+
+
+def setup_claude_workdirs(base: Path, spec: str) -> None:
+    """Create control (no Skill) and skill (remote npx install) workdirs; log hashes. Never touches ~/.claude."""
+    control, skill = base / "control", base / "skill"
+    for directory in (control, skill):
+        directory.mkdir(parents=True, exist_ok=True)
+    install = subprocess.run(["npx", "--yes", "skills", "add", spec, "--agent", "claude-code", "--yes"],
+                             cwd=skill, text=True, capture_output=True, check=False)
+    installed = skill / ".claude" / "skills" / SKILL_NAME
+    # The installed copy ships past evaluation answers; drop them so C/D cannot read other runs' outputs.
+    removed = []
+    for name in ("evaluations", "portfolio"):
+        if (installed / name).is_dir():
+            shutil.rmtree(installed / name)
+            removed.append(name)
+    skill_md = installed / "SKILL.md"
+    record = {
+        "captured_at": utc_now(), "command": f"npx --yes skills add {spec} --agent claude-code --yes", "exit_code": install.returncode,
+        "installed_path_relative": ".claude/skills/" + SKILL_NAME, "skill_md_sha256": hashlib.sha256(skill_md.read_bytes()).hexdigest() if skill_md.exists() else "N/A",
+        "removed_from_installed_copy": removed, "control_has_claude_dir": (control / ".claude").exists(),
+        "control_workdir": str(control), "skill_workdir": str(skill),
+    }
+    write_json_atomic(EXP / "results" / "claude-install.json", record)
+    print(json.dumps(record, ensure_ascii=False, indent=2))
 
 
 def run_experiment(args: argparse.Namespace) -> None:
@@ -391,17 +546,26 @@ def main() -> None:
     run_cmd.add_argument("--skill-workdir", required=True)
     run_cmd.add_argument("--control-home", required=True)
     run_cmd.add_argument("--skill-home", required=True)
-    run_cmd.add_argument("--model", default="gpt-5.6-sol")
+    run_cmd.add_argument("--runtime", choices=("codex", "claude"), default="codex")
+    run_cmd.add_argument("--model", default=None)
     run_cmd.add_argument("--reasoning-effort", default="medium")
+    run_cmd.add_argument("--effort", default="medium", help="claude runtime effort level")
+    run_cmd.add_argument("--allowed-tools", default="WebSearch WebFetch Read Grep Glob Skill")
     run_cmd.add_argument("--timeout", type=int, default=900)
+    setup_cmd = sub.add_parser("setup-claude")
+    setup_cmd.add_argument("--base", required=True)
+    setup_cmd.add_argument("--spec", default=f"junjunny/k-digital-asset-policy-intelligence@{SKILL_NAME}")
     sub.add_parser("blind")
     sub.add_parser("aggregate")
     invalidate_cmd = sub.add_parser("invalidate-existing")
     invalidate_cmd.add_argument("--reason", required=True)
     args = parser.parse_args()
+    if args.command == "run" and args.model is None:
+        args.model = "gpt-5.6-sol" if args.runtime == "codex" else "claude-sonnet-5-5"
     if args.command == "init": init_manifest(args.force)
     elif args.command == "environment": record_environment()
     elif args.command == "run": run_experiment(args)
+    elif args.command == "setup-claude": setup_claude_workdirs(Path(args.base).resolve(), args.spec)
     elif args.command == "blind": make_blind_copies()
     elif args.command == "aggregate": aggregate()
     elif args.command == "invalidate-existing": invalidate_existing(args.reason)

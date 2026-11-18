@@ -27,3 +27,10 @@ Phase 8에서 자연어 입력부터 최신 공식자료 탐색과 답변 생성
 
 프로젝트는 Phase 10에서 신규 기능 개발을 종료한다. Phase 9는 자동으로 시작하지 않는다.
 
+
+
+## Phase 9 재개 (Claude Code)
+
+1. 사용자가 터미널에서 `CLAUDE_CONFIG_DIR=/tmp/kd_claude_env/home-control claude /login` 및 `home-skill`에 각각 로그인한다(자격증명은 Claude가 다루지 않음).
+2. `evaluations/controlled-experiment-claude/reproduce.md`의 setup/run 명령을 실행한다. 한도에 닿으면 자동 중단·BLOCKED 저장되며 같은 명령으로 재개한다.
+3. 이후 blind 평가, 공식 근거 대조, aggregate. Codex 코호트와 합산하지 않는다. Phase 10은 별도 승인 전 시작하지 않는다.

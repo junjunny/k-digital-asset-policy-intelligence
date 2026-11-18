@@ -142,3 +142,9 @@ EUR-Lex 결과는 발췌 불일치로 잘못 분류하지 않고 접근 제한�
 
 이 항목은 검증 완료로 표시하지 않고 보고서 한계 또는 `NEEDS_REVIEW`로 남겼다.
 
+
+## Phase 9 Claude Code 이관 (2026-11-18)
+
+- `python3 -m unittest discover -s tests`: 78 tests OK (신규 harness 6개: stream-json 사용량 중복 방지·N/A, 활성화 판정, 인증/한도 분류, 재개 대상 선별, 코호트 경로). 이전 54/63개는 역사적 수치.
+- 실제 `npx --yes skills add junjunny/k-digital-asset-policy-intelligence@k-digital-asset-policy-intelligence --agent claude-code --yes` exit 0, SKILL.md SHA-256 로컬 일치.
+- 실제 `claude -p` 1회 시도: AUTH_REQUIRED(OAuth 만료)로 실패 → 생성 답변 0개, 결과 없음.

@@ -1,0 +1,14 @@
+{
+  "captured_at": "2026-11-18T07:34:32+00:00",
+  "command": "npx --yes skills add junjunny/k-digital-asset-policy-intelligence@k-digital-asset-policy-intelligence --agent claude-code --yes",
+  "exit_code": 0,
+  "installed_path_relative": ".claude/skills/k-digital-asset-policy-intelligence",
+  "skill_md_sha256": "0f5115dadc423cb4e656d1063c280cb84ff4340b7f904cb85a874aa2c124b2e9",
+  "removed_from_installed_copy": [
+    "evaluations",
+    "portfolio"
+  ],
+  "control_has_claude_dir": false,
+  "control_workdir": "/private/tmp/kd_claude_env/control",
+  "skill_workdir": "/private/tmp/kd_claude_env/skill"
+}

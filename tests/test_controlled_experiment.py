@@ -59,5 +59,60 @@ class ControlledExperimentTests(unittest.TestCase):
         self.assertEqual(0.0, MODULE.summarize([5])["stddev"])
 
 
+class ClaudeRuntimeTests(unittest.TestCase):
+    # Synthetic stream-json fixtures that exercise the parser only; they are not experiment data.
+    def stream(self, *events):
+        return "\n".join(json.dumps(e) for e in events)
+
+    def test_claude_parser_uses_cumulative_result_usage_and_ignores_duplicate_messages(self):
+        usage = {"input_tokens": 5, "output_tokens": 7, "cache_read_input_tokens": 100}
+        text = self.stream(
+            {"type": "system", "subtype": "init", "model": "m", "skills": ["x"]},
+            {"type": "assistant", "message": {"id": "a", "usage": usage, "content": [{"type": "text", "text": "t"}]}},
+            {"type": "assistant", "message": {"id": "a", "usage": usage, "content": [{"type": "tool_use", "name": "WebSearch", "input": {}}]}},
+            {"type": "result", "result": "answer", "is_error": False, "usage": {"input_tokens": 9, "output_tokens": 7}, "total_cost_usd": 0},
+        )
+        parsed = MODULE.parse_claude_stream(text)
+        self.assertEqual("answer", parsed["final_text"])
+        self.assertEqual({"input_tokens": 9, "output_tokens": 7}, parsed["usage"])
+        self.assertEqual(["WebSearch"], parsed["tool_calls"])
+        self.assertFalse(parsed["activated"])
+
+    def test_claude_parser_fallback_dedupes_by_message_id_and_na_when_absent(self):
+        usage = {"input_tokens": 5, "output_tokens": 7}
+        msg = {"type": "assistant", "message": {"id": "a", "usage": usage, "content": []}}
+        self.assertEqual(usage, MODULE.parse_claude_stream(self.stream(msg, msg))["usage"])
+        self.assertEqual("N/A", MODULE.parse_claude_stream("")["usage"])
+
+    def test_claude_activation_requires_skill_tool_or_skill_md_read_not_similar_answer(self):
+        skill = {"type": "assistant", "message": {"id": "s", "content": [{"type": "tool_use", "name": "Skill", "input": {"skill": MODULE.SKILL_NAME}}]}}
+        read = {"type": "assistant", "message": {"id": "r", "content": [{"type": "tool_use", "name": "Read", "input": {"file_path": f"/x/.claude/skills/{MODULE.SKILL_NAME}/SKILL.md"}}]}}
+        chat = {"type": "assistant", "message": {"id": "c", "content": [{"type": "text", "text": f"{MODULE.SKILL_NAME} SKILL.md"}]}}
+        self.assertTrue(MODULE.parse_claude_stream(self.stream(skill))["activated"])
+        self.assertTrue(MODULE.parse_claude_stream(self.stream(read))["activated"])
+        self.assertFalse(MODULE.parse_claude_stream(self.stream(chat))["activated"])
+
+    def test_failure_classifier_separates_auth_limit_and_unknown(self):
+        self.assertEqual("AUTH_REQUIRED", MODULE.classify_claude_failure({"result": "Not logged in · Please run /login"}, ""))
+        self.assertEqual("AUTH_REQUIRED", MODULE.classify_claude_failure({"result": "OAuth session expired"}, ""))
+        self.assertEqual("USAGE_LIMIT", MODULE.classify_claude_failure({"result": "Claude usage limit reached"}, ""))
+        self.assertIsNone(MODULE.classify_claude_failure({"result": "boom"}, ""))
+
+    def test_blocked_auth_or_limit_slots_resume_but_contaminated_do_not(self):
+        manifest = MODULE.build_manifest()
+        a, b, c = manifest["slots"][:3]
+        a.update(status="BLOCKED", attempts=[{"blocked_reason": "AUTH_REQUIRED"}])
+        b.update(status="BLOCKED", attempts=[{"control_contaminated": True}])
+        c.update(status="COMPLETED", attempts=[{}])
+        args = type("A", (), {"run_id": None, "all": True, "retry": False})()
+        ids = {slot["run_id"] for slot in MODULE.selected_slots(manifest, args)}
+        self.assertIn(a["run_id"], ids)
+        self.assertNotIn(b["run_id"], ids)
+        self.assertNotIn(c["run_id"], ids)
+
+    def test_claude_cohort_dir_is_separate_from_codex_cohort(self):
+        self.assertEqual("controlled-experiment", MODULE.PROMPT_DIR.parent.name)
+
+
 if __name__ == "__main__":
     unittest.main()

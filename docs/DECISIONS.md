@@ -44,3 +44,7 @@ EIB와 다른 홍콩 정부 다중통화 디지털 녹색채권을 신규 연구
 
 일반 사용자 질문은 표준 라이브러리 기반 규칙으로 12개 유형과 3개 응답 깊이 중 하나를 선택한다. 라우터는 사실을 생성하거나 모호한 대상을 추정하지 않는다. 새 용어·복합 문맥은 에이전트가 검토하고, 한국 맥락은 명시적 관련성 또는 근거가 있을 때만 추가한다.
 
+
+## D-012 Phase 9 개발 도구 전환: Codex → Claude Code (2026-11-18)
+
+Codex 사용량 제한으로 Phase 9 후속 작업을 Claude Code가 이어받는다. 변경 범위는 (1) `scripts/controlled_experiment.py`의 `--runtime claude` 실행기, `setup-claude`, `K_DARI_EXP_DIR` 코호트 분리, (2) 동일 모델·환경 Claude 코호트 `evaluations/controlled-experiment-claude/`, (3) `CLAUDE.md`(AGENTS.md를 가리키는 얇은 포인터)와 문서 갱신이다. 기존 Codex 코호트(`evaluations/controlled-experiment/`, 완료 21 슬롯·실패 99 시도)는 수정·삭제·합산하지 않고 보존한다. 분석 엔진, 라우터, 스키마, 동결 프롬프트·루브릭은 변경하지 않았다. Codex와 Claude 결과는 모델·도구·검색이 달라 서로 합산하거나 인과 비교하지 않는다.

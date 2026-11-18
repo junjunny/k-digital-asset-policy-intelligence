@@ -62,3 +62,5 @@
 - 다중 턴 3개와 웹 미사용 최신상태 질문의 정직한 제한 응답 검증
 - 신규 핵심 Evidence 11건: 10건 원문·발췌 일치, 상원 표결 1건 접근 제한
 
+
+- Phase 9(Claude Code 이관, 2026-11-18): Codex 산출물 보존, Claude 런타임·`setup-claude`·코호트 분리·CLAUDE.md 추가, 원격 `claude-code` 설치 검증. 120회 Claude 실행은 로그인 만료로 BLOCKED(0/120). 인간 검토 대기
