@@ -1,0 +1,2 @@
+{"run_id": "clarity_act-A-01", "attempt_id": "attempt-01", "started_at": "2026-11-18T06:40:39+00:00", "workdir_kind": "control", "finished_at": "2026-11-18T06:40:39+00:00", "duration_seconds": 0.012, "exit_code": 2, "usage": "N/A", "answer_present": false, "activation_observed": false}
+{"run_id": "clarity_act-C-01", "attempt_id": "attempt-01", "started_at": "2026-11-18T06:40:39+00:00", "workdir_kind": "skill", "finished_at": "2026-11-18T06:40:39+00:00", "duration_seconds": 0.012, "exit_code": 2, "usage": "N/A", "answer_present": false, "activation_observed": false}

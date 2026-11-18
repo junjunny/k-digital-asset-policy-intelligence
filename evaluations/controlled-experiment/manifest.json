@@ -14,8 +14,20 @@
       "skill_installed": true,
       "prompt_kind": "general",
       "prompt_sha256": "ba28543b336906914cd93f75b6bd7dcd5abdf515699334b235c06e098c624439",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T06:40:39+00:00",
+          "workdir_kind": "skill",
+          "finished_at": "2026-11-18T06:40:39+00:00",
+          "duration_seconds": 0.012,
+          "exit_code": 2,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "UNKNOWN"
     },
@@ -1314,8 +1326,20 @@
       "skill_installed": false,
       "prompt_kind": "general",
       "prompt_sha256": "ba28543b336906914cd93f75b6bd7dcd5abdf515699334b235c06e098c624439",
-      "status": "PLANNED",
-      "attempts": [],
+      "status": "FAILED",
+      "attempts": [
+        {
+          "attempt_id": "attempt-01",
+          "started_at": "2026-11-18T06:40:39+00:00",
+          "workdir_kind": "control",
+          "finished_at": "2026-11-18T06:40:39+00:00",
+          "duration_seconds": 0.012,
+          "exit_code": 2,
+          "usage": "N/A",
+          "answer_present": false,
+          "activation_observed": false
+        }
+      ],
       "selected_attempt": null,
       "activation": "NOT_APPLICABLE"
     },

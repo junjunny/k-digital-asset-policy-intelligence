@@ -208,7 +208,7 @@ def execute_slot(manifest: dict[str, Any], slot: dict[str, Any], args: argparse.
     slot["attempts"].append(attempt)
     write_json_atomic(MANIFEST, manifest)
     command = [
-        "codex", "exec", "--json", "--ephemeral", "--search", "--ignore-user-config",
+        "codex", "--search", "exec", "--json", "--ephemeral", "--ignore-user-config",
         "--model", args.model, "-c", f'model_reasoning_effort="{args.reasoning_effort}"',
         "--sandbox", "read-only", "--skip-git-repo-check", "-C", str(workdir), prompt,
     ]
