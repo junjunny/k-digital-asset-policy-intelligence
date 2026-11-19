@@ -4,6 +4,24 @@
 
 자동 생성·근거 검증·모델 보조평가 결과는 인간 승인이나 법률·기술·사업성 전문가 검토를 대체하지 않는다. 아래 항목은 사용자가 직접 확인할 때까지 미완료로 유지한다.
 
+## 로컬 검토 환경
+
+외부 배포나 AI API 호출 없이 다음 명령으로 실행한다.
+
+```bash
+python3 scripts/human_review_server.py
+```
+
+브라우저에서 `http://127.0.0.1:8765`를 연다. 입력은 `evaluations/controlled-experiment-claude/human-review/reviews.json`에 원자적으로 저장되고 모든 수정본은 `revision-history.jsonl`에 누적된다. JSON·CSV 내보내기와 로컬 백업·복원을 지원한다. 평가 화면과 API는 실험군, 자동점수, 토큰 및 `blind-mapping.json`을 제공하지 않는다.
+
+120개를 모두 검토한 뒤 사용자가 실험군 공개와 평가 확정을 명시적으로 요청한 경우에만 다음 명령을 실행한다.
+
+```bash
+python3 scripts/finalize_human_review.py --confirm APPLY_BLIND_MAPPING
+```
+
+완료 답변이 120개가 아니면 기본적으로 중단한다. `R019`는 원본 답변 안에 K-DARI 명칭이 있어 조건 추정 가능성이 있으므로 화면에 블라인드 주의 경고를 표시한다.
+
 ## 검토자 정보
 
 - 검토자:

@@ -36,4 +36,5 @@ jobs:
       - run: python scripts/controlled_experiment.py init
       - run: python scripts/controlled_experiment.py aggregate
       - run: python -m json.tool evaluations/controlled-experiment/scores/evaluator-schema.json > /dev/null
+      - run: python -m json.tool schemas/human-review.schema.json > /dev/null
       - run: npx --yes skills add . --list

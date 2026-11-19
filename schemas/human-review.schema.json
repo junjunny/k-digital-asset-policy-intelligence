@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "K-DARI Phase 9 Human Review",
+  "type": "object",
+  "required": ["schema_version", "dataset_id", "reviews"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "dataset_id": {"type": "string"},
+    "reviewer_id": {"type": "string"},
+    "reviews": {
+      "type": "object",
+      "patternProperties": {
+        "^R(00[1-9]|0[1-9][0-9]|1[01][0-9]|120)$": {
+          "type": "object",
+          "required": ["blind_id", "version", "status", "scores", "claims"],
+          "properties": {
+            "blind_id": {"type": "string"},
+            "version": {"type": "integer", "minimum": 0},
+            "status": {"enum": ["DRAFT", "COMPLETED", "NEEDS_VERIFICATION"]},
+            "scores": {"type": "object"},
+            "claims": {"type": "array"},
+            "strengths": {"type": "string"},
+            "errors": {"type": "string"},
+            "omissions": {"type": "string"},
+            "improvements": {"type": "string"},
+            "overall_comment": {"type": "string"}
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}
